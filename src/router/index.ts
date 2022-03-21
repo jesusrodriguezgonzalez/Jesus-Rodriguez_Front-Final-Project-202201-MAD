@@ -1,5 +1,10 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
 import HomeView from '../views/HomeView.vue';
+import LoginPage from '../components/login/LoginPage.vue';
+import RegisterPage from '../components/register/RegisterPage.vue';
+import NewApartment from '../components/apartments/NewApartment.vue';
+import NewIncidents from '../components/incidents/NewIncidents.vue';
+import AdiosModulo from '../components/AdiosModulo.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -7,6 +12,10 @@ const routes: Array<RouteRecordRaw> = [
     name: 'home',
     component: HomeView,
   },
+  { path: '/login', component: LoginPage },
+  { path: '/register', component: RegisterPage },
+  { path: '/new-apartment', component: NewApartment },
+  { path: '/new-incident', component: NewIncidents },
   {
     path: '/about',
     name: 'about',
