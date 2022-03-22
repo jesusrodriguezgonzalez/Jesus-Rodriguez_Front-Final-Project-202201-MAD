@@ -11,6 +11,18 @@ export function register(user: UserI) {
   return axios.post(REGISTER_URL, user);
 }
 
+export function loginWithToke(token: string) {
+  return axios.post(
+    `${LOGIN_URL}/login-token`,
+    {},
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+}
+
 export function logout() {
   // remove user from local storage to log user out
   localStorage.removeItem('user');

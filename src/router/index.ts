@@ -4,17 +4,14 @@ import LoginPage from '../components/login/LoginPage.vue';
 import RegisterPage from '../components/register/RegisterPage.vue';
 import NewApartment from '../components/apartments/NewApartment.vue';
 import NewIncidents from '../components/incidents/NewIncidents.vue';
+import HomePage from '../components/apartments/HomePage.vue';
 
 const routes: Array<RouteRecordRaw> = [
-  {
-    path: '/',
-    name: 'home',
-    component: HomeView,
-  },
   { path: '/login', component: LoginPage },
   { path: '/register', component: RegisterPage },
   { path: '/new-apartment', component: NewApartment },
   { path: '/new-incident', component: NewIncidents },
+  { path: '/', component: HomePage },
   {
     path: '/about',
     name: 'about',
