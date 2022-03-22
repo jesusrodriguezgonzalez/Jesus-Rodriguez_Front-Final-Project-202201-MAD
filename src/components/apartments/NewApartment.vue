@@ -80,11 +80,7 @@ export default {
     ...mapActions('apartments', ['registerApartment']),
     handleSubmit(e) {
       this.submitted = true;
-      this.$validator.validate().then((valid) => {
-        if (valid) {
-          this.registerApartment(this.apartment);
-        }
-      });
+      this.registerApartment(this.apartment);
     },
   },
 };
