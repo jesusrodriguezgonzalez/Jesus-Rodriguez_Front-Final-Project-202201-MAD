@@ -40,7 +40,7 @@ const actions = {
     commit('logout');
   },
 
-  loginWithToken({ dispatch, commit }: { dispatch: any; commit: any }, token: any) {
+  loginWithToken({ dispatch, commit }: { dispatch: any; commit: any }, token: string) {
     apiUser.loginWithToken(token).then(
       (userData) => {
         commit('loginExist', userData);

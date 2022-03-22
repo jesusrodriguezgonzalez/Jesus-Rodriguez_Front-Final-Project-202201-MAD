@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <router-link to="/login">Home</router-link> |
+    <router-link to="/">Home</router-link> | <router-link to="/login">Login</router-link> |
     <router-link to="/register">Register</router-link> |
     <router-link to="/new-apartment">Nuevo apartamento</router-link> |
     <router-link to="/new-incident">Nueva incidencia</router-link>
