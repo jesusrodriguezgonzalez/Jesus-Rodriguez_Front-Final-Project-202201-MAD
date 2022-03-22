@@ -1,32 +1,51 @@
 <template>
   <div>
-    <h1>Hola Jesus</h1>
-    <h3>Lista de apartamentos</h3>
-
-    <p>
-      <router-link to="/login">Logout</router-link>
-    </p>
+    <h1>Detalles del usuario</h1>
   </div>
+  <main>
+    <h4>Bienvenido, user</h4>
+    <ul v-if="this.userData">
+      <li>Nombre: {{ this.userData.name }}</li>
+      <li>Apellido: {{ this.userData.surname }}</li>
+      <li>Email: {{ this.userData.email }}</li>
+      <li>Telefono: {{ this.userData.phone }}</li>
+      <li>Edad: {{ this.userData.age }}</li>
+    </ul>
+  </main>
+  <p>
+    <router-link to="/login">Logout</router-link>
+  </p>
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 
 export default {
+  name: 'user-data',
+
+  data() {
+    return {
+      name: '',
+      email: '',
+      phone: '',
+      surname: '',
+    };
+  },
+
   computed: {
-    ...mapState({
-      account: (state) => state.account,
-      users: (state) => state.users.all,
-    }),
+    ...mapGetters('account', ['userData']),
   },
-  created() {
-    this.getAllUsers();
+
+  mounted() {
+    if (localStorage.getItem('token')) {
+      let tokenUser = localStorage.getItem('token');
+      tokenUser = JSON.parse(tokenUser);
+      this.loginWithToken(tokenUser);
+    }
   },
+
   methods: {
-    ...mapActions('users', {
-      getAllUsers: 'getAll',
-      deleteUser: 'delete',
-    }),
+    ...mapActions('account', ['loginWithToken']),
   },
 };
 </script>

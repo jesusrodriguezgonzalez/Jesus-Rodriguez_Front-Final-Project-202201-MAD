@@ -1,15 +1,14 @@
 import * as apiUser from '../_services';
 import router from '../router/index';
-import { UserI, StateI, UserLoginI } from '../_utils/interfaces';
+import { UserI, UserLoginI } from '../_utils/interfaces';
 
 const actions = {
   login({ dispatch, commit }: { dispatch: any; commit: any }, user: UserLoginI) {
     commit('loginRequest', user);
     apiUser.login(user).then(
       (userData) => {
-        console.log(userData.data.token);
         localStorage.setItem('token', JSON.stringify(userData.data.token));
-        commit('loginSuccess', userData);
+        commit('loginSuccess', userData.data);
         router.push('/');
       },
       (error) => {
@@ -40,39 +39,49 @@ const actions = {
     apiUser.logout();
     commit('logout');
   },
+
+  loginWithToken({ dispatch, commit }: { dispatch: any; commit: any }, token: any) {
+    apiUser.loginWithToken(token).then(
+      (userData) => {
+        commit('loginExist', userData);
+        router.push('/');
+      },
+      (error) => {
+        dispatch('alert/error', error, { root: true });
+      }
+    );
+  },
 };
 
 const mutations = {
-  registerRequest(state: StateI, user: any) {
+  registerRequest(state: any, user: any) {
     state.status = { registering: true };
   },
-  registerSuccess(state: StateI, user: any) {
+  registerSuccess(state: any, user: any) {
     state.status = {};
   },
-  registerFailure(state: StateI, error: any) {
+  registerFailure(state: any, error: any) {
     state.status = {};
   },
-  // loginRequest(state: StateI, user: UserLoginI) {
-  //   state.status = { loggingIn: true };
-  //   state.user = user;
-  // },
-  // loginSuccess(state: StateI, user: UserLoginI) {
-  //   state.status = { loggedIn: true };
-  //   state.user = user;
-  //   console.log(user);
-  // },
-  // loginFailure(state: StateI) {
-  //   state.status = {};
-  //   state.user = null;
-  // },
-  // logout(state: StateI) {
-  //   state.status = {};
-  //   state.user = null;
-  // },
+
+  loginSuccess(state: any, user: any) {
+    state.status = { loggedIn: true };
+    state.user = user;
+  },
+  loginExist(state: any, user: any) {
+    state.user = user.data;
+  },
+};
+
+const getters = {
+  userData(state: any) {
+    return state.user;
+  },
 };
 
 export const account = {
   namespaced: true,
   actions,
   mutations,
+  getters,
 };

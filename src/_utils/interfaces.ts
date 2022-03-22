@@ -15,10 +15,22 @@ export interface UserLoginI {
   token: string;
 }
 export interface StateI {
-  type: string | null;
-  message: string | null;
-  status: any;
-  user: any;
+  current_apartment?: string;
+  _id?: string;
+  email?: string;
+  name?: string;
+  surname?: string;
+  age?: string;
+  phone?: string;
+  city?: string;
+  direction?: string;
+  apartment_history?: string;
+  rol?: string;
+  id?: string;
+  token?: string;
+  status?: any;
+  message?: any;
+  type?: any;
 }
 
 export interface ApartmentI {
