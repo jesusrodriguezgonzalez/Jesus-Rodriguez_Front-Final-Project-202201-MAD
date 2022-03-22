@@ -12,11 +12,13 @@ export interface UserI {
 export interface UserLoginI {
   email: string;
   passwd: string;
+  token: string;
 }
 export interface StateI {
   type: string | null;
   message: string | null;
   status: any;
+  user: any;
 }
 
 export interface ApartmentI {

@@ -1,13 +1,14 @@
 import * as apiUser from '../_services';
 import router from '../router/index';
-import { UserI, StateI } from '../_utils/interfaces';
+import { UserI, StateI, UserLoginI } from '../_utils/interfaces';
 
 const actions = {
-  login({ dispatch, commit }: { dispatch: any; commit: any }, user: UserI) {
+  login({ dispatch, commit }: { dispatch: any; commit: any }, user: UserLoginI) {
     commit('loginRequest', user);
     apiUser.login(user).then(
       (userData) => {
         console.log(userData.data.token);
+        localStorage.setItem('token', JSON.stringify(userData.data.token));
         commit('loginSuccess', userData);
         router.push('/');
       },
@@ -51,6 +52,23 @@ const mutations = {
   registerFailure(state: StateI, error: any) {
     state.status = {};
   },
+  // loginRequest(state: StateI, user: UserLoginI) {
+  //   state.status = { loggingIn: true };
+  //   state.user = user;
+  // },
+  // loginSuccess(state: StateI, user: UserLoginI) {
+  //   state.status = { loggedIn: true };
+  //   state.user = user;
+  //   console.log(user);
+  // },
+  // loginFailure(state: StateI) {
+  //   state.status = {};
+  //   state.user = null;
+  // },
+  // logout(state: StateI) {
+  //   state.status = {};
+  //   state.user = null;
+  // },
 };
 
 export const account = {

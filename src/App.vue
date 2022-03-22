@@ -8,6 +8,17 @@
   <router-view />
 </template>
 
+<script lang="ts">
+export default {
+  mounted: () => {
+    if (localStorage.getItem('token')) {
+      // Llamaría al servicio con token y guardaría los datos en mi estado
+    }
+    console.log(123);
+  },
+};
+</script>
+
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
