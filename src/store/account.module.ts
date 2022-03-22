@@ -7,6 +7,7 @@ const actions = {
     commit('loginRequest', user);
     apiUser.login(user).then(
       (userData) => {
+        console.log(userData.data.token);
         commit('loginSuccess', userData);
         router.push('/');
       },

@@ -4,7 +4,6 @@ import LoginPage from '../components/login/LoginPage.vue';
 import RegisterPage from '../components/register/RegisterPage.vue';
 import NewApartment from '../components/apartments/NewApartment.vue';
 import NewIncidents from '../components/incidents/NewIncidents.vue';
-import AdiosModulo from '../components/AdiosModulo.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
