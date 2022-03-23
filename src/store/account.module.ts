@@ -75,6 +75,7 @@ const mutations = {
 
 const getters = {
   userData(state: any) {
+    console.log(state.user, 'GETTER');
     return state.user;
   },
 };

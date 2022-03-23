@@ -52,6 +52,7 @@
 
       <div class="form-group">
         <button class="btn btn-primary">Register</button>
+
         <router-link to="/login" class="btn btn-link">Cancel</router-link>
       </div>
     </form>
@@ -59,7 +60,7 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex';
+import { mapState, mapGetters, mapActions } from 'vuex';
 
 export default {
   data() {
@@ -68,14 +69,21 @@ export default {
         cp: '',
         province: '',
         direction: '',
-        owner: '123456789',
+        owner: '0',
       },
       submitted: false,
     };
   },
   computed: {
-    ...mapState('apartments', ['status']),
+    // ...mapState('apartments', ['status']),
+    ...mapGetters('account', ['userData']),
   },
+
+  mounted() {
+    // eslint-disable-next-line no-underscore-dangle
+    this.apartment.owner = this.userData._id;
+  },
+
   methods: {
     ...mapActions('apartments', ['registerApartment']),
     handleSubmit(e) {

@@ -9,7 +9,7 @@ const actions = {
     apiApartment.newApartment(apartment).then(
       (apartmentData) => {
         commit('registerSuccess', apartmentData);
-        router.push('/login');
+        router.push('/');
         setTimeout(() => {
           // display success message after route change completes
           dispatch('alert/success', 'Registro correcto', { root: true });
