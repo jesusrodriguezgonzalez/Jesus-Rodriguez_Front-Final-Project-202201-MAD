@@ -15,9 +15,14 @@ export const store = new Vuex.Store({
 });
 
 describe('LoginPage.vue', () => {
-  it('renders props.msg when passed', () => {
+  it('renders props.msg when passed', async () => {
     const wrapper = shallowMount(LoginPage, { global: { plugins: [store] } });
     expect(wrapper.text()).toMatch('Email');
     expect(wrapper.text()).toMatch('Password');
+
+    jest.spyOn(wrapper.vm, 'login');
+    const form = wrapper.find('form');
+    await form.trigger('submit');
+    expect(wrapper.vm.login).toHaveBeenCalled();
   });
 });

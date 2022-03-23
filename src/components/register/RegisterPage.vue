@@ -5,107 +5,44 @@
       <div class="form-group">
         <label for="name"
           >Nombre
-          <input
-            type="text"
-            v-model="user.name"
-            name="name"
-            class="form-control"
-            :class="{ 'is-invalid': submitted && errors.has('name') }"
-          />
+          <input type="text" v-model="user.name" name="name" class="form-control" />
         </label>
-        <div v-if="submitted && errors.has('name')" class="invalid-feedback">
-          {{ errors.first('name') }}
-        </div>
       </div>
       <div class="form-group">
         <label for="surname"
           >Apellidos
-          <input
-            type="text"
-            v-model="user.surname"
-            name="surname"
-            class="form-control"
-            :class="{ 'is-invalid': submitted && errors.has('surname') }"
-          />
+          <input type="text" v-model="user.surname" name="surname" class="form-control" />
         </label>
-        <div v-if="submitted && errors.has('name')" class="invalid-feedback">
-          {{ errors.first('name') }}
-        </div>
       </div>
       <div class="form-group">
         <label for="phone"
           >Telefono
-          <input
-            type="number"
-            v-model="user.phone"
-            name="phone"
-            class="form-control"
-            :class="{ 'is-invalid': submitted && errors.has('phone') }"
-          />
+          <input type="number" v-model="user.phone" name="phone" class="form-control" />
         </label>
-        <div v-if="submitted && errors.has('name')" class="invalid-feedback">
-          {{ errors.first('name') }}
-        </div>
       </div>
       <div class="form-group">
         <label for="age"
           >Edad
-          <input
-            type="number"
-            v-model="user.age"
-            name="age"
-            class="form-control"
-            :class="{ 'is-invalid': submitted && errors.has('age') }"
-          />
+          <input type="number" v-model="user.age" name="age" class="form-control" />
         </label>
-        <div v-if="submitted && errors.has('age')" class="invalid-feedback">
-          {{ errors.first('age') }}
-        </div>
       </div>
       <div class="form-group">
         <label for="email"
           >Email
-          <input
-            type="email"
-            v-model="user.email"
-            name="name"
-            class="form-control"
-            :class="{ 'is-invalid': submitted && errors.has('email') }"
-          />
+          <input type="email" v-model="user.email" name="name" class="form-control" />
         </label>
-        <div v-if="submitted && errors.has('email')" class="invalid-feedback">
-          {{ errors.first('email') }}
-        </div>
       </div>
       <div class="form-group">
         <label for="direction"
           >Direccion
-          <input
-            type="text"
-            v-model="user.direction"
-            name="direction"
-            class="form-control"
-            :class="{ 'is-invalid': submitted && errors.has('direction') }"
-          />
+          <input type="text" v-model="user.direction" name="direction" class="form-control" />
         </label>
-        <div v-if="submitted && errors.has('direction')" class="invalid-feedback">
-          {{ errors.first('direction') }}
-        </div>
       </div>
       <div class="form-group">
         <label for="city"
           >Provincia
-          <input
-            type="text"
-            v-model="user.city"
-            name="city"
-            class="form-control"
-            :class="{ 'is-invalid': submitted && errors.has('city') }"
-          />
+          <input type="text" v-model="user.city" name="city" class="form-control" />
         </label>
-        <div v-if="submitted && errors.has('city')" class="invalid-feedback">
-          {{ errors.first('direction') }}
-        </div>
       </div>
 
       <div class="form-group">
@@ -117,12 +54,8 @@
             v-model="user.passwd"
             name="passwd"
             class="form-control"
-            :class="{ 'is-invalid': submitted && errors.has('passwd') }"
           />
         </label>
-        <div v-if="submitted && errors.has('passwd')" class="invalid-feedback">
-          {{ errors.first('passwd') }}
-        </div>
       </div>
       <div class="form-group">
         <label for="jack"

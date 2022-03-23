@@ -10,12 +10,10 @@
             v-model="user.email"
             name="email"
             class="form-control"
-            :class="{ 'is-invalid': submitted && errors.has('email') }"
+            :class="{ 'is-invalid': submitted && email }"
           />
         </label>
-        <div v-if="submitted && errors.has('email')" class="invalid-feedback">
-          {{ errors.first('email') }}
-        </div>
+        <div v-if="submitted && !email" class="invalid-feedback">email is required</div>
       </div>
       <div class="form-group">
         <label for="passwd"
@@ -26,13 +24,14 @@
             v-model="user.passwd"
             name="passwd"
             class="form-control"
-            :class="{ 'is-invalid': submitted && errors.has('passwd') }"
+            :class="{ 'is-invalid': submitted && passwd }"
           />
         </label>
+        <div v-if="submitted && !passwd" class="invalid-feedback">password is required</div>
 
-        <div v-if="submitted && errors.has('passwd')" class="invalid-feedback">
+        <!-- <div v-if="submitted && errors.has('passwd')" class="invalid-feedback">
           {{ errors.first('passwd') }}
-        </div>
+        </div> -->
       </div>
       <div class="form-group">
         <button class="btn btn-primary">Login</button>
