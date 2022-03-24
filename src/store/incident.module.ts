@@ -10,12 +10,7 @@ const actions = {
       (incidentData) => {
         commit('registerSuccess', incidentData);
         router.push('/');
-        setTimeout(() => {
-          // display success message after route change completes
-          dispatch('alert/success', 'Incidencia generada correctamente', {
-            root: true,
-          });
-        });
+        dispatch('alert/success', 'Incidencia generada correctamente', {});
       },
       (error) => {
         commit('registerFailure', error);

@@ -22,9 +22,7 @@
         </div>
       </div>
     </div>
-    <p>
-      <router-link v-if="userData" to="/"><button>Inicio</button></router-link>
-    </p>
+
     <p>
       <router-link v-if="userData" to="/login"><button>Logout</button></router-link>
     </p>

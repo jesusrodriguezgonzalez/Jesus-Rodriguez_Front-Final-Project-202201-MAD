@@ -1,13 +1,18 @@
 <template>
   <div class="container-details">
     <h1>My Apartments</h1>
-    <nav><router-link to="/new-apartment">Nuevo apartamento</router-link></nav>
+    <nav>
+      <router-link v-if="userData.rol === 'Owner'" to="/new-apartment"
+        >Nuevo apartamento</router-link
+      >
+    </nav>
     <router-view />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import { mapGetters } from 'vuex';
 
 export default defineComponent({
   name: 'MyApartmentsActions',
@@ -24,6 +29,9 @@ export default defineComponent({
     apartment: {
       type: Object,
     },
+  },
+  computed: {
+    ...mapGetters('account', ['userData']),
   },
 });
 </script>

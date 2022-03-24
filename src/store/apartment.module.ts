@@ -24,14 +24,24 @@ const actions = {
   },
   getApartment({ dispatch, commit }: { dispatch: any; commit: any }, id: string) {
     commit('registerRequest', id);
-
     apiApartment.getApartment(id).then(
       (apartmentData) => {
         commit('loadApartment', apartmentData);
-        setTimeout(() => {
-          // display success message after route change completes
-          dispatch('alert/success', 'Registro correcto', { root: true });
-        });
+        dispatch('alert/success', 'Registro correcto', { root: true });
+      },
+      (error) => {
+        commit('registerFailure', error);
+        dispatch('alert/error', error, { root: true });
+      }
+    );
+  },
+  deleteApartment({ dispatch, commit }: { dispatch: any; commit: any }, id: string) {
+    commit('registerRequest', id);
+    apiApartment.deleteApartment(id).then(
+      (apartmentData) => {
+        commit('deleteApartment', apartmentData);
+        router.push('/');
+        dispatch('alert/success', 'Registro correcto', { root: true });
       },
       (error) => {
         commit('registerFailure', error);
@@ -53,7 +63,9 @@ const mutations = {
   },
   loadApartment(state: StateI, apartment: any) {
     state.apartments = apartment.data;
-    console.log(apartment);
+  },
+  deleteApartment(state: StateI, apartment: any) {
+    state.apartments = [];
   },
 };
 

@@ -60,7 +60,6 @@
           </select>
         </label>
       </div>
-      {{ incident.id_apartment }}
       <div class="form-group">
         <button class="btn btn-primary">Register</button>
         <router-link to="/" class="btn btn-link">Cancel</router-link>

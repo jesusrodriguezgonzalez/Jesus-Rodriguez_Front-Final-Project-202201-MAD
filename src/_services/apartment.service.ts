@@ -23,3 +23,11 @@ export function getApartment(id: string) {
     },
   });
 }
+
+export function deleteApartment(id: string) {
+  return axios.delete(APARTMENTS_URL + id, {
+    headers: {
+      Authorization: `Bearer ${getToken()}`,
+    },
+  });
+}

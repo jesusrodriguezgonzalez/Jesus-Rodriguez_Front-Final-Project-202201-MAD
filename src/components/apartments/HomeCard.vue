@@ -5,7 +5,7 @@
       <li>cp: {{ apartment.cp }}</li>
       <li>province: {{ apartment.province }}</li>
       <li>incidents: {{ apartment.incidents }}</li>
-      <li>status: {{ apartment.sattus }}</li>
+      <li>status: {{ apartment.status }}</li>
     </ul>
   </div>
 </template>

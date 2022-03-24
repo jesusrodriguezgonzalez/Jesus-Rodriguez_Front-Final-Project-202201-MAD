@@ -24,10 +24,7 @@ const actions = {
       (userData: any) => {
         commit('registerSuccess', userData);
         router.push('/login');
-        setTimeout(() => {
-          // display success message after route change completes
-          dispatch('alert/success', 'Registration successful', { root: true });
-        });
+        dispatch('alert/success', 'Registration successful', { root: true });
       },
       (error) => {
         commit('registerFailure', error);
@@ -44,7 +41,6 @@ const actions = {
     apiUser.loginWithToken(token).then(
       (userData) => {
         commit('loginExist', userData);
-        router.push('/');
       },
       (error) => {
         dispatch('alert/error', error, { root: true });

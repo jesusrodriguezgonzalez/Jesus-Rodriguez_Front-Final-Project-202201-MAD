@@ -35,7 +35,6 @@
       </div>
       <div class="form-group">
         <button class="btn btn-primary">Login</button>
-        <router-link to="/register" class="btn btn-link">Register</router-link>
       </div>
     </form>
   </div>
