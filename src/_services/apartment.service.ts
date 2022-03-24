@@ -1,11 +1,8 @@
 import axios from 'axios';
 import { ApartmentI } from '../_utils/interfaces';
+import { getToken } from '../_utils/helpes';
 
 const APARTMENTS_URL = 'http://localhost:5000/apartments/';
-
-function getToken() {
-  return localStorage.getItem('token');
-}
 
 export function newApartment(apartment: ApartmentI) {
   return axios.post(APARTMENTS_URL, apartment, {

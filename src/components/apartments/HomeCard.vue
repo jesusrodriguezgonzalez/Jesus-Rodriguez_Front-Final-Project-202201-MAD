@@ -11,7 +11,9 @@
 </template>
 
 <script lang="ts">
-export default {
+import { defineComponent } from 'vue';
+
+export default defineComponent({
   name: 'HomeCard',
   data() {
     return {
@@ -27,5 +29,5 @@ export default {
       type: Object,
     },
   },
-};
+});
 </script>

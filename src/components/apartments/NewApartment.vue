@@ -34,8 +34,9 @@
 
 <script lang="ts">
 import { mapState, mapGetters, mapActions } from 'vuex';
+import { defineComponent } from 'vue';
 
-export default {
+export default defineComponent({
   name: 'NewApartment',
   data() {
     return {
@@ -65,5 +66,5 @@ export default {
       this.registerApartment(this.apartment);
     },
   },
-};
+});
 </script>

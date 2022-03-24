@@ -21,8 +21,9 @@
 <script lang="ts">
 import { useRoute } from 'vue-router';
 import { mapActions, mapGetters } from 'vuex';
+import { defineComponent } from 'vue';
 
-export default {
+export default defineComponent({
   name: 'HomeDetail',
   data() {
     return {
@@ -44,5 +45,5 @@ export default {
     const { id } = route.params;
     this.getApartment(id);
   },
-};
+});
 </script>

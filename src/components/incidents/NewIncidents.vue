@@ -71,8 +71,9 @@
 
 <script lang="ts">
 import { mapState, mapActions } from 'vuex';
+import { defineComponent } from 'vue';
 
-export default {
+export default defineComponent({
   name: 'NewIncidents',
   data() {
     return {
@@ -115,5 +116,5 @@ export default {
       this.registerIncident(this.incident);
     },
   },
-};
+});
 </script>

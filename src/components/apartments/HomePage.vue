@@ -37,11 +37,12 @@
 
 <script lang="ts">
 import { mapActions, mapGetters } from 'vuex';
+import { defineComponent } from 'vue';
 import HomeCard from './HomeCard.vue';
 import UserDetail from '../user/UserDetail.vue';
 import MyApartmentsActions from './MyApartmentsActions.vue';
 
-export default {
+export default defineComponent({
   data() {
     return {
       name: '',
@@ -66,5 +67,5 @@ export default {
   methods: {
     ...mapActions('account', ['loginWithToken']),
   },
-};
+});
 </script>

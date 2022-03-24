@@ -43,8 +43,9 @@
 
 <script lang="ts">
 import { mapState, mapActions } from 'vuex';
+import { defineComponent } from 'vue';
 
-export default {
+export default defineComponent({
   name: 'LoginPage',
   data() {
     return {
@@ -64,10 +65,10 @@ export default {
   },
   methods: {
     ...mapActions('account', ['login', 'logout']),
-    handleSubmit(e) {
+    handleSubmit() {
       this.submitted = true;
       this.login(this.user);
     },
   },
-};
+});
 </script>

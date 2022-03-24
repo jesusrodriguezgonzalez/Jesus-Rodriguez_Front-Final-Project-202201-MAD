@@ -17,7 +17,9 @@
 </template>
 
 <script lang="ts">
-export default {
+import { defineComponent } from 'vue';
+
+export default defineComponent({
   name: 'HomeDetailHeader',
   data() {
     return {
@@ -26,5 +28,5 @@ export default {
       province: '',
     };
   },
-};
+});
 </script>

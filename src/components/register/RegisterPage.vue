@@ -78,8 +78,9 @@
 
 <script lang="ts">
 import { mapState, mapActions } from 'vuex';
+import { defineComponent } from 'vue';
 
-export default {
+export default defineComponent({
   name: 'RegisterPage',
   data() {
     return {
@@ -106,5 +107,5 @@ export default {
       this.registerUser(this.user);
     },
   },
-};
+});
 </script>
