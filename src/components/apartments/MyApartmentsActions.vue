@@ -1,10 +1,7 @@
 <template>
   <div class="container-details">
     <h1>My Apartments</h1>
-    <nav>
-      <router-link to="/new-apartment">Nuevo apartamento</router-link> |
-      <router-link to="/new-incident">Nueva incidencia</router-link>
-    </nav>
+    <nav><router-link to="/new-apartment">Nuevo apartamento</router-link></nav>
     <router-view />
   </div>
 </template>

@@ -60,7 +60,7 @@
           </select>
         </label>
       </div>
-
+      {{ incident.id_apartment }}
       <div class="form-group">
         <button class="btn btn-primary">Register</button>
         <router-link to="/" class="btn btn-link">Cancel</router-link>
@@ -72,6 +72,7 @@
 <script lang="ts">
 import { mapState, mapActions } from 'vuex';
 import { defineComponent } from 'vue';
+import { useRoute } from 'vue-router';
 
 export default defineComponent({
   name: 'NewIncidents',
@@ -83,7 +84,7 @@ export default defineComponent({
         description: '',
         priority: 'Medium',
         state: 'Open',
-        id_apartment: '623050d6664f29990e9b6d85',
+        id_apartment: '0',
       },
       submitted: false,
 
@@ -115,6 +116,12 @@ export default defineComponent({
       this.submitted = true;
       this.registerIncident(this.incident);
     },
+  },
+
+  mounted() {
+    const route = useRoute();
+    const { id } = route.params;
+    this.incident.id_apartment = id as string;
   },
 });
 </script>

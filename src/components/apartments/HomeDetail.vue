@@ -10,12 +10,15 @@
         <li>province: {{ apartmentDetails.province }}</li>
         <li>incidents: {{ apartmentDetails.incidents }}</li>
         <li>status: {{ apartmentDetails.status }}</li>
+        <li>ID: {{ apartmentDetails._id }}</li>
       </ul>
     </div>
   </main>
   <p>
     <router-link to="/"><button>Volver</button></router-link>
-
+    <router-link :to="`/new-incident/${apartmentDetails._id}`">
+      ><button>Nueva Incidencia</button>
+    </router-link>
     <button v-if="userData.rol === 'Owner'" v-on:click="deleteApartment()">Eliminar</button>
     <button v-if="userData.rol === 'Owner'" v-on:click="updateApartment()">Editar</button>
   </p>

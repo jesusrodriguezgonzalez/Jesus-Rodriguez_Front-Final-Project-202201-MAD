@@ -2,9 +2,7 @@
   <nav>
     <router-link to="/">Home</router-link> |
     <router-link v-if="!this.userData" to="/login">Login</router-link> |
-    <router-link to="/register">Register</router-link> |
-    <router-link to="/new-apartment">Nuevo apartamento</router-link> |
-    <router-link to="/new-incident">Nueva incidencia</router-link>
+    <router-link to="/register">Register</router-link>
   </nav>
   <router-view />
 </template>
