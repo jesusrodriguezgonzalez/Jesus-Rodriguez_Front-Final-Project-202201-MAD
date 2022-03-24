@@ -4,17 +4,20 @@
   </div>
   <main>
     <h4 v-if="this.userData">Bienvenido, {{ this.userData.name }}</h4>
-    <!-- <ul v-if="this.userData">
-      <li>Nombre: {{ this.userData.name }}</li>
-      <li>Apellido: {{ this.userData.surname }}</li>
-      <li>Email: {{ this.userData.email }}</li>
-      <li>Telefono: {{ this.userData.phone }}</li>
-      <li>Edad: {{ this.userData.age }}</li>
-      <li>Propiedades: {{ this.userData.apartments_owner }}</li>
-    </ul> -->
     <div v-if="userData">
-      <div v-for="(apartment, index) of userData.apartments_owner" :key="index">
-        <HomeCard :apartment="apartment" />
+      <UserDetail :userData="userData" />
+    </div>
+
+    <div v-if="userData">
+      <div v-if="userData.rol === 'Owner'">
+        <div v-for="(apartment, index) of userData.apartments_owner" :key="index">
+          <HomeCard :apartment="apartment" />
+        </div>
+      </div>
+      <div v-if="userData.rol === 'Tenant'">
+        <div v-for="(apartment, index) of userData.current_apartment" :key="index">
+          <HomeCard :apartment="apartment" />
+        </div>
       </div>
     </div>
     <p>
@@ -29,6 +32,7 @@
 <script lang="ts">
 import { mapActions, mapGetters } from 'vuex';
 import HomeCard from './HomeCard.vue';
+import UserDetail from '../user/UserDetail.vue';
 
 export default {
   data() {
@@ -40,7 +44,7 @@ export default {
       apartments_owner: [{}],
     };
   },
-  components: { HomeCard },
+  components: { HomeCard, UserDetail },
   computed: {
     ...mapGetters('account', ['userData']),
   },
