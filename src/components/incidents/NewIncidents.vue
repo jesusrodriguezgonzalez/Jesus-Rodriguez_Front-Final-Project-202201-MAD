@@ -5,17 +5,8 @@
       <div class="form-group">
         <label for="title"
           >Titulo
-          <input
-            type="title"
-            v-model="incident.title"
-            name="title"
-            class="form-control"
-            :class="{ 'is-invalid': submitted && errors.has('title') }"
-          />
+          <input type="title" v-model="incident.title" name="title" class="form-control" />
         </label>
-        <div v-if="submitted && errors.has('title')" class="invalid-feedback">
-          {{ errors.first('direction') }}
-        </div>
       </div>
       <div class="form-group">
         <label for="type_incidence"
@@ -78,10 +69,11 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { mapState, mapActions } from 'vuex';
 
 export default {
+  name: 'NewIncidents',
   data() {
     return {
       incident: {
@@ -118,7 +110,7 @@ export default {
   },
   methods: {
     ...mapActions('incidents', ['registerIncident']),
-    handleSubmit(e) {
+    handleSubmit() {
       this.submitted = true;
       this.registerIncident(this.incident);
     },

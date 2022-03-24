@@ -9,7 +9,7 @@ const actions = {
     apiIncident.newIncident(incident).then(
       (incidentData) => {
         commit('registerSuccess', incidentData);
-        router.push('/login');
+        router.push('/');
         setTimeout(() => {
           // display success message after route change completes
           dispatch('alert/success', 'Incidencia generada correctamente', {

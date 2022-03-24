@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1648052091764" clover="3.2.0">
+  <project timestamp="1648052091764" name="All files">
+    <metrics statements="16" coveredstatements="16" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="7" elements="23" coveredelements="23" complexity="0" loc="16" ncloc="16" packages="3" files="3" classes="3"/>
+    <package name="incidents">
+      <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <file name="NewIncidents.vue" path="C:\Users\Jesus Rodriguez\Documents\SKYLAB CODER - BOOTCAMP\bootcamp\Jesus-Rodriguez_Front-Final-Project-202201-MAD\src\components\incidents\NewIncidents.vue">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="73" count="1" type="stmt"/>
+        <line num="75" count="1" type="stmt"/>
+        <line num="77" count="1" type="stmt"/>
+        <line num="113" count="1" type="stmt"/>
+        <line num="114" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="login">
+      <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+      <file name="LoginPage.vue" path="C:\Users\Jesus Rodriguez\Documents\SKYLAB CODER - BOOTCAMP\bootcamp\Jesus-Rodriguez_Front-Final-Project-202201-MAD\src\components\login\LoginPage.vue">
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="45" count="1" type="stmt"/>
+        <line num="47" count="1" type="stmt"/>
+        <line num="49" count="1" type="stmt"/>
+        <line num="62" count="1" type="stmt"/>
+        <line num="67" count="1" type="stmt"/>
+        <line num="68" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="register">
+      <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <file name="RegisterPage.vue" path="C:\Users\Jesus Rodriguez\Documents\SKYLAB CODER - BOOTCAMP\bootcamp\Jesus-Rodriguez_Front-Final-Project-202201-MAD\src\components\register\RegisterPage.vue">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="80" count="1" type="stmt"/>
+        <line num="82" count="1" type="stmt"/>
+        <line num="84" count="1" type="stmt"/>
+        <line num="104" count="1" type="stmt"/>
+        <line num="105" count="1" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>

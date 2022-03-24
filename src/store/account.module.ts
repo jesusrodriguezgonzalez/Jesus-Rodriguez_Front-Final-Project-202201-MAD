@@ -1,6 +1,6 @@
 import * as apiUser from '../_services';
 import router from '../router/index';
-import { UserI, UserLoginI } from '../_utils/interfaces';
+import { UserI, UserLoginI, UserDataI } from '../_utils/interfaces';
 
 const actions = {
   login({ dispatch, commit }: { dispatch: any; commit: any }, user: UserLoginI) {

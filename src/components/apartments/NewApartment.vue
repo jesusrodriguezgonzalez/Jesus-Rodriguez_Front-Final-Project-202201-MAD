@@ -5,80 +5,62 @@
       <div class="form-group">
         <label for="direction"
           >Direccion
-          <input
-            type="text"
-            v-model="apartment.direction"
-            name="direction"
-            class="form-control"
-            :class="{ 'is-invalid': submitted && errors.has('direction') }"
-          />
+          <input type="text" v-model="apartment.direction" name="direction" class="form-control" />
         </label>
-        <div v-if="submitted && errors.has('direction')" class="invalid-feedback">
-          {{ errors.first('direction') }}
-        </div>
       </div>
 
       <div class="form-group">
         <label for="cp"
           >CP
-          <input
-            type="number"
-            v-model="apartment.cp"
-            name="cp"
-            class="form-control"
-            :class="{ 'is-invalid': submitted && errors.has('cp') }"
-          />
+          <input type="number" v-model="apartment.cp" name="cp" class="form-control" />
         </label>
-        <div v-if="submitted && errors.has('cp')" class="invalid-feedback">
-          {{ errors.first('cp') }}
-        </div>
       </div>
 
       <div class="form-group">
         <label for="province"
           >Provincia
-          <input
-            type="text"
-            v-model="apartment.province"
-            name="province"
-            class="form-control"
-            :class="{ 'is-invalid': submitted && errors.has('province') }"
-          />
+          <input type="text" v-model="apartment.province" name="province" class="form-control" />
         </label>
-        <div v-if="submitted && errors.has('province')" class="invalid-feedback">
-          {{ errors.first('province') }}
-        </div>
       </div>
 
       <div class="form-group">
         <button class="btn btn-primary">Register</button>
+
         <router-link to="/login" class="btn btn-link">Cancel</router-link>
       </div>
     </form>
   </div>
 </template>
 
-<script>
-import { mapState, mapActions } from 'vuex';
+<script lang="ts">
+import { mapState, mapGetters, mapActions } from 'vuex';
 
 export default {
+  name: 'NewApartment',
   data() {
     return {
       apartment: {
         cp: '',
         province: '',
         direction: '',
-        owner: '123456789',
+        owner: '0',
       },
       submitted: false,
     };
   },
   computed: {
-    ...mapState('apartments', ['status']),
+    // ...mapState('apartments', ['status']),
+    ...mapGetters('account', ['userData']),
   },
+
+  mounted() {
+    // eslint-disable-next-line no-underscore-dangle
+    this.apartment.owner = this.userData._id;
+  },
+
   methods: {
     ...mapActions('apartments', ['registerApartment']),
-    handleSubmit(e) {
+    handleSubmit() {
       this.submitted = true;
       this.registerApartment(this.apartment);
     },
