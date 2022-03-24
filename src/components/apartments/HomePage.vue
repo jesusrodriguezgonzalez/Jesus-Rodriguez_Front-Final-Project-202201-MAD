@@ -6,6 +6,7 @@
     <h4 v-if="this.userData">Bienvenido, {{ this.userData.name }}</h4>
     <div v-if="userData">
       <UserDetail :userData="userData" />
+      <MyApartmentsActions />
     </div>
 
     <div v-if="userData">
@@ -38,6 +39,7 @@
 import { mapActions, mapGetters } from 'vuex';
 import HomeCard from './HomeCard.vue';
 import UserDetail from '../user/UserDetail.vue';
+import MyApartmentsActions from './MyApartmentsActions.vue';
 
 export default {
   data() {
@@ -49,15 +51,14 @@ export default {
       apartments_owner: [{}],
     };
   },
-  components: { HomeCard, UserDetail },
+  components: { HomeCard, UserDetail, MyApartmentsActions },
   computed: {
     ...mapGetters('account', ['userData']),
   },
 
   mounted() {
     if (localStorage.getItem('token')) {
-      let tokenUser = localStorage.getItem('token');
-      tokenUser = JSON.parse(tokenUser);
+      const tokenUser = localStorage.getItem('token');
       this.loginWithToken(tokenUser);
     }
   },

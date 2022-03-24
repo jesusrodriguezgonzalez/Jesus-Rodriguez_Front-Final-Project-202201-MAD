@@ -1,18 +1,16 @@
 <template>
   <div class="container-details">
-    <ul v-if="this.apartment">
-      <li>direction: {{ apartment.direction }}</li>
-      <li>cp: {{ apartment.cp }}</li>
-      <li>province: {{ apartment.province }}</li>
-      <li>incidents: {{ apartment.incidents }}</li>
-      <li>status: {{ apartment.sattus }}</li>
-    </ul>
+    <nav>
+      <router-link to="/new-apartment">Nuevo apartamento</router-link> |
+      <router-link to="/new-incident">Nueva incidencia</router-link>
+    </nav>
+    <router-view />
   </div>
 </template>
 
 <script lang="ts">
 export default {
-  name: 'HomeCard',
+  name: 'MyApartmentsActions',
   data() {
     return {
       direction: '',

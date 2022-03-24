@@ -7,7 +7,7 @@ const actions = {
     commit('loginRequest', user);
     apiUser.login(user).then(
       (userData) => {
-        localStorage.setItem('token', JSON.stringify(userData.data.token));
+        localStorage.setItem('token', userData.data.token);
         commit('loginSuccess', userData.data);
         router.push('/');
       },
