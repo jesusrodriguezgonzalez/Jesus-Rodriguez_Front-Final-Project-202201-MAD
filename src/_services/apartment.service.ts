@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { ApartmentI } from '../_utils/interfaces';
-import { getToken } from '../_utils/helpes';
+import { getToken } from '../_utils/helper';
 
 const APARTMENTS_URL = 'http://localhost:5000/apartments/';
 

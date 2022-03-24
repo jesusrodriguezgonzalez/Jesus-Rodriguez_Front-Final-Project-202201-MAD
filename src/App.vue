@@ -11,8 +11,9 @@
 
 <script lang="ts">
 import { mapGetters } from 'vuex';
+import { defineComponent } from 'vue';
 
-export default {
+export default defineComponent({
   mounted: () => {
     if (localStorage.getItem('token')) {
       // Llamaría al servicio con token y guardaría los datos en mi estado
@@ -22,7 +23,7 @@ export default {
   computed: {
     ...mapGetters('account', ['userData']),
   },
-};
+});
 </script>
 
 <style lang="scss">

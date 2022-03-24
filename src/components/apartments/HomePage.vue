@@ -1,9 +1,5 @@
 <template>
-  <div>
-    <h1>Detalles del usuario</h1>
-  </div>
   <main>
-    <h4 v-if="this.userData">Bienvenido, {{ this.userData.name }}</h4>
     <div v-if="userData">
       <UserDetail :userData="userData" />
       <MyApartmentsActions />
@@ -27,10 +23,10 @@
       </div>
     </div>
     <p>
-      <router-link to="/">Inicio</router-link>
+      <router-link to="/"><button>Inicio</button></router-link>
     </p>
     <p>
-      <router-link to="/login">Logout</router-link>
+      <router-link to="/login"><button>Logout</button></router-link>
     </p>
   </main>
 </template>

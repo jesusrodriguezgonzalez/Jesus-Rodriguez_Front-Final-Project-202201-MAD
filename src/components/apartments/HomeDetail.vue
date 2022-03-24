@@ -14,7 +14,10 @@
     </div>
   </main>
   <p>
-    <router-link to="/">Inicio</router-link>
+    <router-link to="/"><button>Volver</button></router-link>
+
+    <button v-if="userData.rol === 'Owner'" v-on:click="deleteApartment()">Eliminar</button>
+    <button v-if="userData.rol === 'Owner'" v-on:click="updateApartment()">Editar</button>
   </p>
 </template>
 
@@ -36,6 +39,7 @@ export default defineComponent({
   },
   computed: {
     ...mapGetters('apartments', ['apartmentDetails']),
+    ...mapGetters('account', ['userData']),
   },
   methods: {
     ...mapActions('apartments', ['getApartment']),
