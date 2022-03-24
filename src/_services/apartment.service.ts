@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { ApartmentI } from '../_utils/interfaces';
 
-const APARTMENTS_URL = 'http://localhost:5000/apartments';
+const APARTMENTS_URL = 'http://localhost:5000/apartments/';
 
 let tokenUser: any = localStorage.getItem('token');
 tokenUser = JSON.parse(tokenUser);
@@ -16,4 +16,12 @@ export function newApartment(apartment: ApartmentI) {
 
 export function getAllApartments() {
   return axios.get(APARTMENTS_URL);
+}
+
+export function getApartment(id: string) {
+  return axios.get(APARTMENTS_URL + id, {
+    headers: {
+      Authorization: `Bearer ${tokenUser}`,
+    },
+  });
 }

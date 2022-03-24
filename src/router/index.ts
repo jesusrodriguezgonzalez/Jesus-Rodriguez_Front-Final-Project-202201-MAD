@@ -5,12 +5,14 @@ import RegisterPage from '../components/register/RegisterPage.vue';
 import NewApartment from '../components/apartments/NewApartment.vue';
 import NewIncidents from '../components/incidents/NewIncidents.vue';
 import HomePage from '../components/apartments/HomePage.vue';
+import HomeDetail from '../components/apartments/HomeDetail.vue';
 
 const routes: Array<RouteRecordRaw> = [
   { path: '/login', component: LoginPage },
   { path: '/register', component: RegisterPage },
   { path: '/new-apartment', component: NewApartment },
   { path: '/new-incident', component: NewIncidents },
+  { path: '/details-home/:id', component: HomeDetail },
   { path: '/', component: HomePage },
   {
     path: '/about',

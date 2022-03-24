@@ -1,6 +1,7 @@
 <template>
   <nav>
-    <router-link to="/">Home</router-link> | <router-link to="/login">Login</router-link> |
+    <router-link to="/">Home</router-link> |
+    <router-link v-if="!this.userData" to="/login">Login</router-link> |
     <router-link to="/register">Register</router-link> |
     <router-link to="/new-apartment">Nuevo apartamento</router-link> |
     <router-link to="/new-incident">Nueva incidencia</router-link>
@@ -9,12 +10,17 @@
 </template>
 
 <script lang="ts">
+import { mapGetters } from 'vuex';
+
 export default {
   mounted: () => {
     if (localStorage.getItem('token')) {
       // Llamaría al servicio con token y guardaría los datos en mi estado
     }
     console.log(123);
+  },
+  computed: {
+    ...mapGetters('account', ['userData']),
   },
 };
 </script>

@@ -11,22 +11,27 @@
     <div v-if="userData">
       <div v-if="userData.rol === 'Owner'">
         <div v-for="(apartment, index) of userData.apartments_owner" :key="index">
-          <HomeCard :apartment="apartment" />
+          <router-link :to="`/details-home/${apartment._id}`">
+            <HomeCard :apartment="apartment" />
+          </router-link>
         </div>
       </div>
+
       <div v-if="userData.rol === 'Tenant'">
         <div v-for="(apartment, index) of userData.current_apartment" :key="index">
-          <HomeCard :apartment="apartment" />
+          <router-link :to="`/details-home/${apartment._id}`">
+            <HomeCard :apartment="apartment" />
+          </router-link>
         </div>
       </div>
     </div>
     <p>
       <router-link to="/">Inicio</router-link>
     </p>
+    <p>
+      <router-link to="/login">Logout</router-link>
+    </p>
   </main>
-  <p>
-    <router-link to="/login">Logout</router-link>
-  </p>
 </template>
 
 <script lang="ts">

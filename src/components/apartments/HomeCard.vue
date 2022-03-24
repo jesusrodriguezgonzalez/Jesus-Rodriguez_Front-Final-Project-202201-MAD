@@ -6,6 +6,7 @@
       <li>province: {{ apartment.province }}</li>
       <li>incidents: {{ apartment.incidents }}</li>
       <li>status: {{ apartment.sattus }}</li>
+      <li>status: {{ apartment._id }}</li>
     </ul>
   </div>
 </template>

@@ -1,3 +1,4 @@
+import { ids } from 'webpack';
 import * as apiApartment from '../_services/apartment.service';
 import router from '../router/index';
 import { ApartmentI, StateI } from '../_utils/interfaces';
@@ -21,6 +22,23 @@ const actions = {
       }
     );
   },
+  getApartment({ dispatch, commit }: { dispatch: any; commit: any }, id: string) {
+    commit('registerRequest', id);
+
+    apiApartment.getApartment(id).then(
+      (apartmentData) => {
+        commit('loadApartment', apartmentData);
+        setTimeout(() => {
+          // display success message after route change completes
+          dispatch('alert/success', 'Registro correcto', { root: true });
+        });
+      },
+      (error) => {
+        commit('registerFailure', error);
+        dispatch('alert/error', error, { root: true });
+      }
+    );
+  },
 };
 
 const mutations = {
@@ -33,10 +51,21 @@ const mutations = {
   registerFailure(state: StateI, error: any) {
     state.status = {};
   },
+  loadApartment(state: StateI, apartment: any) {
+    state.apartments = apartment.data;
+    console.log(apartment);
+  },
+};
+
+const getters = {
+  apartmentDetails(state: any) {
+    return state.apartments;
+  },
 };
 
 export const apartments = {
   namespaced: true,
   actions,
   mutations,
+  getters,
 };
