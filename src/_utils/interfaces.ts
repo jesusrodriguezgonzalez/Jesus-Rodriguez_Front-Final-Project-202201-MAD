@@ -48,3 +48,18 @@ export interface IncidentI {
   state: string;
   id_apartment: number;
 }
+
+export interface UserDataI {
+  _id: string;
+  age: number;
+  apartment_history: object[];
+  apartments_owner: object[];
+  city: string;
+  current_apartment: object[];
+  direction: string;
+  email: string;
+  name: string;
+  phone: number;
+  rol: string;
+  surname: string;
+}

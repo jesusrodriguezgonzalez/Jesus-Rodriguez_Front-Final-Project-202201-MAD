@@ -15,7 +15,7 @@ export const store = new Vuex.Store({
 });
 
 describe('LoginPage.vue', () => {
-  it('renders props.msg when passed', async () => {
+  it('renders email and password', async () => {
     const wrapper = shallowMount(LoginPage, { global: { plugins: [store] } });
     expect(wrapper.text()).toMatch('Email');
     expect(wrapper.text()).toMatch('Password');

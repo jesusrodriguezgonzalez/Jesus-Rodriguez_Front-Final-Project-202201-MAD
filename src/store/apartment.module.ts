@@ -8,7 +8,7 @@ const actions = {
 
     apiApartment.newApartment(apartment).then(
       (apartmentData) => {
-        commit('registerSuccess', apartmentData);
+        commit('registerSuccessApartment', apartmentData);
         router.push('/');
         setTimeout(() => {
           // display success message after route change completes
@@ -27,7 +27,7 @@ const mutations = {
   registerRequest(state: StateI, apartment: any) {
     state.status = { registering: true };
   },
-  registerSuccess(state: StateI, apartment: any) {
+  registerSuccessApartment(state: StateI, apartment: any) {
     state.status = {};
   },
   registerFailure(state: StateI, error: any) {

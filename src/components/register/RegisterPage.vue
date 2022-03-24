@@ -76,10 +76,11 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { mapState, mapActions } from 'vuex';
 
 export default {
+  name: 'RegisterPage',
   data() {
     return {
       user: {
@@ -100,9 +101,8 @@ export default {
   },
   methods: {
     ...mapActions('account', ['registerUser']),
-    handleSubmit(e) {
+    handleSubmit() {
       this.submitted = true;
-
       this.registerUser(this.user);
     },
   },

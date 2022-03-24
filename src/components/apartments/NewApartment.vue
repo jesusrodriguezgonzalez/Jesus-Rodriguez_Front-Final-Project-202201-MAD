@@ -5,49 +5,22 @@
       <div class="form-group">
         <label for="direction"
           >Direccion
-          <input
-            type="text"
-            v-model="apartment.direction"
-            name="direction"
-            class="form-control"
-            :class="{ 'is-invalid': submitted && errors.has('direction') }"
-          />
+          <input type="text" v-model="apartment.direction" name="direction" class="form-control" />
         </label>
-        <div v-if="submitted && errors.has('direction')" class="invalid-feedback">
-          {{ errors.first('direction') }}
-        </div>
       </div>
 
       <div class="form-group">
         <label for="cp"
           >CP
-          <input
-            type="number"
-            v-model="apartment.cp"
-            name="cp"
-            class="form-control"
-            :class="{ 'is-invalid': submitted && errors.has('cp') }"
-          />
+          <input type="number" v-model="apartment.cp" name="cp" class="form-control" />
         </label>
-        <div v-if="submitted && errors.has('cp')" class="invalid-feedback">
-          {{ errors.first('cp') }}
-        </div>
       </div>
 
       <div class="form-group">
         <label for="province"
           >Provincia
-          <input
-            type="text"
-            v-model="apartment.province"
-            name="province"
-            class="form-control"
-            :class="{ 'is-invalid': submitted && errors.has('province') }"
-          />
+          <input type="text" v-model="apartment.province" name="province" class="form-control" />
         </label>
-        <div v-if="submitted && errors.has('province')" class="invalid-feedback">
-          {{ errors.first('province') }}
-        </div>
       </div>
 
       <div class="form-group">
@@ -59,10 +32,11 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { mapState, mapGetters, mapActions } from 'vuex';
 
 export default {
+  name: 'NewApartment',
   data() {
     return {
       apartment: {
@@ -86,7 +60,7 @@ export default {
 
   methods: {
     ...mapActions('apartments', ['registerApartment']),
-    handleSubmit(e) {
+    handleSubmit() {
       this.submitted = true;
       this.registerApartment(this.apartment);
     },

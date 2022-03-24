@@ -15,7 +15,7 @@ export const store = new Vuex.Store({
 });
 
 describe('LoginPage.vue', () => {
-  it('renders props.msg when passed', async () => {
+  it('renders the following fields', async () => {
     const wrapper = shallowMount(RegisterPage, { global: { plugins: [store] } });
     expect(wrapper.text()).toMatch('Nombre');
     expect(wrapper.text()).toMatch('Apellidos');
