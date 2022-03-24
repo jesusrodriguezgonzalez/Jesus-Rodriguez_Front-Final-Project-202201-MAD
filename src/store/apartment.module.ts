@@ -49,6 +49,20 @@ const actions = {
       }
     );
   },
+  updateApartment({ dispatch, commit }: { dispatch: any; commit: any }, payload: any) {
+    commit('registerRequest', payload);
+    apiApartment.updateApartment(payload).then(
+      (apartmentData) => {
+        commit('deleteApartment', apartmentData);
+        router.push('/');
+        dispatch('alert/success', 'Registro correcto', { root: true });
+      },
+      (error) => {
+        commit('registerFailure', error);
+        dispatch('alert/error', error, { root: true });
+      }
+    );
+  },
 };
 
 const mutations = {
@@ -65,6 +79,9 @@ const mutations = {
     state.apartments = apartment.data;
   },
   deleteApartment(state: StateI, apartment: any) {
+    state.apartments = [];
+  },
+  updateApartment(state: StateI, apartment: any) {
     state.apartments = [];
   },
 };

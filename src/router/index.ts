@@ -7,6 +7,7 @@ import NewIncidents from '../components/incidents/NewIncidents.vue';
 import HomePage from '../components/apartments/HomePage.vue';
 import HomeDetail from '../components/apartments/HomeDetail.vue';
 import ListIncidents from '../components/incidents/ListIncidents.vue';
+import EditApartment from '../components/apartments/EditApartment.vue';
 
 const routes: Array<RouteRecordRaw> = [
   { path: '/login', component: LoginPage },
@@ -15,6 +16,7 @@ const routes: Array<RouteRecordRaw> = [
   { path: '/new-incident/:id', component: NewIncidents },
   { path: '/details-home/:id', component: HomeDetail },
   { path: '/list-incidents/:id', component: ListIncidents },
+  { path: '/edit-apartment/:id', component: EditApartment },
   { path: '/', component: HomePage },
   {
     path: '/about',

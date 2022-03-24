@@ -15,17 +15,23 @@
   </main>
 
   <template v-if="this.apartmentDetails && this.userData">
-    <router-link to="/"><button>Volver</button></router-link>
+    <router-link to="/"><button class="btn btn-primary">Volver</button></router-link>
     <router-link :to="`/new-incident/${apartmentDetails._id}`">
-      ><button>Nueva Incidencia</button>
+      <button class="btn btn-primary">Nueva Incidencia</button>
     </router-link>
     <router-link :to="`/new-incident/${apartmentDetails._id}`">
-      ><button>Lista Incidencias</button>
+      <button class="btn btn-primary">Lista Incidencias</button>
     </router-link>
-    <button v-if="userData.rol === 'Owner'" v-on:click="removeApartment(apartmentDetails._id)">
+    <button
+      class="btn btn-primary"
+      v-if="userData.rol === 'Owner'"
+      v-on:click="removeApartment(apartmentDetails._id)"
+    >
       Eliminar
     </button>
-    <button v-if="userData.rol === 'Owner'">Editar</button>
+    <router-link :to="`/edit-apartment/${apartmentDetails._id}`">
+      <button class="btn btn-primary">Editar</button>
+    </router-link>
   </template>
 </template>
 
