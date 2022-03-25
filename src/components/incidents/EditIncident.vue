@@ -85,6 +85,7 @@ export default defineComponent({
         state: 'Open',
         idIncident: '0',
         id_user: '0',
+        id_apartment: '',
       },
       submitted: false,
 
@@ -124,6 +125,7 @@ export default defineComponent({
     this.incident.description = incidentById.description;
     this.incident.priority = incidentById.priority;
     this.incident.state = incidentById.state;
+    this.incident.id_apartment = incidentById.id_apartment;
     // eslint-disable-next-line no-underscore-dangle
     this.incident.id_user = this.userData._id;
   },

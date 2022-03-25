@@ -51,9 +51,9 @@ const actions = {
     commit('registerRequest', payload);
     apiIncident.updateIncident(payload).then(
       (incidentData) => {
-        console.log(payload);
+        console.log(payload, 'pp');
         commit('updateIncident', incidentData);
-        router.push(`/list-incidents/${payload.idIncident}`);
+        router.push(`/list-incidents/${payload.id_apartment}`);
         dispatch('alert/success', 'Registro correcto', { root: true });
       },
       (error) => {
@@ -83,11 +83,11 @@ const mutations = {
   },
   updateIncident(state: StateI, incident: any) {
     // eslint-disable-next-line no-underscore-dangle
-    console.log(incident.data);
-    console.log(state.incidents);
-    state.incidents = state.incidents.map((e: any) =>
+
+    const newState = state.incidents.map((e: any) =>
       incident.data._id !== e._id ? e : incident.data
     );
+    state.incidents = newState;
   },
 };
 
