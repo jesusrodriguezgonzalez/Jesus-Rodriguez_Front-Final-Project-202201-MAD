@@ -43,10 +43,6 @@ export default defineComponent({
     ...mapGetters('apartments', ['apartmentDetails']),
   },
   mounted() {
-    // if (localStorage.getItem('token')) {
-    //   const tokenUser = localStorage.getItem('token');
-    //   this.loginWithToken(tokenUser);
-    // }
     const route = useRoute();
     const { id } = route.params;
     this.getIncidentsByHome(id);

@@ -58,6 +58,12 @@
         </label>
       </div>
       <div class="form-group">
+        <label for="Imagen"
+          >Imagen
+          <input type="file" accept="image/*" name="image" @change="handleImageChange" />
+        </label>
+      </div>
+      <div class="form-group">
         <label for="jack"
           >Propietario
           <input name="rol" type="radio" id="Owner" value="Owner" v-model="user.rol" />
@@ -77,8 +83,13 @@
 </template>
 
 <script lang="ts">
+/* eslint-disable prefer-destructuring */
+
 import { mapState, mapActions } from 'vuex';
 import { defineComponent } from 'vue';
+import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
+import { v4 as uuid } from 'uuid';
+import { storage } from '@/firebase';
 
 export default defineComponent({
   name: 'RegisterPage',
@@ -93,7 +104,10 @@ export default defineComponent({
         direction: '',
         phone: '',
         city: '',
+        image: '',
       },
+      fileToUpload: { name: '' },
+
       submitted: false,
     };
   },
@@ -104,7 +118,17 @@ export default defineComponent({
     ...mapActions('account', ['registerUser']),
     handleSubmit() {
       this.submitted = true;
-      this.registerUser(this.user);
+
+      const newRef = ref(storage, uuid() + this.fileToUpload.name);
+      uploadBytes(newRef, this.fileToUpload as any).then(() => {
+        getDownloadURL(newRef).then((url: string) => {
+          this.user.image = url;
+          this.registerUser(this.user);
+        });
+      });
+    },
+    handleImageChange(e: any) {
+      this.fileToUpload = e.target.files[0];
     },
   },
 });

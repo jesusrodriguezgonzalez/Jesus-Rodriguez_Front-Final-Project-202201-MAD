@@ -14,7 +14,6 @@ import { defineComponent } from 'vue';
 export default defineComponent({
   mounted() {
     if (localStorage.getItem('token')) {
-      // Llamaría al servicio con token y guardaría los datos en mi estado
       const tokenUser = localStorage.getItem('token');
       this.loginWithToken(tokenUser);
     }
@@ -38,6 +37,9 @@ export default defineComponent({
   .img {
     width: 100px;
     height: 100px;
+  }
+  li {
+    list-style-type: none;
   }
 }
 

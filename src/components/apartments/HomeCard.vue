@@ -4,7 +4,7 @@
       <li>Direccion: {{ apartment.direction }}</li>
       <li>Codigo Postal: {{ apartment.cp }}</li>
       <li>Provincia: {{ apartment.province }}</li>
-      <li>Incidencias: {{ apartment.incidents }}</li>
+      <li>Incidencias: {{ apartment.incidents.length }}</li>
       <li>Estado: {{ apartment.status }}</li>
       <li>ID: {{ apartment._id }}</li>
     </ul>

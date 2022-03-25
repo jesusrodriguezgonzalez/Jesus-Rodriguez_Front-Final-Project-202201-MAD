@@ -2,16 +2,10 @@
   <main>
     <div class="container-details">
       <ul v-if="this.userData">
-        <div class="form-group">
-          <label for="Imagen"
-            >Imagen
-            <input type="file" accept="image/*" name="image" @change="handleImageChange" />
-          </label>
-        </div>
-        <li>Nombre: {{ this.userData.name }}</li>
-        <li>Apellido: {{ this.userData.surname }}</li>
-        <li>Province: {{ this.userData.city }}</li>
-        <li>Imagen: {{ this.userData.image }}</li>
+        <img class="img" v-bind:src="userData.image" :alt="userData.name" />
+        <li>Nombre: {{ userData.name }}</li>
+        <li>Apellido: {{ userData.surname }}</li>
+        <li>Province: {{ userData.city }}</li>
       </ul>
     </div>
   </main>
@@ -19,8 +13,6 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
-import { v4 as uuid } from 'uuid';
 
 export default defineComponent({
   name: 'UserDetail',

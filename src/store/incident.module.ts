@@ -7,11 +7,11 @@ import { IncidentI, StateI } from '../_utils/interfaces';
 const actions = {
   registerIncident({ dispatch, commit }: { dispatch: any; commit: any }, incident: IncidentI) {
     commit('registerRequest', incident);
-
+    console.log(incident);
     apiIncident.newIncident(incident).then(
       (incidentData) => {
         commit('registerSuccess', incidentData);
-        router.push('/');
+        router.push(`/details-home/${incident.id_apartment}`);
         dispatch('alert/success', 'Incidencia generada correctamente', {});
       },
       (error) => {

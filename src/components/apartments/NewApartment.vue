@@ -41,7 +41,7 @@
 <script lang="ts">
 /* eslint-disable prefer-destructuring */
 
-import { mapState, mapGetters, mapActions } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 import { defineComponent } from 'vue';
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
 import { v4 as uuid } from 'uuid';
@@ -80,7 +80,13 @@ export default defineComponent({
       const newRef = ref(storage, uuid() + this.fileToUpload.name);
       uploadBytes(newRef, this.fileToUpload as any).then(() => {
         getDownloadURL(newRef).then((url: string) => {
-          this.apartment.photos = url;
+          if (typeof this.fileToUpload === 'object') {
+            this.apartment.photos =
+              'https://us.123rf.com/450wm/infinityyy/infinityyy1911/infinityyy191100073/133539567-icono-de-casa-vector-s%C3%ADmbolo-de-logotipo-plano-simple.jpg?ver=6';
+          } else {
+            this.apartment.photos = url;
+          }
+
           this.registerApartment(this.apartment);
         });
       });

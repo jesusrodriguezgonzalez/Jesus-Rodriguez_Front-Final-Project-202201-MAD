@@ -5,12 +5,13 @@
   <main>
     <div class="container-details">
       <ul v-if="this.apartmentDetails">
-        <img class="img" v-bind:src="apartmentDetails.photos" alt="Italian Trulli" />
-        <li>direction: {{ apartmentDetails.direction }}</li>
-        <li>cp: {{ apartmentDetails.cp }}</li>
-        <li>province: {{ apartmentDetails.province }}</li>
-        <li>status: {{ apartmentDetails.status }}</li>
+        <img class="img" v-bind:src="apartmentDetails.photos" alt="House" />
+        <li>DIRECCION: {{ apartmentDetails.direction }}</li>
+        <li>CP: {{ apartmentDetails.cp }}</li>
+        <li>PROVINCIA: {{ apartmentDetails.province }}</li>
+        <li>ESTADO: {{ apartmentDetails.status }}</li>
         <li>ID: {{ apartmentDetails._id }}</li>
+        <li>INCIDENICAS: {{ apartmentDetails.incidents.length }}</li>
       </ul>
     </div>
   </main>
@@ -66,10 +67,6 @@ export default defineComponent({
     },
   },
   mounted() {
-    // if (localStorage.getItem('token')) {
-    //   const tokenUser = localStorage.getItem('token');
-    //   this.loginWithToken(tokenUser);
-    // }
     const route = useRoute();
     const { id } = route.params;
     this.getApartment(id);

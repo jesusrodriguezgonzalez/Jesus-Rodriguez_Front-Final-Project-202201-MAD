@@ -1,5 +1,4 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
-import HomeView from '../views/HomeView.vue';
 import LoginPage from '../components/login/LoginPage.vue';
 import RegisterPage from '../components/register/RegisterPage.vue';
 import NewApartment from '../components/apartments/NewApartment.vue';

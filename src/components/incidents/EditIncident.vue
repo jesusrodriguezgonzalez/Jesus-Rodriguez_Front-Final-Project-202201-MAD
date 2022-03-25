@@ -69,7 +69,7 @@
 </template>
 
 <script lang="ts">
-import { mapState, mapActions, mapGetters } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 import { defineComponent } from 'vue';
 import { useRoute } from 'vue-router';
 
@@ -119,7 +119,6 @@ export default defineComponent({
     // eslint-disable-next-line no-underscore-dangle
     const incidentById = this.incidentsData.find((e: any) => e._id === id);
     this.incident.idIncident = id as string;
-    // this.getIncidentsByHome(id);
     this.incident.title = incidentById.title;
     this.incident.type_incidence = incidentById.type_incidence;
     this.incident.description = incidentById.description;

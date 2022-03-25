@@ -28,10 +28,6 @@
           />
         </label>
         <div v-if="submitted && !passwd" class="invalid-feedback">password is required</div>
-
-        <!-- <div v-if="submitted && errors.has('passwd')" class="invalid-feedback">
-          {{ errors.first('passwd') }}
-        </div> -->
       </div>
       <div class="form-group">
         <button class="btn btn-primary">Login</button>

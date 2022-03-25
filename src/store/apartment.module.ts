@@ -1,4 +1,3 @@
-import { ids } from 'webpack';
 import * as apiApartment from '../_services/apartment.service';
 import router from '../router/index';
 import { ApartmentI, StateI } from '../_utils/interfaces';
