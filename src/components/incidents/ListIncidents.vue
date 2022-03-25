@@ -1,13 +1,19 @@
 <template>
-  <div>
-    <h2>Lista de incidencias</h2>
-    <ul>
+  <h2>Lista de incidencias</h2>
+  <div v-if="this.incidentsData">
+    <div v-for="(incident, index) of incidentsData" :key="index">
       <li>
-        {{ incident.tittle }} | {{ incident.tittle }} | {{ incident.id_apartment }} | |
-        {{ incident.state }} | {{ incident.description }}
+        TITULO:{{ incident.title }} 🔍
+        <router-link :to="`/edit-incident/${incident._id}`">
+          <button>✏</button>
+        </router-link>
+        <button v-on:click="removeIncident(incident._id)">❌</button>
       </li>
-    </ul>
+    </div>
   </div>
+  <router-link :to="`/details-home/${apartmentDetails._id}`"
+    ><button class="btn btn-primary">Volver</button></router-link
+  >
 </template>
 
 <script lang="ts">
@@ -24,6 +30,26 @@ export default defineComponent({
       priority: '',
       state: '',
     };
+  },
+  methods: {
+    ...mapActions('incidents', ['getIncidentsByHome', 'deleteIncident']),
+    ...mapActions('account', ['loginWithToken']),
+    removeIncident(id: string) {
+      this.deleteIncident(id);
+    },
+  },
+  computed: {
+    ...mapGetters('incidents', ['incidentsData']),
+    ...mapGetters('apartments', ['apartmentDetails']),
+  },
+  mounted() {
+    if (localStorage.getItem('token')) {
+      const tokenUser = localStorage.getItem('token');
+      this.loginWithToken(tokenUser);
+    }
+    const route = useRoute();
+    const { id } = route.params;
+    this.getIncidentsByHome(id);
   },
 });
 </script>

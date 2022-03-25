@@ -34,7 +34,6 @@ export function deleteApartment(id: string) {
 
 export function updateApartment(apartment: any) {
   const { idApartment } = apartment;
-  console.log(apartment);
   return axios.patch(APARTMENTS_URL + idApartment, apartment, {
     headers: {
       Authorization: `Bearer ${getToken()}`,

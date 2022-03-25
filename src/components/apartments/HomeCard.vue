@@ -1,11 +1,12 @@
 <template>
   <div class="container-details">
     <ul v-if="this.apartment">
-      <li>direction: {{ apartment.direction }}</li>
-      <li>cp: {{ apartment.cp }}</li>
-      <li>province: {{ apartment.province }}</li>
-      <li>incidents: {{ apartment.incidents }}</li>
-      <li>status: {{ apartment.status }}</li>
+      <li>Direccion: {{ apartment.direction }}</li>
+      <li>Codigo Postal: {{ apartment.cp }}</li>
+      <li>Provincia: {{ apartment.province }}</li>
+      <li>Incidencias: {{ apartment.incidents }}</li>
+      <li>Estado: {{ apartment.status }}</li>
+      <li>ID: {{ apartment._id }}</li>
     </ul>
   </div>
 </template>

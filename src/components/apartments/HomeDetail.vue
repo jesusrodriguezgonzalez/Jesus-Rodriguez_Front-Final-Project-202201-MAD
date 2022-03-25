@@ -5,11 +5,11 @@
   <main>
     <div class="container-details">
       <ul v-if="this.apartmentDetails">
-        <li>direction: Direcion</li>
-        <li>cp: CP</li>
+        <li>direction: {{ apartmentDetails.direction }}</li>
+        <li>cp: {{ apartmentDetails.cp }}</li>
         <li>province: {{ apartmentDetails.province }}</li>
         <li>status: {{ apartmentDetails.status }}</li>
-        <li>incidents: {{ apartmentDetails.incidents }}</li>
+        <li>ID: {{ apartmentDetails._id }}</li>
       </ul>
     </div>
   </main>
@@ -19,7 +19,7 @@
     <router-link :to="`/new-incident/${apartmentDetails._id}`">
       <button class="btn btn-primary">Nueva Incidencia</button>
     </router-link>
-    <router-link :to="`/new-incident/${apartmentDetails._id}`">
+    <router-link :to="`/list-incidents/${apartmentDetails._id}`">
       <button class="btn btn-primary">Lista Incidencias</button>
     </router-link>
     <button
@@ -30,7 +30,7 @@
       Eliminar
     </button>
     <router-link :to="`/edit-apartment/${apartmentDetails._id}`">
-      <button class="btn btn-primary">Editar</button>
+      <button v-if="userData.rol === 'Owner'" class="btn btn-primary">Editar</button>
     </router-link>
   </template>
 </template>

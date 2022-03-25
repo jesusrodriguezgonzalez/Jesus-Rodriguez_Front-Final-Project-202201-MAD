@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h2>Nueva incidencia</h2>
-    <form @submit.prevent="handleSubmit">
+    <h2>Editar incidencia</h2>
+    <form @submit.prevent="handleSubmit" v-if="this.incident">
       <div class="form-group">
         <label for="title"
           >Titulo
@@ -61,10 +61,8 @@
         </label>
       </div>
       <div class="form-group">
-        <button class="btn btn-primary">Register</button>
-        <router-link :to="`/details-home/${apartmentDetails._id}`" class="btn btn-link"
-          >Cancel</router-link
-        >
+        <button class="btn btn-primary">Editar</button>
+        <router-link to="/" class="btn btn-link">Cancel</router-link>
       </div>
     </form>
   </div>
@@ -76,7 +74,7 @@ import { defineComponent } from 'vue';
 import { useRoute } from 'vue-router';
 
 export default defineComponent({
-  name: 'NewIncidents',
+  name: 'EditIncident',
   data() {
     return {
       incident: {
@@ -85,7 +83,7 @@ export default defineComponent({
         description: '',
         priority: 'Medium',
         state: 'Open',
-        id_apartment: '0',
+        idIncident: '0',
         id_user: '0',
       },
       submitted: false,
@@ -110,25 +108,32 @@ export default defineComponent({
     };
   },
   computed: {
-    ...mapState('incidents', ['status']),
     ...mapGetters('account', ['userData']),
-    ...mapGetters('apartments', ['apartmentDetails']),
-  },
-
-  methods: {
-    ...mapActions('incidents', ['registerIncident']),
-    handleSubmit() {
-      this.submitted = true;
-      this.registerIncident(this.incident);
-    },
+    ...mapGetters('incidents', ['incidentsData']),
   },
 
   mounted() {
     const route = useRoute();
     const { id } = route.params;
-    this.incident.id_apartment = id as string;
+    // eslint-disable-next-line no-underscore-dangle
+    const incidentById = this.incidentsData.find((e: any) => e._id === id);
+    this.incident.idIncident = id as string;
+    // this.getIncidentsByHome(id);
+    this.incident.title = incidentById.title;
+    this.incident.type_incidence = incidentById.type_incidence;
+    this.incident.description = incidentById.description;
+    this.incident.priority = incidentById.priority;
+    this.incident.state = incidentById.state;
     // eslint-disable-next-line no-underscore-dangle
     this.incident.id_user = this.userData._id;
+  },
+
+  methods: {
+    ...mapActions('incidents', ['getIncidentsByHome', 'updateIncident']),
+    handleSubmit() {
+      this.submitted = true;
+      this.updateIncident(this.incident);
+    },
   },
 });
 </script>

@@ -16,7 +16,6 @@ export default defineComponent({
     if (localStorage.getItem('token')) {
       // Llamaría al servicio con token y guardaría los datos en mi estado
     }
-    console.log(123);
   },
   computed: {
     ...mapGetters('account', ['userData']),
