@@ -22,6 +22,12 @@
           <input type="text" v-model="apartment.province" name="province" class="form-control" />
         </label>
       </div>
+      <div class="form-group">
+        <label for="Imagen"
+          >Imagen
+          <input type="file" accept="image/*" name="image" @change="handleImageChange" />
+        </label>
+      </div>
 
       <div class="form-group">
         <button class="btn btn-primary">Register</button>
@@ -33,8 +39,13 @@
 </template>
 
 <script lang="ts">
+/* eslint-disable prefer-destructuring */
+
 import { mapState, mapGetters, mapActions } from 'vuex';
 import { defineComponent } from 'vue';
+import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
+import { v4 as uuid } from 'uuid';
+import { storage } from '@/firebase';
 
 export default defineComponent({
   name: 'NewApartment',
@@ -44,9 +55,11 @@ export default defineComponent({
         cp: '',
         province: '',
         direction: '',
+        photos: '',
         owner: '0',
       },
       submitted: false,
+      fileToUpload: { name: '' },
     };
   },
   computed: {
@@ -63,7 +76,17 @@ export default defineComponent({
     ...mapActions('apartments', ['registerApartment']),
     handleSubmit() {
       this.submitted = true;
-      this.registerApartment(this.apartment);
+      // Subir archivo a firebase y obtener la url
+      const newRef = ref(storage, uuid() + this.fileToUpload.name);
+      uploadBytes(newRef, this.fileToUpload as any).then(() => {
+        getDownloadURL(newRef).then((url: string) => {
+          this.apartment.photos = url;
+          this.registerApartment(this.apartment);
+        });
+      });
+    },
+    handleImageChange(e: any) {
+      this.fileToUpload = e.target.files[0];
     },
   },
 });

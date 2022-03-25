@@ -51,7 +51,6 @@ const actions = {
     commit('registerRequest', payload);
     apiIncident.updateIncident(payload).then(
       (incidentData) => {
-        console.log(payload, 'pp');
         commit('updateIncident', incidentData);
         router.push(`/list-incidents/${payload.id_apartment}`);
         dispatch('alert/success', 'Registro correcto', { root: true });

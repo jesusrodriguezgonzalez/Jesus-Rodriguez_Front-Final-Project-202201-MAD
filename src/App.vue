@@ -8,17 +8,22 @@
 </template>
 
 <script lang="ts">
-import { mapGetters } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  mounted: () => {
+  mounted() {
     if (localStorage.getItem('token')) {
       // Llamaría al servicio con token y guardaría los datos en mi estado
+      const tokenUser = localStorage.getItem('token');
+      this.loginWithToken(tokenUser);
     }
   },
   computed: {
     ...mapGetters('account', ['userData']),
+  },
+  methods: {
+    ...mapActions('account', ['loginWithToken']),
   },
 });
 </script>
@@ -30,6 +35,10 @@ export default defineComponent({
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  .img {
+    width: 100px;
+    height: 100px;
+  }
 }
 
 nav {
