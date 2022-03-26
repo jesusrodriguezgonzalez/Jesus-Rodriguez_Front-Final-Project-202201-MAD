@@ -1,6 +1,7 @@
 import Vuex from 'vuex';
 
 import { shallowMount } from '@vue/test-utils';
+
 import HomePage from '../../src/components/apartments/HomePage.vue';
 
 export const store = new Vuex.Store({

@@ -11,25 +11,17 @@ import EditIncident from '../components/incidents/EditIncident.vue';
 import EditUser from '../components/user/EditUser.vue';
 
 const routes: Array<RouteRecordRaw> = [
-  { path: '/login', component: LoginPage },
-  { path: '/register', component: RegisterPage },
-  { path: '/new-apartment', component: NewApartment },
-  { path: '/new-incident/:id', component: NewIncidents },
-  { path: '/details-home/:id', component: HomeDetail },
-  { path: '/list-incidents/:id', component: ListIncidents },
-  { path: '/edit-apartment/:id', component: EditApartment },
-  { path: '/edit-incident/:id', component: EditIncident },
-  { path: '/edit-userDetails/', component: EditUser },
+  { path: '/login', name: 'LoginPage', component: LoginPage },
+  { path: '/register', name: 'RegisterPage', component: RegisterPage },
+  { path: '/new-apartment', name: 'NewApartment', component: NewApartment },
+  { path: '/new-incident/:id', name: 'NewIncidents', component: NewIncidents },
+  { path: '/details-home/:id', name: 'HomeDetail', component: HomeDetail },
+  { path: '/list-incidents/:id', name: 'ListIncidents', component: ListIncidents },
+  { path: '/edit-apartment/:id', name: 'EditApartment', component: EditApartment },
+  { path: '/edit-incident/:id', name: 'EditIncident', component: EditIncident },
+  { path: '/edit-userDetails/', name: 'EditUser', component: EditUser },
 
   { path: '/', component: HomePage },
-  {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue'),
-  },
 ];
 
 const router = createRouter({

@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div v-if="this.apartmentDetails">
     <h2>Editar vivienda</h2>
-    <form @submit.prevent="handleSubmit" v-if="this.apartmentDetails">
+    <form @submit.prevent="handleSubmit">
       <div class="form-group">
         <label for="direction"
           >Alias

@@ -8,7 +8,6 @@
       <li>Incidencias: {{ apartment.incidents.length }}</li>
       <li>Estado: {{ apartment.status }}</li>
       <li>Inquilino: {{ apartment.current_tenant }}</li>
-      <li>Propietario: {{ apartment.owner }}</li>
       <li>ID: {{ apartment._id }}</li>
     </ul>
   </div>

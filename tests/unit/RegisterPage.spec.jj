@@ -1,7 +1,7 @@
 import Vuex from 'vuex';
 import { shallowMount, mount } from '@vue/test-utils';
 import { createRouter, createWebHistory } from 'vue-router';
-import { routes } from '@/router';
+import routes from '@/router';
 import RegisterPage from '@/components/register/RegisterPage.vue';
 
 export const store = new Vuex.Store({

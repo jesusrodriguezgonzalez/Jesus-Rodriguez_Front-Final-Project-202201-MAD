@@ -13,11 +13,11 @@
       </ul>
     </div>
 
-    <router-link
-      v-if="this.apartmentDetails && this.incidentsData"
-      :to="`/details-home/${apartmentDetails._id}`"
-      ><button class="btn btn-primary">Volver</button></router-link
-    >
+    <div v-if="this.apartmentDetails">
+      <router-link :to="`/details-home/${apartmentDetails._id}`"
+        ><button class="btn btn-primary">Volver</button></router-link
+      >
+    </div>
   </div>
 </template>
 
@@ -38,6 +38,7 @@ export default defineComponent({
   },
   methods: {
     ...mapActions('incidents', ['getIncidentsByHome', 'deleteIncident']),
+    ...mapActions('apartments', ['getApartment']),
     ...mapActions('account', ['loginWithToken']),
     removeIncident(id: string) {
       this.deleteIncident(id);
@@ -51,6 +52,7 @@ export default defineComponent({
     const route = useRoute();
     const { id } = route.params;
     this.getIncidentsByHome(id);
+    this.getApartment(id);
   },
 });
 </script>

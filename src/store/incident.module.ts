@@ -52,7 +52,7 @@ const actions = {
     apiIncident.updateIncident(payload).then(
       (incidentData) => {
         commit('updateIncident', incidentData);
-        router.push(`/list-incidents/${payload.id_apartment}`);
+        router.push(`/list-incidents/${payload.id_apartment[0]._id}`);
         dispatch('alert/success', 'Registro correcto', { root: true });
       },
       (error) => {
