@@ -6,13 +6,19 @@
     <div class="container-details">
       <ul v-if="this.apartmentDetails">
         <img class="img" v-bind:src="apartmentDetails.photos" alt="House" />
-        <li>DIRECCION: {{ apartmentDetails.direction }}</li>
+        <li>Dirección: {{ apartmentDetails.direction }}</li>
         <li>CP: {{ apartmentDetails.cp }}</li>
-        <li>PROVINCIA: {{ apartmentDetails.province }}</li>
-        <li>ESTADO: {{ apartmentDetails.status }}</li>
+        <li>Provincia: {{ apartmentDetails.province }}</li>
+        <li>Estado: {{ apartmentDetails.status }}</li>
         <li>ID: {{ apartmentDetails._id }}</li>
-        <li v-if="apartmentDetails.incidents.length">
-          INCIDENCIAS: {{ apartmentDetails.incidents.length }}
+        <li>INCIDENCIAS: {{ apartmentDetails.incidents?.length }}</li>
+        <li v-if="userData.rol === 'Tenant'">
+          Propietario: {{ apartmentDetails.owner[0]?.name }}
+          {{ apartmentDetails.owner[0]?.surname }}
+        </li>
+        <li v-if="userData.rol === 'Owner'">
+          Inquilino: {{ apartmentDetails.current_tenant[0]?.name }}
+          {{ apartmentDetails.current_tenant[0]?.surname }}
         </li>
       </ul>
     </div>
@@ -54,6 +60,7 @@ export default defineComponent({
       incidents: [],
       status: '',
       photos: '',
+      current_tenant: '',
     };
   },
 
