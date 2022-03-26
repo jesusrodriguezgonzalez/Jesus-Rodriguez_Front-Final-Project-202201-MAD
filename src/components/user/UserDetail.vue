@@ -2,7 +2,7 @@
   <main>
     <div class="container-details">
       <ul v-if="this.userData">
-        <img class="img" v-bind:src="userData.image" :alt="userData.name" />
+        <img class="img-profile" v-bind:src="userData.image" :alt="userData.name" />
         <li>Nombre: {{ userData.name }}</li>
         <li>Apellido: {{ userData.surname }}</li>
         <li>Province: {{ userData.city }}</li>
@@ -32,3 +32,11 @@ export default defineComponent({
   },
 });
 </script>
+
+<style lang="scss">
+.img-profile {
+  border-radius: 15px;
+  width: 70px;
+  height: 70px;
+}
+</style>

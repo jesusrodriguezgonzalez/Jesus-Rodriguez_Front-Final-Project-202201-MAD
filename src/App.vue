@@ -29,7 +29,9 @@ export default defineComponent({
 
 <style lang="scss">
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+  font-family: 'Rubik', sans-serif;
+  // font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -38,8 +40,19 @@ export default defineComponent({
     width: 100px;
     height: 100px;
   }
+  background-color: #f8fbff;
   li {
     list-style-type: none;
+  }
+  button {
+    color: white;
+  }
+  a {
+    text-decoration: none;
+  }
+
+  input {
+    border-radius: 10px;
   }
 }
 

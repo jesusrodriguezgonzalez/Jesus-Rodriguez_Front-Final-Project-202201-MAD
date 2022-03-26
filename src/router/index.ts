@@ -9,6 +9,7 @@ import ListIncidents from '../components/incidents/ListIncidents.vue';
 import EditApartment from '../components/apartments/EditApartment.vue';
 import EditIncident from '../components/incidents/EditIncident.vue';
 import EditUser from '../components/user/EditUser.vue';
+import NotFound from '../components/other/NotFound.vue';
 
 const routes: Array<RouteRecordRaw> = [
   { path: '/login', name: 'LoginPage', component: LoginPage },
@@ -20,7 +21,7 @@ const routes: Array<RouteRecordRaw> = [
   { path: '/edit-apartment/:id', name: 'EditApartment', component: EditApartment },
   { path: '/edit-incident/:id', name: 'EditIncident', component: EditIncident },
   { path: '/edit-userDetails/', name: 'EditUser', component: EditUser },
-
+  { path: '/:pathMarch(.*)', name: 'NotFound', component: NotFound },
   { path: '/', component: HomePage },
 ];
 

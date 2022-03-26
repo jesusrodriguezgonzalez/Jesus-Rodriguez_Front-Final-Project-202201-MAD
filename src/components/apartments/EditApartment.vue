@@ -1,5 +1,5 @@
 <template>
-  <div v-if="this.apartmentDetails">
+  <div v-if="this.apartment">
     <h2>Editar vivienda</h2>
     <form @submit.prevent="handleSubmit">
       <div class="form-group">
@@ -30,7 +30,7 @@
       </div>
 
       <div class="form-group">
-        <button class="btn btn-primary">Editar</button>
+        <button class="btn btn-info">Editar</button>
 
         <router-link :to="`/details-home/${apartmentDetails._id}`" class="btn btn-link"
           >Cancel</router-link

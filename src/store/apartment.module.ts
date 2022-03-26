@@ -75,7 +75,6 @@ const mutations = {
     state.status = {};
   },
   loadApartment(state: StateI, apartment: any) {
-    console.log(apartment.data);
     state.apartments = apartment.data;
   },
   deleteApartment(state: StateI, apartment: any) {

@@ -24,7 +24,9 @@
     </div>
 
     <p>
-      <router-link v-if="userData" to="/login"><button>Logout</button></router-link>
+      <router-link v-if="userData" to="/login"
+        ><button class="btn btn-info">Logout</button></router-link
+      >
     </p>
   </main>
 </template>

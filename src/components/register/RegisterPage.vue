@@ -63,7 +63,8 @@
           <input type="file" accept="image/*" name="image" @change="handleImageChange" />
         </label>
       </div>
-      <div class="form-group">
+      <div class="form-check">
+        Tipo de usuario <br />
         <label for="jack"
           >Propietario
           <input name="rol" type="radio" id="Owner" value="Owner" v-model="user.rol" />
@@ -75,7 +76,7 @@
       </div>
 
       <div class="form-group">
-        <button class="btn btn-primary">Register</button>
+        <button class="btn btn-info">Register</button>
         <router-link to="/" class="btn btn-link">Cancel</router-link>
       </div>
     </form>

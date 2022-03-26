@@ -11,28 +11,30 @@
         <li>PROVINCIA: {{ apartmentDetails.province }}</li>
         <li>ESTADO: {{ apartmentDetails.status }}</li>
         <li>ID: {{ apartmentDetails._id }}</li>
-        <li>INCIDENCIAS: {{ apartmentDetails.incidents.length }}</li>
+        <li v-if="apartmentDetails.incidents.length">
+          INCIDENCIAS: {{ apartmentDetails.incidents.length }}
+        </li>
       </ul>
     </div>
   </main>
 
   <template v-if="this.apartmentDetails && this.userData">
-    <router-link to="/"><button class="btn btn-primary">Volver</button></router-link>
+    <router-link to="/"><button class="btn btn-info">Volver</button></router-link>
     <router-link :to="`/new-incident/${apartmentDetails._id}`">
-      <button class="btn btn-primary">Nueva Incidencia</button>
+      <button class="btn btn-info">Nueva Incidencia</button>
     </router-link>
     <router-link :to="`/list-incidents/${apartmentDetails._id}`">
-      <button class="btn btn-primary">Lista Incidencias</button>
+      <button class="btn btn-info">Lista Incidencias</button>
     </router-link>
     <button
-      class="btn btn-primary"
+      class="btn btn-info"
       v-if="userData.rol === 'Owner'"
       v-on:click="removeApartment(apartmentDetails._id)"
     >
       Eliminar
     </button>
     <router-link :to="`/edit-apartment/${apartmentDetails._id}`">
-      <button v-if="userData.rol === 'Owner'" class="btn btn-primary">Editar</button>
+      <button v-if="userData.rol === 'Owner'" class="btn btn-info">Editar</button>
     </router-link>
   </template>
 </template>

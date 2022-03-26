@@ -36,7 +36,7 @@
       </div>
 
       <div class="form-group">
-        <button class="btn btn-primary">Register</button>
+        <button class="btn btn-info">Register</button>
 
         <router-link to="/" class="btn btn-link">Cancel</router-link>
       </div>

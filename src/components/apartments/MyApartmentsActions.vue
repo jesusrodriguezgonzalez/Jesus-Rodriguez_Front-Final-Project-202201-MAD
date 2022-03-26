@@ -1,12 +1,14 @@
 <template>
   <div class="container-details">
     <h1>My Apartments</h1>
-    <nav>
-      <router-link v-if="userData.rol === 'Owner'" to="/new-apartment"
-        >Nuevo apartamento</router-link
-      >
+    <nav class="nav-container">
+      <div v-if="userData.rol === 'Owner'" class="icon-actions">
+        <router-link to="/new-apartment">Nuevo apartamento</router-link>
+      </div>
       |
-      <router-link to="/edit-userDetails/">Editar perfil</router-link>
+      <div class="icon-actions">
+        <router-link to="/edit-userDetails/">Editar perfil</router-link>
+      </div>
     </nav>
     <router-view />
   </div>
@@ -24,3 +26,18 @@ export default defineComponent({
   },
 });
 </script>
+
+<style lang="scss">
+.nav-container {
+  display: flex;
+  flex-direction: row;
+  color: white;
+  justify-content: center;
+  .icon-actions {
+    border-radius: 10px;
+    width: 70px;
+    hight: 70px;
+    background-color: #12c9ee;
+  }
+}
+</style>

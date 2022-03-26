@@ -1,4 +1,4 @@
-<template>
+<template class="login">
   <div>
     <h2>Login</h2>
     <form @submit.prevent="handleSubmit">
@@ -30,7 +30,7 @@
         <div v-if="submitted && !passwd" class="invalid-feedback">password is required</div>
       </div>
       <div class="form-group">
-        <button class="btn btn-primary">Login</button>
+        <button class="btn btn-info">Login</button>
       </div>
     </form>
   </div>
@@ -67,3 +67,10 @@ export default defineComponent({
   },
 });
 </script>
+
+<style lang="scss">
+body {
+  margin: 0;
+  padding: 0;
+}
+</style>
