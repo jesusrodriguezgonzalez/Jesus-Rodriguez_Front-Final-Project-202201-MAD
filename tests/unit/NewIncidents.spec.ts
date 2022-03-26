@@ -10,11 +10,17 @@ export const store = new Vuex.Store({
       actions: {
         registerIncident: jest.fn(),
       },
+      getters: {
+        apartmentDetails: jest.fn(),
+      },
     },
-    acount: {
+    account: {
       state: {},
       actions: {
         registerIncident: jest.fn(),
+      },
+      getters: {
+        userData: jest.fn(),
       },
     },
 

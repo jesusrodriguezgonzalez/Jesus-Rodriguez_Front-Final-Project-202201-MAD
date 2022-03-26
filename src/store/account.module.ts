@@ -47,6 +47,20 @@ const actions = {
       }
     );
   },
+  updateUser({ dispatch, commit }: { dispatch: any; commit: any }, payload: any) {
+    commit('registerRequest', payload);
+    apiUser.updateUser(payload).then(
+      (userData) => {
+        commit('updateUser', userData);
+        router.push('/');
+        dispatch('alert/success', 'Usuario modificado', { root: true });
+      },
+      (error) => {
+        commit('registerFailure', error);
+        dispatch('alert/error', error, { root: true });
+      }
+    );
+  },
 };
 
 const mutations = {
@@ -66,6 +80,9 @@ const mutations = {
   },
   loginExist(state: any, user: any) {
     state.user = user.data;
+  },
+  updateUser(state: any, user: any) {
+    state.user = user;
   },
 };
 

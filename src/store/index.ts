@@ -6,8 +6,6 @@ import { account } from './account.module';
 import { apartments } from './apartment.module';
 import { incidents } from './incident.module';
 
-// Vue.use(Vuex);
-
 export const store = new Vuex.Store({
   modules: {
     alert,

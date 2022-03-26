@@ -5,6 +5,8 @@
       <router-link v-if="userData.rol === 'Owner'" to="/new-apartment"
         >Nuevo apartamento</router-link
       >
+      |
+      <router-link to="/edit-userDetails/">Editar perfil</router-link>
     </nav>
     <router-view />
   </div>
@@ -16,20 +18,7 @@ import { mapGetters } from 'vuex';
 
 export default defineComponent({
   name: 'MyApartmentsActions',
-  data() {
-    return {
-      direction: '',
-      cp: '',
-      province: '',
-      incidents: [],
-      status: '',
-    };
-  },
-  props: {
-    apartment: {
-      type: Object,
-    },
-  },
+
   computed: {
     ...mapGetters('account', ['userData']),
   },

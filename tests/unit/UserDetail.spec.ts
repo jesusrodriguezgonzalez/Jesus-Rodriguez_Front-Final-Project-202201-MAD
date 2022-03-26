@@ -1,5 +1,3 @@
-import Vuex from 'vuex';
-
 import { shallowMount } from '@vue/test-utils';
 import UserDetail from '../../src/components/user/UserDetail.vue';
 

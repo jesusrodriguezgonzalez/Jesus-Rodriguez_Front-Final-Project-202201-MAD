@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h1>Viviendas</h1>
+  <div v-if="this.apartmentDetails">
+    <h1>Vivienda {{ apartmentDetails.alias }}</h1>
   </div>
   <main>
     <div class="container-details">
@@ -11,7 +11,7 @@
         <li>PROVINCIA: {{ apartmentDetails.province }}</li>
         <li>ESTADO: {{ apartmentDetails.status }}</li>
         <li>ID: {{ apartmentDetails._id }}</li>
-        <li>INCIDENICAS: {{ apartmentDetails.incidents.length }}</li>
+        <li>INCIDENCIAS: {{ apartmentDetails.incidents.length }}</li>
       </ul>
     </div>
   </main>

@@ -2,18 +2,23 @@
   <h2>Lista de incidencias</h2>
   <div v-if="this.incidentsData">
     <div v-for="(incident, index) of incidentsData" :key="index">
-      <li>
-        TITULO:{{ incident.title }} 🔍
-        <router-link :to="`/edit-incident/${incident._id}`">
-          <button>✏</button>
-        </router-link>
-        <button v-on:click="removeIncident(incident._id)">❌</button>
-      </li>
+      <ul>
+        <li>
+          TITULO:{{ incident.title }} 🔍
+          <router-link :to="`/edit-incident/${incident._id}`">
+            <button>✏</button>
+          </router-link>
+          <button v-on:click="removeIncident(incident._id)">❌</button>
+        </li>
+      </ul>
     </div>
+
+    <router-link
+      v-if="this.apartmentDetails && this.incidentsData"
+      :to="`/details-home/${apartmentDetails._id}`"
+      ><button class="btn btn-primary">Volver</button></router-link
+    >
   </div>
-  <router-link v-if="this.apartmentDetails" :to="`/details-home/${apartmentDetails._id}`"
-    ><button class="btn btn-primary">Volver</button></router-link
-  >
 </template>
 
 <script lang="ts">

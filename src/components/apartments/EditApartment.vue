@@ -4,6 +4,12 @@
     <form @submit.prevent="handleSubmit" v-if="this.apartmentDetails">
       <div class="form-group">
         <label for="direction"
+          >Alias
+          <input type="text" v-model="apartment.alias" name="alias" class="form-control" />
+        </label>
+      </div>
+      <div class="form-group">
+        <label for="direction"
           >Direccion
           <input type="text" v-model="apartment.direction" name="direction" class="form-control" />
         </label>

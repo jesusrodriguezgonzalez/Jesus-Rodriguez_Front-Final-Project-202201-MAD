@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for login/LoginPage.vue</title>
+    <title>Code coverage report for apartments/HomePage.vue</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../index.html">All files</a> / <a href="index.html">login</a> LoginPage.vue</h1>
+        <h1><a href="../index.html">All files</a> / <a href="index.html">apartments</a> HomePage.vue</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">80% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>7/7</span>
+                <span class='fraction'>8/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>0/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>3/3</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">80% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>7/7</span>
+                <span class='fraction'>8/10</span>
             </div>
         
             
@@ -128,18 +128,7 @@
 <a name='L63'></a><a href='#L63'>63</a>
 <a name='L64'></a><a href='#L64'>64</a>
 <a name='L65'></a><a href='#L65'>65</a>
-<a name='L66'></a><a href='#L66'>66</a>
-<a name='L67'></a><a href='#L67'>67</a>
-<a name='L68'></a><a href='#L68'>68</a>
-<a name='L69'></a><a href='#L69'>69</a>
-<a name='L70'></a><a href='#L70'>70</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L66'></a><a href='#L66'>66</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -173,11 +162,15 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -185,88 +178,83 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&lt;template&gt;
-  &lt;div&gt;
-    &lt;h2&gt;Login&lt;/h2&gt;
-    &lt;form @submit.prevent="handleSubmit"&gt;
-      &lt;div class="form-group"&gt;
-        &lt;label for="email"
-          &gt;Email
-          &lt;input
-            type="email"
-            v-model="user.email"
-            name="email"
-            class="form-control"
-            :class="{ 'is-invalid': submitted &amp;&amp; email }"
-          /&gt;
-        &lt;/label&gt;
-        &lt;div v-if="submitted &amp;&amp; !email" class="invalid-feedback"&gt;email is required&lt;/div&gt;
+  &lt;main&gt;
+    &lt;div v-if="userData"&gt;
+      &lt;UserDetail :userData="userData" /&gt;
+      &lt;MyApartmentsActions /&gt;
+    &lt;/div&gt;
+&nbsp;
+    &lt;div v-if="userData"&gt;
+      &lt;div v-if="userData.rol === 'Owner'"&gt;
+        &lt;div v-for="(apartment, index) of userData.apartments_owner" :key="index"&gt;
+          &lt;router-link :to="`/details-home/${apartment._id}`"&gt;
+            &lt;HomeCard :apartment="apartment" /&gt;
+          &lt;/router-link&gt;
+        &lt;/div&gt;
       &lt;/div&gt;
-      &lt;div class="form-group"&gt;
-        &lt;label for="passwd"
-          &gt;Password
-          &lt;input
-            id="passwd"
-            type="password"
-            v-model="user.passwd"
-            name="passwd"
-            class="form-control"
-            :class="{ 'is-invalid': submitted &amp;&amp; passwd }"
-          /&gt;
-        &lt;/label&gt;
-        &lt;div v-if="submitted &amp;&amp; !passwd" class="invalid-feedback"&gt;password is required&lt;/div&gt;
+&nbsp;
+      &lt;div v-if="userData.rol === 'Tenant'"&gt;
+        &lt;div v-for="(apartment, index) of userData.current_apartment" :key="index"&gt;
+          &lt;router-link :to="`/details-home/${apartment._id}`"&gt;
+            &lt;HomeCard :apartment="apartment" /&gt;
+          &lt;/router-link&gt;
+        &lt;/div&gt;
       &lt;/div&gt;
-      &lt;div class="form-group"&gt;
-        &lt;button class="btn btn-primary"&gt;Login&lt;/button&gt;
-      &lt;/div&gt;
-    &lt;/form&gt;
-  &lt;/div&gt;
+    &lt;/div&gt;
+&nbsp;
+    &lt;p&gt;
+      &lt;router-link v-if="userData" to="/login"&gt;&lt;button&gt;Logout&lt;/button&gt;&lt;/router-link&gt;
+    &lt;/p&gt;
+  &lt;/main&gt;
 &lt;/template&gt;
 &nbsp;
 &lt;script lang="ts"&gt;
-import { mapState, mapActions } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 import { defineComponent } from 'vue';
+import HomeCard from './HomeCard.vue';
+import UserDetail from '../user/UserDetail.vue';
+import MyApartmentsActions from './MyApartmentsActions.vue';
 &nbsp;
 export default defineComponent({
-  name: 'LoginPage',
   data() {
     return {
-      user: {
-        email: '',
-        passwd: '',
-      },
-      submitted: false,
+      name: '',
+      email: '',
+      phone: '',
+      surname: '',
+      apartments_owner: [{}],
     };
   },
+  components: { HomeCard, UserDetail, MyApartmentsActions },
   computed: {
-    ...mapState('account', ['status']),
+    ...mapGetters('account', ['userData']),
   },
-  created() {
-    // reset login status
-    this.logout();
+&nbsp;
+  mounted() {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (localStorage.getItem('token')) {
+      const tokenUser = <span class="cstat-no" title="statement not covered" >localStorage.</span>getItem('token');
+<span class="cstat-no" title="statement not covered" >      this.l</span>oginWithToken(tokenUser);
+    }
   },
+&nbsp;
   methods: {
-    ...mapActions('account', ['login', 'logout']),
-    handleSubmit() {
-      this.submitted = true;
-      this.login(this.user);
-    },
+    ...mapActions('account', ['loginWithToken']),
   },
 });
 &lt;/script&gt;
