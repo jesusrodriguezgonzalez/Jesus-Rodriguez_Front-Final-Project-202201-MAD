@@ -58,6 +58,13 @@
         </label>
       </div>
       <div class="form-group">
+        <label for="Imagen"
+          >Imagen
+          <input type="file" accept="image/*" name="image" @change="handleImageChange" />
+        </label>
+      </div>
+      <div class="form-check">
+        Tipo de usuario <br />
         <label for="jack"
           >Propietario
           <input name="rol" type="radio" id="Owner" value="Owner" v-model="user.rol" />
@@ -69,17 +76,23 @@
       </div>
 
       <div class="form-group">
-        <button class="btn btn-primary">Register</button>
-        <router-link to="/login" class="btn btn-link">Cancel</router-link>
+        <button class="btn btn-info">Register</button>
+        <router-link to="/" class="btn btn-link">Cancel</router-link>
       </div>
     </form>
   </div>
 </template>
 
 <script lang="ts">
-import { mapState, mapActions } from 'vuex';
+/* eslint-disable prefer-destructuring */
 
-export default {
+import { mapState, mapActions } from 'vuex';
+import { defineComponent } from 'vue';
+import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
+import { v4 as uuid } from 'uuid';
+import { storage } from '@/firebase';
+
+export default defineComponent({
   name: 'RegisterPage',
   data() {
     return {
@@ -92,7 +105,10 @@ export default {
         direction: '',
         phone: '',
         city: '',
+        image: '',
       },
+      fileToUpload: { name: '' },
+
       submitted: false,
     };
   },
@@ -103,8 +119,18 @@ export default {
     ...mapActions('account', ['registerUser']),
     handleSubmit() {
       this.submitted = true;
-      this.registerUser(this.user);
+
+      const newRef = ref(storage, uuid() + this.fileToUpload.name);
+      uploadBytes(newRef, this.fileToUpload as any).then(() => {
+        getDownloadURL(newRef).then((url: string) => {
+          this.user.image = url;
+          this.registerUser(this.user);
+        });
+      });
+    },
+    handleImageChange(e: any) {
+      this.fileToUpload = e.target.files[0];
     },
   },
-};
+});
 </script>

@@ -1,34 +1,42 @@
 <template>
-  <div>
-    <h1>Viviendas</h1>
-  </div>
   <main>
     <div class="container-details">
       <ul v-if="this.userData">
-        <li>direction: Direcion</li>
-        <li>cp: CP</li>
-        <li>province: Provincia/li></li>
-        <li>incidents: Incidencia</li>
-        <li>status: Status</li>
+        <img class="img-profile" v-bind:src="userData.image" :alt="userData.name" />
+        <li>Nombre: {{ userData.name }}</li>
+        <li>Apellido: {{ userData.surname }}</li>
+        <li>Province: {{ userData.city }}</li>
       </ul>
     </div>
   </main>
-  <p>
-    <router-link to="/">Inicio</router-link>
-  </p>
 </template>
 
 <script lang="ts">
-export default {
+import { defineComponent } from 'vue';
+
+export default defineComponent({
   name: 'UserDetail',
   data() {
     return {
-      direction: '',
-      cp: '',
+      name: '',
+      surname: '',
       province: '',
-      incidents: [],
-      status: '',
+      image: '',
     };
   },
-};
+
+  props: {
+    userData: {
+      type: Object,
+    },
+  },
+});
 </script>
+
+<style lang="scss">
+.img-profile {
+  border-radius: 15px;
+  width: 70px;
+  height: 70px;
+}
+</style>

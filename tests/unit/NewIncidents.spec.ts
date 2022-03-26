@@ -5,8 +5,23 @@ import NewIncidents from '../../src/components/incidents/NewIncidents.vue';
 
 export const store = new Vuex.Store({
   modules: {
-    incidents: {
+    apartments: {
       state: {},
+      actions: {
+        registerIncident: jest.fn(),
+      },
+    },
+    account: {
+      state: {},
+      actions: {
+        registerIncident: jest.fn(),
+      },
+    },
+
+    incidents: {
+      state: {
+        status: {},
+      },
       actions: {
         registerIncident: jest.fn(),
       },

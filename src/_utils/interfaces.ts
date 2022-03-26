@@ -31,6 +31,8 @@ export interface StateI {
   status?: any;
   message?: any;
   type?: any;
+  apartments?: any;
+  incidents?: any;
 }
 
 export interface ApartmentI {

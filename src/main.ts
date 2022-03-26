@@ -1,5 +1,5 @@
 import Vue, { createApp } from 'vue';
-import VeeValidate from 'vee-validate';
+
 import App from './App.vue';
 import './registerServiceWorker';
 import router from './router';

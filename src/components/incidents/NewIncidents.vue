@@ -60,19 +60,22 @@
           </select>
         </label>
       </div>
-
       <div class="form-group">
-        <button class="btn btn-primary">Register</button>
-        <router-link to="/login" class="btn btn-link">Cancel</router-link>
+        <button class="btn btn-info">Register</button>
+        <router-link :to="`/details-home/${apartmentDetails._id}`" class="btn btn-link"
+          >Cancel</router-link
+        >
       </div>
     </form>
   </div>
 </template>
 
 <script lang="ts">
-import { mapState, mapActions } from 'vuex';
+import { mapState, mapActions, mapGetters } from 'vuex';
+import { defineComponent } from 'vue';
+import { useRoute } from 'vue-router';
 
-export default {
+export default defineComponent({
   name: 'NewIncidents',
   data() {
     return {
@@ -82,7 +85,8 @@ export default {
         description: '',
         priority: 'Medium',
         state: 'Open',
-        id_apartment: '623050d6664f29990e9b6d85',
+        id_apartment: '0',
+        id_user: '0',
       },
       submitted: false,
 
@@ -107,7 +111,10 @@ export default {
   },
   computed: {
     ...mapState('incidents', ['status']),
+    ...mapGetters('account', ['userData']),
+    ...mapGetters('apartments', ['apartmentDetails']),
   },
+
   methods: {
     ...mapActions('incidents', ['registerIncident']),
     handleSubmit() {
@@ -115,5 +122,13 @@ export default {
       this.registerIncident(this.incident);
     },
   },
-};
+
+  mounted() {
+    const route = useRoute();
+    const { id } = route.params;
+    this.incident.id_apartment = id as string;
+    // eslint-disable-next-line no-underscore-dangle
+    this.incident.id_user = this.userData._id;
+  },
+});
 </script>

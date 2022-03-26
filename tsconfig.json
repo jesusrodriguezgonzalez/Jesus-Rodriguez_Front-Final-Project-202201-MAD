@@ -24,7 +24,8 @@
     "src/**/*.vue",
     "tests/**/*.ts",
     "tests/**/*.tsx",
-    "src/_services/apartment.service.ts"
+    "src/_services/apartment.service.ts",
+    "tests/unit/RegisterPage.spec.jeje"
   ],
   "exclude": ["node_modules"]
 }

@@ -6,7 +6,8 @@
   "extends": [
     "plugin:vue/vue3-essential",
     "@vue/airbnb",
-    "@vue/typescript/recommended"
+    "@vue/typescript/recommended",
+    "prettier"
   ],
   "parserOptions": {
     "ecmaVersion": 2020
@@ -19,7 +20,9 @@
     "comma-dangle": "off",
     "@typescript-eslint/camelcase": "off",
     "camelcase": "off",
-    "max-len": "off"
+    "max-len": "off",
+    "implicit-arrow-linebreak": "off",
+    "function-paren-newline": "off"
   },
   "overrides": [
     {

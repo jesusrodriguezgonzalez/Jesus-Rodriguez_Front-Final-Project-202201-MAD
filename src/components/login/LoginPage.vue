@@ -1,4 +1,4 @@
-<template>
+<template class="login">
   <div>
     <h2>Login</h2>
     <form @submit.prevent="handleSubmit">
@@ -28,14 +28,9 @@
           />
         </label>
         <div v-if="submitted && !passwd" class="invalid-feedback">password is required</div>
-
-        <!-- <div v-if="submitted && errors.has('passwd')" class="invalid-feedback">
-          {{ errors.first('passwd') }}
-        </div> -->
       </div>
       <div class="form-group">
-        <button class="btn btn-primary">Login</button>
-        <router-link to="/register" class="btn btn-link">Register</router-link>
+        <button class="btn btn-info">Login</button>
       </div>
     </form>
   </div>
@@ -43,8 +38,9 @@
 
 <script lang="ts">
 import { mapState, mapActions } from 'vuex';
+import { defineComponent } from 'vue';
 
-export default {
+export default defineComponent({
   name: 'LoginPage',
   data() {
     return {
@@ -64,10 +60,17 @@ export default {
   },
   methods: {
     ...mapActions('account', ['login', 'logout']),
-    handleSubmit(e) {
+    handleSubmit() {
       this.submitted = true;
       this.login(this.user);
     },
   },
-};
+});
 </script>
+
+<style lang="scss">
+body {
+  margin: 0;
+  padding: 0;
+}
+</style>

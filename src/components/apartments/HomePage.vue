@@ -1,36 +1,44 @@
 <template>
-  <div>
-    <h1>Detalles del usuario</h1>
-  </div>
   <main>
-    <h4 v-if="this.userData">Bienvenido, {{ this.userData.name }}</h4>
-    <!-- <ul v-if="this.userData">
-      <li>Nombre: {{ this.userData.name }}</li>
-      <li>Apellido: {{ this.userData.surname }}</li>
-      <li>Email: {{ this.userData.email }}</li>
-      <li>Telefono: {{ this.userData.phone }}</li>
-      <li>Edad: {{ this.userData.age }}</li>
-      <li>Propiedades: {{ this.userData.apartments_owner }}</li>
-    </ul> -->
     <div v-if="userData">
-      <div v-for="(apartment, index) of userData.apartments_owner" :key="index">
-        <HomeCard :apartment="apartment" />
+      <UserDetail :userData="userData" />
+      <MyApartmentsActions />
+    </div>
+
+    <div v-if="userData">
+      <div v-if="userData.rol === 'Owner'">
+        <div v-for="(apartment, index) of userData.apartments_owner" :key="index">
+          <router-link :to="`/details-home/${apartment._id}`">
+            <HomeCard :apartment="apartment" />
+          </router-link>
+        </div>
+      </div>
+
+      <div v-if="userData.rol === 'Tenant'">
+        <div v-for="(apartment, index) of userData.current_apartment" :key="index">
+          <router-link :to="`/details-home/${apartment._id}`">
+            <HomeCard :apartment="apartment" />
+          </router-link>
+        </div>
       </div>
     </div>
+
     <p>
-      <router-link to="/">Inicio</router-link>
+      <router-link v-if="userData" to="/login"
+        ><button class="btn btn-info">Logout</button></router-link
+      >
     </p>
   </main>
-  <p>
-    <router-link to="/login">Logout</router-link>
-  </p>
 </template>
 
 <script lang="ts">
 import { mapActions, mapGetters } from 'vuex';
+import { defineComponent } from 'vue';
 import HomeCard from './HomeCard.vue';
+import UserDetail from '../user/UserDetail.vue';
+import MyApartmentsActions from './MyApartmentsActions.vue';
 
-export default {
+export default defineComponent({
   data() {
     return {
       name: '',
@@ -40,15 +48,14 @@ export default {
       apartments_owner: [{}],
     };
   },
-  components: { HomeCard },
+  components: { HomeCard, UserDetail, MyApartmentsActions },
   computed: {
     ...mapGetters('account', ['userData']),
   },
 
   mounted() {
     if (localStorage.getItem('token')) {
-      let tokenUser = localStorage.getItem('token');
-      tokenUser = JSON.parse(tokenUser);
+      const tokenUser = localStorage.getItem('token');
       this.loginWithToken(tokenUser);
     }
   },
@@ -56,5 +63,5 @@ export default {
   methods: {
     ...mapActions('account', ['loginWithToken']),
   },
-};
+});
 </script>
