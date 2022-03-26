@@ -8,7 +8,9 @@
         <li>Provincia: {{ apartment.province }}</li>
         <li>Incidencias: {{ apartment.incidents.length }}</li>
         <li>Estado: {{ apartment.status }}</li>
-        <li>Inquilino: {{ apartment.current_tenant }}</li>
+        <li v-if="userData.rol === 'Tenant'">
+          Propietario: {{ apartment.owner[0].name }} {{ apartment.owner[0].surname }}
+        </li>
         <li>ID: {{ apartment._id }}</li>
       </ul>
     </div>
@@ -17,6 +19,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import { mapActions, mapGetters } from 'vuex';
 
 export default defineComponent({
   name: 'HomeCard',
@@ -34,8 +37,12 @@ export default defineComponent({
       type: Object,
     },
   },
+  computed: {
+    ...mapGetters('account', ['userData']),
+  },
 });
 </script>
+
 <style lang="scss">
 .card-apartment {
   width: 350px;

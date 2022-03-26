@@ -61,22 +61,6 @@ const actions = {
       }
     );
   },
-
-  getUserById({ dispatch, commit }: { dispatch: any; commit: any }, id: string) {
-    console.log(id, 'pepe');
-    commit('registerRequest', id);
-    apiUser.getUserById(id).then(
-      (dataOwner) => {
-        console.log(dataOwner);
-        commit('loadOwner', dataOwner);
-        dispatch('alert/success', 'Carga realiza', { root: true });
-      },
-      (error) => {
-        commit('registerFailure', error);
-        dispatch('alert/error', error, { root: true });
-      }
-    );
-  },
 };
 
 const mutations = {
@@ -100,19 +84,11 @@ const mutations = {
   updateUser(state: any, user: any) {
     state.user = user;
   },
-  loadOwner(state: any, userOwner: any) {
-    console.log(userOwner);
-    state.owner = userOwner.data;
-  },
 };
 
 const getters = {
   userData(state: any) {
     return state.user;
-  },
-  ownerData(state: any) {
-    console.log(state.owner);
-    return state.owner;
   },
 };
 
