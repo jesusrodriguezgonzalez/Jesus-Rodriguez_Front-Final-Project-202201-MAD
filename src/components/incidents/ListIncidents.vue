@@ -19,7 +19,12 @@
             <router-link :to="`/edit-incident/${incident._id}`">
               <button>✏</button>
             </router-link>
-            <button v-on:click="removeIncident(incident._id)">❌</button>
+            <button
+              v-if="incident.id_user[0] === userData._id"
+              v-on:click="removeIncident(incident._id)"
+            >
+              ❌
+            </button>
           </td>
         </tr>
       </tbody>
@@ -74,6 +79,7 @@ export default defineComponent({
   computed: {
     ...mapGetters('incidents', ['incidentsData']),
     ...mapGetters('apartments', ['apartmentDetails']),
+    ...mapGetters('account', ['userData']),
   },
   mounted() {
     const route = useRoute();

@@ -39,3 +39,11 @@ export function updateUser(user: any) {
     },
   });
 }
+
+export function getUserById(id: string) {
+  return axios.get(URL_USER + id, {
+    headers: {
+      Authorization: `Bearer ${getToken()}`,
+    },
+  });
+}

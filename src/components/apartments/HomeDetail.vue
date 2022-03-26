@@ -59,11 +59,11 @@ export default defineComponent({
 
   computed: {
     ...mapGetters('apartments', ['apartmentDetails']),
-    ...mapGetters('account', ['userData']),
+    ...mapGetters('account', ['userData', 'ownerData']),
   },
   methods: {
     ...mapActions('apartments', ['getApartment', 'deleteApartment']),
-    ...mapActions('account', ['loginWithToken']),
+    ...mapActions('account', ['loginWithToken', 'getUserById']),
     removeApartment(id: string) {
       this.deleteApartment(id);
     },
