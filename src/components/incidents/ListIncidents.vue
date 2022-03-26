@@ -11,7 +11,7 @@
       </li>
     </div>
   </div>
-  <router-link :to="`/details-home/${apartmentDetails._id}`"
+  <router-link v-if="this.apartmentDetails" :to="`/details-home/${apartmentDetails._id}`"
     ><button class="btn btn-primary">Volver</button></router-link
   >
 </template>
