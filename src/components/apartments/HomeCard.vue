@@ -7,15 +7,14 @@
         <li>Codigo Postal: {{ apartment.cp }}</li>
         <li>Provincia: {{ apartment.province }}</li>
         <li>Incidencias: {{ apartment.incidents?.length }}</li>
-        <!-- <li>Estado: {{ apartment?.status }}</li> -->
-        <li v-if="userData.rol === 'Tenant'">
-          Propietario: {{ apartment.owner[0]?.name }} {{ apartment.owner[0]?.surname }}
-        </li>
-        <li v-if="userData.rol === 'Owner'">
-          Inquilino: {{ apartment.current_tenant[0]?.name }}
-          {{ apartment.current_tenant[0]?.surname }}
-        </li>
-
+        <li>Estado: {{ apartment?.status }}</li>
+        <!-- <li v-if="userData.rol === 'Tenant'">
+            Propietario: {{ apartment.owner[0]?.name }} {{ apartment.owner[0]?.surname }}
+          </li>
+          <li v-if="userData.rol === 'Owner'">
+            Inquilino: {{ apartment.current_tenant[0]?.name }}
+            {{ apartment.current_tenant[0]?.surname }}
+          </li> -->
         <li>ID: {{ apartment._id }}</li>
       </ul>
     </div>

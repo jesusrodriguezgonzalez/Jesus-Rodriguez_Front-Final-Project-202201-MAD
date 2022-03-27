@@ -85,7 +85,7 @@ export default defineComponent({
       },
 
       submitted: false,
-      fileToUpload: { name: '' },
+      fileToUpload: { name: 'SinFoto' },
     };
   },
   computed: {
@@ -112,10 +112,13 @@ export default defineComponent({
     handleSubmit() {
       this.submitted = true;
       const newRef = ref(storage, uuid() + this.fileToUpload.name);
-      console.log(newRef);
       uploadBytes(newRef, this.fileToUpload as any).then(() => {
         getDownloadURL(newRef).then((url: string) => {
-          this.user.image = url;
+          if (this.fileToUpload.name === 'SinFoto') {
+            this.user.image = this.userData.image;
+          } else {
+            this.user.image = url;
+          }
 
           this.updateUser(this.user);
         });
