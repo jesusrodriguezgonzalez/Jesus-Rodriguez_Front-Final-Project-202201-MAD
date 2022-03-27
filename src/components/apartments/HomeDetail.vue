@@ -1,4 +1,7 @@
 <template>
+  <div v-if="userData">
+    <UserDetail :userData="userData" />
+  </div>
   <div v-if="this.apartmentDetails">
     <h1>Vivienda {{ apartmentDetails.alias }}</h1>
   </div>
@@ -25,7 +28,7 @@
   </main>
 
   <template v-if="this.apartmentDetails && this.userData">
-    <router-link to="/"><button class="btn btn-info">Volver</button></router-link>
+    <router-link to="/home"><button class="btn btn-info">Volver</button></router-link>
     <router-link :to="`/new-incident/${apartmentDetails._id}`">
       <button class="btn btn-info">Nueva Incidencia</button>
     </router-link>
@@ -49,9 +52,11 @@
 import { useRoute } from 'vue-router';
 import { mapActions, mapGetters } from 'vuex';
 import { defineComponent } from 'vue';
+import UserDetail from '../user/UserDetail.vue';
 
 export default defineComponent({
   name: 'HomeDetail',
+  components: { UserDetail },
   data() {
     return {
       direction: '',

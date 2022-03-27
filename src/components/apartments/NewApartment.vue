@@ -1,5 +1,8 @@
 <template>
   <div>
+    <div v-if="userData">
+      <UserDetail :userData="userData" />
+    </div>
     <h2>Nueva vivienda</h2>
     <form @submit.prevent="handleSubmit">
       <div class="form-group">
@@ -38,7 +41,7 @@
       <div class="form-group">
         <button class="btn btn-info">Register</button>
 
-        <router-link to="/" class="btn btn-link">Cancel</router-link>
+        <router-link to="/home" class="btn btn-link">Cancel</router-link>
       </div>
     </form>
   </div>
@@ -52,9 +55,11 @@ import { defineComponent } from 'vue';
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
 import { v4 as uuid } from 'uuid';
 import { storage } from '@/firebase';
+import UserDetail from '../user/UserDetail.vue';
 
 export default defineComponent({
   name: 'NewApartment',
+  components: { UserDetail },
   data() {
     return {
       apartment: {

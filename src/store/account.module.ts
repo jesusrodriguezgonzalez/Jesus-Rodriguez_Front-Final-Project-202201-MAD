@@ -9,7 +9,7 @@ const actions = {
       (userData) => {
         localStorage.setItem('token', userData.data.token);
         commit('loginSuccess', userData.data);
-        router.push('/');
+        router.push('/home');
       },
       (error) => {
         commit('loginFailure', error);
@@ -34,6 +34,7 @@ const actions = {
   },
   logout({ commit }: { commit: any }) {
     apiUser.logout();
+    router.push('/');
     commit('logout');
   },
 

@@ -9,7 +9,7 @@ const actions = {
     apiApartment.newApartment(apartment).then(
       (apartmentData) => {
         commit('registerSuccessApartment', apartmentData);
-        router.push('/');
+        router.push('/home');
         setTimeout(() => {
           // display success message after route change completes
           dispatch('alert/success', 'Registro correcto', { root: true });
@@ -39,7 +39,7 @@ const actions = {
     apiApartment.deleteApartment(id).then(
       (apartmentData) => {
         commit('deleteApartment', apartmentData);
-        router.push('/');
+        router.push('/home');
         dispatch('alert/success', 'Registro correcto', { root: true });
       },
       (error) => {
@@ -53,7 +53,7 @@ const actions = {
     apiApartment.updateApartment(payload).then(
       (apartmentData) => {
         commit('deleteApartment', apartmentData);
-        router.push('/');
+        router.push('/home');
         dispatch('alert/success', 'Registro correcto', { root: true });
       },
       (error) => {

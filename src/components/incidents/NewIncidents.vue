@@ -1,5 +1,8 @@
 <template>
   <div>
+    <div v-if="userData">
+      <UserDetail :userData="userData" />
+    </div>
     <h2>Nueva incidencia</h2>
     <form @submit.prevent="handleSubmit">
       <div class="form-group">
@@ -74,9 +77,11 @@
 import { mapState, mapActions, mapGetters } from 'vuex';
 import { defineComponent } from 'vue';
 import { useRoute } from 'vue-router';
+import UserDetail from '../user/UserDetail.vue';
 
 export default defineComponent({
   name: 'NewIncidents',
+  components: { UserDetail },
   data() {
     return {
       incident: {

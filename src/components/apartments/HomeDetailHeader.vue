@@ -1,4 +1,7 @@
 <template>
+  <div v-if="userData">
+    <UserDetail :userData="userData" />
+  </div>
   <div>
     <h1>Viviendas</h1>
   </div>
@@ -18,9 +21,11 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import UserDetail from '../user/UserDetail.vue';
 
 export default defineComponent({
   name: 'HomeDetailHeader',
+  components: { UserDetail },
   data() {
     return {
       direction: '',
