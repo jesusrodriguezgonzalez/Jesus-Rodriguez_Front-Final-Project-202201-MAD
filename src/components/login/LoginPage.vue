@@ -13,7 +13,9 @@
             :class="{ 'is-invalid': submitted && email }"
           />
         </label>
-        <div v-if="submitted && !email" class="invalid-feedback">email is required</div>
+        <div v-show="submitted && !user.email" class="invalid-feedback">
+          Es necesario que introduzca un email
+        </div>
       </div>
       <div class="form-group">
         <label for="passwd"
@@ -27,7 +29,9 @@
             :class="{ 'is-invalid': submitted && passwd }"
           />
         </label>
-        <div v-if="submitted && !passwd" class="invalid-feedback">password is required</div>
+        <div v-show="submitted && !user.passwd" class="invalid-feedback">
+          Es necesario que introduzca contraseña.
+        </div>
       </div>
       <div class="form-group">
         <button class="btn btn-info">Login</button>

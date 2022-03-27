@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { ApartmentI } from '../_utils/interfaces';
+import { ApartmentI, PayloadUpdateI } from '../_utils/interfaces';
 import { getToken } from '../_utils/helper';
 
 const APARTMENTS_URL = 'http://localhost:5000/apartments/';
@@ -32,7 +32,7 @@ export function deleteApartment(id: string) {
   });
 }
 
-export function updateApartment(apartment: any) {
+export function updateApartment(apartment: PayloadUpdateI) {
   const { idApartment } = apartment;
   return axios.patch(APARTMENTS_URL + idApartment, apartment, {
     headers: {

@@ -12,14 +12,14 @@
         <li>Estado: {{ apartmentDetails.status }}</li>
         <li>ID: {{ apartmentDetails._id }}</li>
         <li>INCIDENCIAS: {{ apartmentDetails.incidents?.length }}</li>
-        <li v-if="userData.rol === 'Tenant'">
+        <!-- <li v-if="userData.rol === 'Tenant'">
           Propietario: {{ apartmentDetails.owner[0]?.name }}
           {{ apartmentDetails.owner[0]?.surname }}
         </li>
         <li v-if="userData.rol === 'Owner'">
           Inquilino: {{ apartmentDetails.current_tenant[0]?.name }}
           {{ apartmentDetails.current_tenant[0]?.surname }}
-        </li>
+        </li> -->
       </ul>
     </div>
   </main>
@@ -66,7 +66,7 @@ export default defineComponent({
 
   computed: {
     ...mapGetters('apartments', ['apartmentDetails']),
-    ...mapGetters('account', ['userData', 'ownerData']),
+    ...mapGetters('account', ['userData']),
   },
   methods: {
     ...mapActions('apartments', ['getApartment', 'deleteApartment']),

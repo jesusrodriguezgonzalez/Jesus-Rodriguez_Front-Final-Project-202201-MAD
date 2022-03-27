@@ -50,6 +50,7 @@ export default defineComponent({
   data() {
     return {
       apartment: {
+        alias: '',
         cp: '',
         province: '',
         direction: '',
@@ -73,6 +74,7 @@ export default defineComponent({
     this.apartment.province = this.apartmentDetails.province;
     this.apartment.cp = this.apartmentDetails.cp;
     this.apartment.direction = this.apartmentDetails.direction;
+    this.apartment.alias = this.apartmentDetails.alias;
 
     // eslint-disable-next-line no-underscore-dangle
     this.apartment.owner = this.userData._id;

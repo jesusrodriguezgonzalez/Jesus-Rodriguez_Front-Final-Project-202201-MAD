@@ -1,6 +1,6 @@
 import * as apiApartment from '../_services/apartment.service';
 import router from '../router/index';
-import { ApartmentI, StateI } from '../_utils/interfaces';
+import { ApartmentI, StateI, PayloadUpdateI, StateApartmentsI } from '../_utils/interfaces';
 
 const actions = {
   registerApartment({ dispatch, commit }: { dispatch: any; commit: any }, apartment: ApartmentI) {
@@ -48,7 +48,7 @@ const actions = {
       }
     );
   },
-  updateApartment({ dispatch, commit }: { dispatch: any; commit: any }, payload: any) {
+  updateApartment({ dispatch, commit }: { dispatch: any; commit: any }, payload: PayloadUpdateI) {
     commit('registerRequest', payload);
     apiApartment.updateApartment(payload).then(
       (apartmentData) => {
@@ -77,16 +77,16 @@ const mutations = {
   loadApartment(state: StateI, apartment: any) {
     state.apartments = apartment.data;
   },
-  deleteApartment(state: StateI, apartment: any) {
+  deleteApartment(state: StateI, id: string) {
     state.apartments = [];
   },
-  updateApartment(state: StateI, apartment: any) {
-    state.apartments = [];
+  updateApartment(state: StateI, apartment: PayloadUpdateI) {
+    state.apartments = apartment;
   },
 };
 
 const getters = {
-  apartmentDetails(state: any) {
+  apartmentDetails(state: StateApartmentsI) {
     return state.apartments;
   },
 };

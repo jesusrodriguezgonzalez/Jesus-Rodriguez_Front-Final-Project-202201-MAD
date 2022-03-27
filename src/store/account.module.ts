@@ -1,6 +1,6 @@
 import * as apiUser from '../_services';
 import router from '../router/index';
-import { UserI, UserLoginI, UserDataI } from '../_utils/interfaces';
+import { UserDataI, UserLoginI, UserRegisterI } from '../_utils/interfaces';
 
 const actions = {
   login({ dispatch, commit }: { dispatch: any; commit: any }, user: UserLoginI) {
@@ -17,11 +17,11 @@ const actions = {
       }
     );
   },
-  registerUser({ dispatch, commit }: { dispatch: any; commit: any }, user: any) {
+  registerUser({ dispatch, commit }: { dispatch: any; commit: any }, user: UserRegisterI) {
     commit('registerRequest', user);
 
     apiUser.register(user).then(
-      (userData: any) => {
+      (userData) => {
         commit('registerSuccess', userData);
         router.push('/login');
         dispatch('alert/success', 'Registration successful', { root: true });
@@ -47,7 +47,7 @@ const actions = {
       }
     );
   },
-  updateUser({ dispatch, commit }: { dispatch: any; commit: any }, payload: any) {
+  updateUser({ dispatch, commit }: { dispatch: any; commit: any }, payload: UserDataI) {
     commit('registerRequest', payload);
     apiUser.updateUser(payload).then(
       (userData) => {

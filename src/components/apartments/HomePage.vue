@@ -21,19 +21,21 @@
           </router-link>
         </div>
       </div>
-    </div>
+      <p>
+        <router-link v-if="userData" to="/login"
+          ><button class="btn btn-info">Logout</button></router-link
+        >
+      </p>
 
-    <p>
-      <router-link v-if="userData" to="/login"
-        ><button class="btn btn-info">Logout</button></router-link
-      >
-    </p>
+      <template> </template>
+    </div>
   </main>
 </template>
 
 <script lang="ts">
 import { mapActions, mapGetters } from 'vuex';
 import { defineComponent } from 'vue';
+import VueSweetalert2 from 'vue-sweetalert2';
 import HomeCard from './HomeCard.vue';
 import UserDetail from '../user/UserDetail.vue';
 import MyApartmentsActions from './MyApartmentsActions.vue';

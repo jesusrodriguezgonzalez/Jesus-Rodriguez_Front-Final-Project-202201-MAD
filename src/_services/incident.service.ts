@@ -28,7 +28,7 @@ export function deleteIncident(id: string) {
   });
 }
 
-export function updateIncident(incident: any) {
+export function updateIncident(incident: IncidentI) {
   const { idIncident } = incident;
   return axios.patch(INCIDENTS_URL + idIncident, incident, {
     headers: {
