@@ -64,8 +64,8 @@
         </label>
       </div>
       <div class="form-group">
-        <button class="btn btn-primary">Editar</button>
-        <router-link to="/" class="btn btn-link">Cancel</router-link>
+        <button class="btn btn-success">Editar</button>
+        <router-link to="/home" class="btn btn-link">Cancel</router-link>
       </div>
     </form>
   </div>

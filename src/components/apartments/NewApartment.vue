@@ -40,7 +40,7 @@
 
       <div class="form-group">
         <!-- <button class="btn btn-info">Register</button> -->
-        <button class="btn-create">Register</button>
+        <button class="btn btn-success">Register</button>
 
         <router-link to="/home" class="btn btn-link">Cancel</router-link>
       </div>
@@ -72,7 +72,7 @@ export default defineComponent({
         owner: '0',
       },
       submitted: false,
-      fileToUpload: { name: '' },
+      fileToUpload: { name: 'SinFoto' },
     };
   },
   computed: {
@@ -93,7 +93,7 @@ export default defineComponent({
       const newRef = ref(storage, uuid() + this.fileToUpload.name);
       uploadBytes(newRef, this.fileToUpload as any).then(() => {
         getDownloadURL(newRef).then((url: string) => {
-          if (typeof this.fileToUpload === 'object') {
+          if (this.fileToUpload.name === 'SinFoto') {
             this.apartment.photos =
               'https://us.123rf.com/450wm/infinityyy/infinityyy1911/infinityyy191100073/133539567-icono-de-casa-vector-s%C3%ADmbolo-de-logotipo-plano-simple.jpg?ver=6';
           } else {
