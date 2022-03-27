@@ -53,7 +53,7 @@ const actions = {
     apiUser.updateUser(payload).then(
       (userData) => {
         commit('updateUser', userData);
-        router.push('/');
+        router.push('/home');
         dispatch('alert/success', 'Usuario modificado', { root: true });
       },
       (error) => {

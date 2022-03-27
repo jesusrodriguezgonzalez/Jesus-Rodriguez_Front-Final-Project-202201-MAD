@@ -1,4 +1,7 @@
 <template>
+  <div v-if="userData">
+    <UserDetail :userData="userData" />
+  </div>
   <h2>Lista de incidencias</h2>
   <div class="table-responsive-sm">
     <table class="table">
@@ -57,9 +60,11 @@
 import { defineComponent } from 'vue';
 import { useRoute } from 'vue-router';
 import { mapActions, mapGetters } from 'vuex';
+import UserDetail from '../user/UserDetail.vue';
 
 export default defineComponent({
   name: 'ListIncidents',
+  components: { UserDetail },
   data() {
     return {
       title: '',

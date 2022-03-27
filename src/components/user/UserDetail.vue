@@ -2,11 +2,16 @@
   <div class="container-details">
     <ul v-if="this.userData">
       <img class="img-profile" v-bind:src="userData.image" :alt="userData.name" />
-      <li>Nombre: {{ userData.name }}</li>
-      <li>Apellido: {{ userData.surname }}</li>
-      <li>Province: {{ userData.city }}</li>
+      <li>{{ userData.name }} {{ userData.surname }}</li>
+      <li>{{ userData.email }}</li>
+      <li>ID: {{ userData._id }}</li>
     </ul>
-    <button @click="actionLogout">Loogout</button>
+    <div class="container-buttons">
+      <button class="btn btn-outline-info">
+        <router-link to="/edit-userDetails/">Editar perfil</router-link>
+      </button>
+      <button class="btn btn-outline-info" @click="actionLogout">Loogout</button>
+    </div>
   </div>
 </template>
 
@@ -44,5 +49,9 @@ export default defineComponent({
   border-radius: 15px;
   width: 70px;
   height: 70px;
+}
+
+.container-buttons {
+  margin-bottom: 15px;
 }
 </style>
