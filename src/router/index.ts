@@ -12,7 +12,8 @@ import EditUser from '../components/user/EditUser.vue';
 import NotFound from '../components/other/NotFound.vue';
 
 const routes: Array<RouteRecordRaw> = [
-  { path: '/login', name: 'LoginPage', component: LoginPage },
+  { path: '/', name: 'LoginPage', component: LoginPage },
+  { path: '/login', name: 'LoginPage2', component: LoginPage },
   { path: '/register', name: 'RegisterPage', component: RegisterPage },
   { path: '/new-apartment', name: 'NewApartment', component: NewApartment },
   { path: '/new-incident/:id', name: 'NewIncidents', component: NewIncidents },
@@ -22,7 +23,7 @@ const routes: Array<RouteRecordRaw> = [
   { path: '/edit-incident/:id', name: 'EditIncident', component: EditIncident },
   { path: '/edit-userDetails/', name: 'EditUser', component: EditUser },
   { path: '/:pathMarch(.*)', name: 'NotFound', component: NotFound },
-  { path: '/', component: HomePage },
+  { path: '/home', component: HomePage },
 ];
 
 const router = createRouter({

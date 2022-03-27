@@ -1,9 +1,8 @@
 <template>
-  <nav>
+  <!-- <nav>
     <router-link to="/">Home |</router-link>
-    <router-link to="/login">Login |</router-link>
-    <router-link to="/register"> Register |</router-link>
-  </nav>
+    <router-link to="/register"> Register</router-link>
+  </nav> -->
   <router-view />
 </template>
 
@@ -28,10 +27,10 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
 #app {
-  @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
   font-family: 'Rubik', sans-serif;
-  // font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -40,7 +39,9 @@ export default defineComponent({
     width: 100px;
     height: 100px;
   }
-  background-color: #f8fbff;
+  width: 100vw;
+  height: 100vh;
+
   li {
     list-style-type: none;
   }

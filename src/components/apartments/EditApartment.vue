@@ -1,4 +1,7 @@
 <template>
+  <div v-if="userData">
+    <UserDetail :userData="userData" />
+  </div>
   <div v-if="this.apartment">
     <h2>Editar vivienda</h2>
     <form @submit.prevent="handleSubmit">
@@ -44,9 +47,11 @@
 import { mapGetters, mapActions } from 'vuex';
 import { defineComponent } from 'vue';
 import { useRoute } from 'vue-router';
+import UserDetail from '../user/UserDetail.vue';
 
 export default defineComponent({
   name: 'EditApartment',
+  components: { UserDetail },
   data() {
     return {
       apartment: {
@@ -75,9 +80,11 @@ export default defineComponent({
     this.apartment.cp = this.apartmentDetails.cp;
     this.apartment.direction = this.apartmentDetails.direction;
     this.apartment.alias = this.apartmentDetails.alias;
-
     // eslint-disable-next-line no-underscore-dangle
     this.apartment.owner = this.userData._id;
+    if (!localStorage.getItem('token')) {
+      this.$router.push('/login');
+    }
   },
 
   methods: {

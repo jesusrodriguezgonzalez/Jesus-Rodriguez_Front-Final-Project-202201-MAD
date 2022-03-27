@@ -1,5 +1,8 @@
 <template>
   <div>
+    <div v-if="userData">
+      <UserDetail :userData="userData" />
+    </div>
     <h2>Editar incidencia</h2>
     <form @submit.prevent="handleSubmit" v-if="this.incident">
       <div class="form-group">
@@ -72,9 +75,11 @@
 import { mapActions, mapGetters } from 'vuex';
 import { defineComponent } from 'vue';
 import { useRoute } from 'vue-router';
+import UserDetail from '../user/UserDetail.vue';
 
 export default defineComponent({
   name: 'EditIncident',
+  components: { UserDetail },
   data() {
     return {
       incident: {

@@ -63,7 +63,7 @@
           <input type="file" accept="image/*" name="image" @change="handleImageChange" />
         </label>
       </div>
-      <div class="form-check">
+      <div>
         Tipo de usuario <br />
         <label for="jack"
           >Propietario
