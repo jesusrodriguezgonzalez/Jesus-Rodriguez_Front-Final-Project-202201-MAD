@@ -64,7 +64,7 @@
         </label>
       </div>
       <div class="form-group">
-        <button class="btn btn-info">Register</button>
+        <button class="btn-create">Register</button>
         <router-link :to="`/details-home/${apartmentDetails._id}`" class="btn btn-link"
           >Cancel</router-link
         >

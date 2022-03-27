@@ -1,4 +1,7 @@
 <template>
+  <div v-if="userData">
+    <UserDetail :userData="userData" />
+  </div>
   <div v-if="this.userData">
     <h2>Editar perfil</h2>
     <form @submit.prevent="handleSubmit">
@@ -53,8 +56,8 @@
         </label>
       </div>
       <div class="form-group">
-        <button class="btn btn-info">Editar</button>
-        <router-link to="/" class="btn btn-link">Cancel</router-link>
+        <button class="btn-create">Editar</button>
+        <router-link to="/home" class="btn btn-link">Cancel</router-link>
       </div>
     </form>
   </div>
@@ -67,9 +70,11 @@ import { defineComponent } from 'vue';
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
 import { v4 as uuid } from 'uuid';
 import { storage } from '@/firebase';
+import UserDetail from './UserDetail.vue';
 
 export default defineComponent({
   name: 'EditUser',
+  components: { UserDetail },
   data() {
     return {
       user: {

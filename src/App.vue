@@ -69,4 +69,25 @@ nav {
     }
   }
 }
+
+.btn-create {
+  width: 119px;
+  height: 31px;
+  left: 147px;
+  top: 815px;
+
+  background: #6cc775;
+  border-radius: 50px;
+}
+
+input {
+  width: 357px;
+  height: 46px;
+  left: 32px;
+  top: 667px;
+
+  background: #ffffff;
+  box-shadow: 0px 0px 20px rgba(29, 40, 142, 0.07);
+  border-radius: 10px;
+}
 </style>
