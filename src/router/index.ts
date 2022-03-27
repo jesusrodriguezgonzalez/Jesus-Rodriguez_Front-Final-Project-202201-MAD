@@ -10,6 +10,7 @@ import EditApartment from '../components/apartments/EditApartment.vue';
 import EditIncident from '../components/incidents/EditIncident.vue';
 import EditUser from '../components/user/EditUser.vue';
 import NotFound from '../components/other/NotFound.vue';
+import AddTenant from '../components/apartments/AddTenant.vue';
 
 const routes: Array<RouteRecordRaw> = [
   { path: '/', name: 'LoginPage', component: LoginPage },
@@ -24,6 +25,7 @@ const routes: Array<RouteRecordRaw> = [
   { path: '/edit-userDetails/', name: 'EditUser', component: EditUser },
   { path: '/:pathMarch(.*)', name: 'NotFound', component: NotFound },
   { path: '/home', component: HomePage },
+  { path: '/add-tenant', component: AddTenant },
 ];
 
 const router = createRouter({

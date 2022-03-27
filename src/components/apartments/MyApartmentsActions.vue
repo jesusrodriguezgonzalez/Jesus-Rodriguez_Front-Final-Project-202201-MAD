@@ -9,6 +9,9 @@
       <div class="icon-actions">
         <router-link to="/edit-userDetails/">Editar perfil</router-link>
       </div>
+      <div class="icon-actions">
+        <router-link to="/add-tenant">Añadir inquilino</router-link>
+      </div>
     </nav>
     <router-view />
   </div>
