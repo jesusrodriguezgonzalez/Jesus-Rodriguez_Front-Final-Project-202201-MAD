@@ -7,6 +7,7 @@ export const store = new Vuex.Store({
   modules: {
     account: {
       state: {},
+      namespaced: true,
       actions: {
         loginWithToken: jest.fn(),
       },
@@ -15,6 +16,7 @@ export const store = new Vuex.Store({
       },
     },
     apartments: {
+      namespaced: true,
       state: {},
       actions: {
         getApartment: jest.fn(),

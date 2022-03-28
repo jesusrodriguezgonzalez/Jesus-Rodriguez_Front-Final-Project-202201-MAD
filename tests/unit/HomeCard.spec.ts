@@ -6,6 +6,7 @@ describe('UserDetail.vue', () => {
     const wrapper = shallowMount(HomeCard, {
       props: {
         apartment: {
+          namespaced: true,
           direction: 'Calle Prueba',
           cp: '28010',
           incidents: '2',

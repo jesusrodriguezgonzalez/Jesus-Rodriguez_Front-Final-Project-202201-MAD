@@ -53,6 +53,6 @@ nav {
 }
 
 .btn-outline-info {
-  margin: 5px;
+  margin-top: 25px;
 }
 </style>

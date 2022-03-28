@@ -6,12 +6,14 @@ import NewIncidents from '../../src/components/incidents/NewIncidents.vue';
 export const store = new Vuex.Store({
   modules: {
     apartments: {
+      namespaced: true,
       state: {},
       actions: {
         registerIncident: jest.fn(),
       },
     },
     account: {
+      namespaced: true,
       state: {},
       actions: {
         registerIncident: jest.fn(),
