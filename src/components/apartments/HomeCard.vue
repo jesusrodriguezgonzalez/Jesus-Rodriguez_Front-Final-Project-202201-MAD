@@ -10,8 +10,8 @@
         <p>Direccion: {{ apartment.direction }}</p>
         <p>Codigo Postal: {{ apartment.cp }}</p>
         <p>Incidencias: {{ apartment.incidents?.length }}</p>
-        <p>Estado: {{ apartment?.status }}</p>
-        <p>Estado: {{ apartment?._id }}</p>
+        <p v-if="userData.rol === 'Owner'">Estado: {{ apartment?.status }}</p>
+        <p>ID: {{ apartment?._id }}</p>
       </div>
       <div class="card__footer">
         <div class="user">
@@ -28,7 +28,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { mapActions, mapGetters } from 'vuex';
+import { mapGetters } from 'vuex';
 
 export default defineComponent({
   name: 'HomeCard',
@@ -52,7 +52,7 @@ export default defineComponent({
 });
 </script>
 
-<style lang="scss" scope="this api replaced by slot-scope in 2.5.0+">
+<style lang="scss" scoped>
 *,
 *::before,
 *::after {
@@ -83,6 +83,7 @@ img {
 }
 
 .card {
+  border-radius: 25px;
   display: flex;
   flex-direction: column;
   width: clamp(20rem, calc(20rem + 2vw), 22rem);
@@ -90,7 +91,6 @@ img {
   box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0.1);
   background: #ece9e6;
   background: linear-gradient(to right, #ffffff, #46d0d9);
-  border-radius: 25px;
 }
 
 .card__body {

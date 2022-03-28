@@ -1,65 +1,67 @@
 <template>
-  <div v-if="userData">
-    <UserDetail :userData="userData" />
-  </div>
-  <div v-if="this.userData">
-    <h2>Editar perfil</h2>
-    <form @submit.prevent="handleSubmit">
-      <div class="form-group">
-        <label for="name"
-          >Nombre
-          <input type="text" v-model="user.name" name="name" class="form-control" />
-        </label>
-      </div>
-      <div class="form-group">
-        <label for="surname"
-          >Apellidos
-          <input type="text" v-model="user.surname" name="surname" class="form-control" />
-        </label>
-      </div>
-      <div class="form-group">
-        <label for="phone"
-          >Telefono
-          <input type="number" v-model="user.phone" name="phone" class="form-control" />
-        </label>
-      </div>
-      <div class="form-group">
-        <label for="age"
-          >Edad
-          <input type="number" v-model="user.age" name="age" class="form-control" />
-        </label>
-      </div>
+  <div class="home-page">
+    <div v-if="userData">
+      <UserDetail :userData="userData" />
+    </div>
+    <div v-if="userData">
+      <h2>Editar perfil</h2>
+      <form @submit.prevent="handleSubmit">
+        <div class="form-group">
+          <label for="name"
+            >Nombre
+            <input type="text" v-model="user.name" name="name" class="form-control" />
+          </label>
+        </div>
+        <div class="form-group">
+          <label for="surname"
+            >Apellidos
+            <input type="text" v-model="user.surname" name="surname" class="form-control" />
+          </label>
+        </div>
+        <div class="form-group">
+          <label for="phone"
+            >Telefono
+            <input type="number" v-model="user.phone" name="phone" class="form-control" />
+          </label>
+        </div>
+        <div class="form-group">
+          <label for="age"
+            >Edad
+            <input type="number" v-model="user.age" name="age" class="form-control" />
+          </label>
+        </div>
 
-      <div class="form-group">
-        <label for="direction"
-          >Direccion
-          <input type="text" v-model="user.direction" name="direction" class="form-control" />
-        </label>
-      </div>
-      <div class="form-group">
-        <label for="city"
-          >Provincia
-          <input type="text" v-model="user.city" name="city" class="form-control" />
-        </label>
-      </div>
+        <div class="form-group">
+          <label for="direction"
+            >Direccion
+            <input type="text" v-model="user.direction" name="direction" class="form-control" />
+          </label>
+        </div>
+        <div class="form-group">
+          <label for="city"
+            >Provincia
+            <input type="text" v-model="user.city" name="city" class="form-control" />
+          </label>
+        </div>
 
-      <div class="form-group">
-        <label for="Imagen"
-          >Imagen
-          <input
-            type="file"
-            class="form-control form-control-sm"
-            accept="image/*"
-            name="image"
-            @change="handleImageChange"
-          />
-        </label>
-      </div>
-      <div class="form-group">
-        <button class="btn btn-success">Editar</button>
-        <router-link to="/home" class="btn btn-link">Cancel</router-link>
-      </div>
-    </form>
+        <div class="form-group">
+          <label for="Imagen"
+            >Imagen
+            <input
+              type="file"
+              class="form-control form-control-sm"
+              accept="image/*"
+              name="image"
+              @change="handleImageChange"
+            />
+          </label>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-success">Editar</button>
+          <router-link to="/home" class="btn btn-link">Cancel</router-link>
+        </div>
+      </form>
+    </div>
   </div>
 </template>
 
@@ -97,16 +99,30 @@ export default defineComponent({
     ...mapGetters('account', ['userData']),
   },
   mounted() {
-    this.user.email = this.userData.email;
-    this.user.name = this.userData.name;
-    this.user.surname = this.userData.surname;
-    this.user.age = this.userData.age;
-    this.user.direction = this.userData.direction;
-    this.user.phone = this.userData.phone;
-    this.user.city = this.userData.city;
-    this.user.image = this.userData.image;
-    // eslint-disable-next-line no-underscore-dangle
-    this.user._id = this.userData._id;
+    if (this.userData) {
+      this.user.name = this.userData.name;
+      this.user.surname = this.userData.surname;
+      this.user.age = this.userData.age;
+      this.user.direction = this.userData.direction;
+      this.user.phone = this.userData.phone;
+      this.user.city = this.userData.city;
+      this.user.image = this.userData.image;
+      // eslint-disable-next-line no-underscore-dangle
+      this.user._id = this.userData._id;
+    }
+  },
+  watch: {
+    userData() {
+      this.user.name = this.userData.name;
+      this.user.surname = this.userData.surname;
+      this.user.age = this.userData.age;
+      this.user.direction = this.userData.direction;
+      this.user.phone = this.userData.phone;
+      this.user.city = this.userData.city;
+      this.user.image = this.userData.image;
+      // eslint-disable-next-line no-underscore-dangle
+      this.user._id = this.userData._id;
+    },
   },
 
   methods: {

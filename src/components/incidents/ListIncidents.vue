@@ -1,40 +1,41 @@
 <template>
-  <div v-if="userData">
-    <UserDetail :userData="userData" />
-  </div>
-  <h2>Lista de incidencias</h2>
-  <div class="table-responsive-sm">
-    <table class="table">
-      <thead>
-        <tr class="table-title">
-          <th class="bg-info" scope="col">Id</th>
-          <th class="bg-info" scope="col">Titulo</th>
-          <th class="bg-info" scope="col">Estado</th>
-          <th class="bg-info" scope="col">Acciones</th>
-        </tr>
-      </thead>
-      <tbody v-for="(incident, index) of incidentsData" :key="index">
-        <tr>
-          <th scope="row">{{ index }}</th>
-          <td>{{ incident.title }}</td>
-          <td>{{ incident.state }}</td>
-          <td>
-            <router-link :to="`/edit-incident/${incident._id}`">
-              <button>✏</button>
-            </router-link>
-            <button
-              v-if="incident.id_user[0] === userData._id"
-              v-on:click="removeIncident(incident._id)"
-            >
-              ❌
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <div class="home-page">
+    <div v-if="userData">
+      <UserDetail :userData="userData" />
+    </div>
+    <h2>Lista de incidencias</h2>
+    <div class="table-responsive-sm">
+      <table class="table">
+        <thead>
+          <tr class="table-title">
+            <th class="bg-info" scope="col">Id</th>
+            <th class="bg-info" scope="col">Titulo</th>
+            <th class="bg-info" scope="col">Estado</th>
+            <th class="bg-info" scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody v-for="(incident, index) of incidentsData" :key="index">
+          <tr>
+            <th scope="row">{{ index }}</th>
+            <td>{{ incident.title }}</td>
+            <td>{{ incident.state }}</td>
+            <td>
+              <router-link :to="`/edit-incident/${incident._id}`">
+                <button>✏</button>
+              </router-link>
+              <button
+                v-if="incident.id_user[0] === userData._id"
+                v-on:click="removeIncident(incident._id)"
+              >
+                ❌
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
-  <!-- <div v-if="this.incidentsData">
+    <!-- <div v-if="this.incidentsData">
     <div v-for="(incident, index) of incidentsData" :key="index">
       <ul>
         <li>
@@ -49,10 +50,11 @@
 
 
   </div> -->
-  <div v-if="this.apartmentDetails">
-    <router-link :to="`/details-home/${apartmentDetails._id}`"
-      ><button class="btn btn-info">Volver</button></router-link
-    >
+    <div v-if="this.apartmentDetails">
+      <router-link :to="`/details-home/${apartmentDetails._id}`"
+        ><button class="btn btn-info">Volver</button></router-link
+      >
+    </div>
   </div>
 </template>
 
