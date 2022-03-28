@@ -4,7 +4,7 @@
       <UserDetail :userData="userData" />
     </div>
     <h2>Nueva vivienda</h2>
-    <form @submit.prevent="handleSubmit">
+    <form v-if="apartment" @submit.prevent="handleSubmit">
       <div class="form-group">
         <label for="direction"
           >Alias
@@ -83,8 +83,17 @@ export default defineComponent({
   },
 
   mounted() {
-    // eslint-disable-next-line no-underscore-dangle
-    this.apartment.owner = this.userData._id;
+    if (this.userData) {
+      // eslint-disable-next-line no-underscore-dangle
+      this.apartment.owner = this.userData._id;
+    }
+  },
+
+  watch: {
+    userData() {
+      // eslint-disable-next-line no-underscore-dangle
+      this.apartment.owner = this.userData._id;
+    },
   },
 
   methods: {
