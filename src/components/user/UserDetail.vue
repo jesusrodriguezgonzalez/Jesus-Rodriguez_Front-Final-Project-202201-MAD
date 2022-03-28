@@ -1,11 +1,12 @@
 <template>
   <div class="container-details">
-    <ul v-if="this.userData">
+    <div v-if="this.userData" class="details">
+      <div>
+        <h3>{{ userData.name }} {{ userData.surname }}</h3>
+        <h4>{{ userData.email }}</h4>
+      </div>
       <img class="img-profile" v-bind:src="userData.image" :alt="userData.name" />
-      <li>{{ userData.name }} {{ userData.surname }}</li>
-      <li>{{ userData.email }}</li>
-      <li>ID: {{ userData._id }}</li>
-    </ul>
+    </div>
     <div class="container-buttons">
       <button class="btn btn-outline-info">
         <router-link to="/edit-userDetails/">Editar perfil</router-link>
@@ -53,5 +54,11 @@ export default defineComponent({
 
 .container-buttons {
   margin-bottom: 15px;
+}
+
+.details {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
 }
 </style>

@@ -1,73 +1,79 @@
 <template>
-  <div>
-    <div v-if="userData">
-      <UserDetail :userData="userData" />
+  <div class="home-page">
+    <div>
+      <div v-if="userData">
+        <UserDetail :userData="userData" />
+      </div>
+      <h2>Editar incidencia</h2>
+      <form @submit.prevent="handleSubmit" v-if="this.incident">
+        <div class="form-group">
+          <label for="title"
+            >Titulo
+            <input type="title" v-model="incident.title" name="title" class="form-control" />
+          </label>
+        </div>
+        <div class="form-group">
+          <label for="type_incidence"
+            >Tipo de incidencia
+            <select name="type_incidence" v-model="incident.type_incidence" class="form-control">
+              <option
+                v-for="(incident, index) in typeIncidents"
+                v-bind:value="incident.value"
+                v-bind:key="index"
+              >
+                {{ incident.type }}
+              </option>
+            </select>
+          </label>
+        </div>
+        <div class="form-group">
+          <label for="description"
+            >Descripcion de la incidencia
+
+            <textarea
+              class="form-control"
+              v-model="incident.description"
+              name="description"
+              rows="4"
+              cols="50"
+            ></textarea>
+          </label>
+        </div>
+
+        <div class="form-group">
+          <label for="priority"
+            >Prioridad
+            <select class="form-control" name="priority" v-model="incident.priority">
+              <option
+                v-for="(priority, index) in priorities"
+                v-bind:value="priority.value"
+                v-bind:key="index"
+              >
+                {{ priority.type }}
+              </option>
+            </select>
+          </label>
+        </div>
+        <div class="form-group">
+          <label for="state"
+            >Estado
+            <select class="form-control" name="state" v-model="incident.state">
+              <option
+                v-for="(state, index) in states"
+                v-bind:value="state.value"
+                v-bind:key="index"
+              >
+                {{ state.type }}
+              </option>
+            </select>
+          </label>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-success">Editar</button>
+          <router-link to="/home" class="btn btn-link">Cancel</router-link>
+        </div>
+      </form>
     </div>
-    <h2>Editar incidencia</h2>
-    <form @submit.prevent="handleSubmit" v-if="this.incident">
-      <div class="form-group">
-        <label for="title"
-          >Titulo
-          <input type="title" v-model="incident.title" name="title" class="form-control" />
-        </label>
-      </div>
-      <div class="form-group">
-        <label for="type_incidence"
-          >Tipo de incidencia
-          <select name="type_incidence" v-model="incident.type_incidence" class="form-control">
-            <option
-              v-for="(incident, index) in typeIncidents"
-              v-bind:value="incident.value"
-              v-bind:key="index"
-            >
-              {{ incident.type }}
-            </option>
-          </select>
-        </label>
-      </div>
-      <div class="form-group">
-        <label for="description"
-          >Descripcion de la incidencia
-
-          <textarea
-            class="form-control"
-            v-model="incident.description"
-            name="description"
-            rows="4"
-            cols="50"
-          ></textarea>
-        </label>
-      </div>
-
-      <div class="form-group">
-        <label for="priority"
-          >Prioridad
-          <select class="form-control" name="priority" v-model="incident.priority">
-            <option
-              v-for="(priority, index) in priorities"
-              v-bind:value="priority.value"
-              v-bind:key="index"
-            >
-              {{ priority.type }}
-            </option>
-          </select>
-        </label>
-      </div>
-      <div class="form-group">
-        <label for="state"
-          >Estado
-          <select class="form-control" name="state" v-model="incident.state">
-            <option v-for="(state, index) in states" v-bind:value="state.value" v-bind:key="index">
-              {{ state.type }}
-            </option>
-          </select>
-        </label>
-      </div>
-      <div class="form-group">
-        <button class="btn btn-success">Editar</button>
-        <router-link to="/home" class="btn btn-link">Cancel</router-link>
-      </div>
-    </form>
   </div>
 </template>
 

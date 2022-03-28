@@ -13,7 +13,7 @@
             type="email"
             v-model="user.email"
             name="email"
-            :class="{ 'is-invalid': submitted && user.email }"
+            :class="{ 'is-invalid': submitted && email }"
           />
         </label>
         <div v-show="submitted && !user.email" class="invalid-feedback">
@@ -28,7 +28,7 @@
             type="password"
             v-model="user.passwd"
             name="passwd"
-            :class="{ 'is-invalid': submitted && user.passwd }"
+            :class="{ 'is-invalid': submitted && passwd }"
           />
         </label>
         <div v-show="submitted && !user.passwd" class="invalid-feedback">
@@ -61,7 +61,10 @@ export default defineComponent({
   computed: {
     ...mapState('account', ['status']),
   },
-
+  created() {
+    // reset login status
+    this.logout();
+  },
   methods: {
     ...mapActions('account', ['login', 'logout']),
     handleSubmit() {

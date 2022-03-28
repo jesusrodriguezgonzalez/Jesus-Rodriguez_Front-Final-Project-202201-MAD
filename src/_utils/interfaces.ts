@@ -29,6 +29,7 @@ export interface ApartmentI {
   province: string;
   direction: string;
   owner: number;
+  status?: string;
 }
 
 export interface PayloadUpdateI {
