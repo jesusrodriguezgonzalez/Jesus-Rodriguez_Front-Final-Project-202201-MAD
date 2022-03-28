@@ -70,7 +70,10 @@
         </div>
         <div class="form-group">
           <button class="btn btn-success">Register</button>
-          <router-link :to="`/details-home/${apartmentDetails._id}`" class="btn btn-link"
+          <router-link
+            v-if="apartmentDetails"
+            :to="`/details-home/${apartmentDetails._id}`"
+            class="btn btn-link"
             >Cancel</router-link
           >
         </div>
@@ -128,6 +131,7 @@ export default defineComponent({
 
   methods: {
     ...mapActions('incidents', ['registerIncident']),
+    ...mapActions('apartments', ['getApartment']),
     handleSubmit() {
       this.submitted = true;
       this.registerIncident(this.incident);
@@ -140,6 +144,7 @@ export default defineComponent({
     this.incident.id_apartment = id as string;
     // eslint-disable-next-line no-underscore-dangle
     this.incident.id_user = this.userData._id;
+    this.getApartment(id);
   },
 });
 </script>

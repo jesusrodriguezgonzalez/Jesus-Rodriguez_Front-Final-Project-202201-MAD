@@ -92,7 +92,7 @@ export default defineComponent({
     const route = useRoute();
     const { id } = route.params;
     this.getIncidentsByHome(id);
-    this.getApartment(id);
+    this.apartmentDetails = this.getApartment(id);
   },
 });
 </script>

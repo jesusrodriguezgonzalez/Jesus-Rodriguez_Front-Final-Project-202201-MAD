@@ -1,25 +1,26 @@
 import Vuex from 'vuex';
-
-import { shallowMount } from '@vue/test-utils';
+import { shallowMount, mount } from '@vue/test-utils';
+import { createRouter, createWebHistory } from 'vue-router';
+import { routes } from '@/router';
 import HomeDetail from '../../src/components/apartments/HomeDetail.vue';
 
 export const store = new Vuex.Store({
   modules: {
     account: {
       state: {},
-      namespaced: true,
       actions: {
         loginWithToken: jest.fn(),
+        getUserById: jest.fn(),
       },
       getters: {
         userData: jest.fn(),
       },
     },
     apartments: {
-      namespaced: true,
       state: {},
       actions: {
         getApartment: jest.fn(),
+        deleteApartment: jest.fn(),
       },
       getters: {
         apartmentDetails: jest.fn(),
@@ -28,20 +29,18 @@ export const store = new Vuex.Store({
   },
 });
 
-describe('HomeDetail.vue', () => {
-  const mockRoute = {
-    params: {
-      id: 1,
-    },
-  };
+const router = createRouter({
+  history: createWebHistory(),
+  routes,
+});
 
-  it('renders the following fields', async () => {
-    const wrapper = shallowMount(HomeDetail, { global: { plugins: [store] } });
-    expect(wrapper.text()).toMatch('DIRECCION');
-    expect(wrapper.text()).toMatch('CP');
-    expect(wrapper.text()).toMatch('PROVINCIA');
-    expect(wrapper.text()).toMatch('ESTADO');
-    expect(wrapper.text()).toMatch('INCIDENCIAS');
+describe('Render HomeDetail.vue', () => {
+  it('renders the following fields', () => {
+    const wrapper = shallowMount(HomeDetail, { global: { plugins: [store, router] } });
+    expect(wrapper.text()).toMatch('Direccion');
+    expect(wrapper.text()).toMatch('Codigo Postal');
+    expect(wrapper.text()).toMatch('Incidencias');
+    expect(wrapper.text()).toMatch('Estado');
 
     // jest.spyOn(wrapper.vm, 'registerUser');
     // const form = wrapper.find('form');
