@@ -12,7 +12,7 @@ import EditUser from '../components/user/EditUser.vue';
 import NotFound from '../components/other/NotFound.vue';
 import AddTenant from '../components/apartments/AddTenant.vue';
 
-const routes: Array<RouteRecordRaw> = [
+export const routes: Array<RouteRecordRaw> = [
   { path: '/', name: 'LoginPage', component: LoginPage },
   { path: '/login', name: 'LoginPage2', component: LoginPage },
   { path: '/register', name: 'RegisterPage', component: RegisterPage },

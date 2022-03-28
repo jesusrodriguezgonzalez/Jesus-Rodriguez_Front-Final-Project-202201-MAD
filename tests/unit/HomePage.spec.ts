@@ -7,6 +7,7 @@ import HomePage from '../../src/components/apartments/HomePage.vue';
 export const store = new Vuex.Store({
   modules: {
     account: {
+      namespaced: true,
       state: {},
       actions: {
         loginWithToken: jest.fn(),

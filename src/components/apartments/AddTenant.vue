@@ -38,7 +38,7 @@
 </template>
 
 <script lang="ts">
-import { mapGetters } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 import { defineComponent } from 'vue';
 import { useRoute } from 'vue-router';
 import { ApartmentI } from '@/_utils/interfaces';
@@ -62,9 +62,10 @@ export default defineComponent({
   },
 
   methods: {
+    ...mapActions('apartments', ['addTenantAction']),
     handleSubmit() {
       this.submitted = true;
-      console.log(this.tenant);
+      this.addTenantAction(this.tenant);
     },
   },
 

@@ -100,6 +100,7 @@ export default defineComponent({
   },
   mounted() {
     if (this.userData) {
+      this.user.email = this.userData.email;
       this.user.name = this.userData.name;
       this.user.surname = this.userData.surname;
       this.user.age = this.userData.age;
@@ -113,6 +114,7 @@ export default defineComponent({
   },
   watch: {
     userData() {
+      this.user.email = this.userData.email;
       this.user.name = this.userData.name;
       this.user.surname = this.userData.surname;
       this.user.age = this.userData.age;

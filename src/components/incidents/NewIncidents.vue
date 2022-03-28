@@ -5,7 +5,7 @@
         <UserDetail :userData="userData" />
       </div>
       <h2>Nueva incidencia</h2>
-      <form @submit.prevent="handleSubmit">
+      <form v-if="incident" @submit.prevent="handleSubmit">
         <div class="form-group">
           <label for="title"
             >Titulo

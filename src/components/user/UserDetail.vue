@@ -50,6 +50,7 @@ export default defineComponent({
   border-radius: 15px;
   width: 70px;
   height: 70px;
+  margin-left: 25px;
 }
 
 .container-buttons {

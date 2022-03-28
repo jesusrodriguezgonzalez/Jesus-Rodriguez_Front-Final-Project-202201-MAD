@@ -3,6 +3,7 @@ import { ApartmentI, PayloadUpdateI } from '../_utils/interfaces';
 import { getToken } from '../_utils/helper';
 
 const APARTMENTS_URL = 'http://localhost:5000/apartments/';
+const URL_ADD_TENANT = 'http://localhost:5000/apartments/add-tenant/';
 
 export function newApartment(apartment: ApartmentI) {
   return axios.post(APARTMENTS_URL, apartment, {
@@ -39,4 +40,19 @@ export function updateApartment(apartment: PayloadUpdateI) {
       Authorization: `Bearer ${getToken()}`,
     },
   });
+}
+
+export function addTenant(payload: any) {
+  console.log(payload, 'PAYLOAD API');
+  const { apartments } = payload;
+  const { email } = payload;
+  return axios.patch(
+    URL_ADD_TENANT + apartments,
+    { email },
+    {
+      headers: {
+        Authorization: `Bearer ${getToken()}`,
+      },
+    }
+  );
 }
