@@ -27,7 +27,18 @@
         </div>
         <div class="card__footer">
           <div class="user">
-            <img src="https://i.pravatar.cc/40?img=1" alt="user__image" class="user__image" />
+            <img
+              v-if="userData.rol === 'Owner'"
+              v-bind:src="apartmentDetails?.current_tenant[0]?.image"
+              alt="user__image"
+              class="user__image"
+            />
+            <img
+              v-if="userData.rol === 'Tenant'"
+              v-bind:src="apartmentDetails?.owner[0]?.image"
+              alt="user__image"
+              class="user__image"
+            />
             <div class="user__info">
               <div v-if="userData.rol === 'Tenant'">
                 <h5>
