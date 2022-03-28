@@ -3,6 +3,7 @@ import { shallowMount, mount } from '@vue/test-utils';
 import { createRouter, createWebHistory } from 'vue-router';
 import { routes } from '@/router';
 import NewApartment from '../../src/components/apartments/NewApartment.vue';
+import UserDetail from '../../src/components/user/UserDetail.vue';
 
 export const store = new Vuex.Store({
   modules: {
@@ -10,6 +11,9 @@ export const store = new Vuex.Store({
       state: {},
       actions: {
         registerApartment: jest.fn(),
+      },
+      getters: {
+        apartmentsDetails: jest.fn(),
       },
     },
     account: {
@@ -20,6 +24,8 @@ export const store = new Vuex.Store({
     },
   },
 });
+
+jest.mock('../../src/components/user/UserDetail.vue');
 
 const router = createRouter({
   history: createWebHistory(),
@@ -34,5 +40,21 @@ describe('Render NewApartment.vue', () => {
     expect(wrapper.text()).toMatch('Direccion');
     expect(wrapper.text()).toMatch('Provincia');
     expect(wrapper.text()).toMatch('Imagen');
+  });
+
+  describe('When user registers the new apartment', () => {
+    test('The function registerApartment must be called', async () => {
+      const wrapper = mount(NewApartment, {
+        global: {
+          plugins: [store, router],
+        },
+      });
+
+      const formToBeSubmited = wrapper.find('form');
+
+      formToBeSubmited.trigger('submit');
+
+      expect(wrapper.vm.registerApartment).toHaveBeenCalled();
+    });
   });
 });

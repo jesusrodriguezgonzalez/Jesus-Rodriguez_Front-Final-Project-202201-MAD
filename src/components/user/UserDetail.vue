@@ -3,13 +3,16 @@
     <div v-if="this.userData" class="details">
       <div>
         <h3>{{ userData.name }} {{ userData.surname }}</h3>
-        <h4>{{ userData.email }}</h4>
+        <span>{{ userData.email }}</span>
       </div>
       <img class="img-profile" v-bind:src="userData.image" :alt="userData.name" />
     </div>
     <div class="container-buttons">
       <button class="btn btn-outline-info">
         <router-link to="/edit-userDetails/">Editar perfil</router-link>
+      </button>
+      <button class="btn btn-outline-info">
+        <router-link to="/home">Inicio</router-link>
       </button>
       <button class="btn btn-outline-info" @click="actionLogout">Loogout</button>
     </div>
