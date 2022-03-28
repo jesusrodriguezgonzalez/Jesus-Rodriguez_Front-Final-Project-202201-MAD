@@ -79,7 +79,7 @@ export default defineComponent({
   computed: {
     // ...mapState('apartments', ['status']),
     ...mapGetters('account', ['userData']),
-    ...mapGetters('account', ['apartmentsDetails']),
+    ...mapGetters('apartments', ['apartmentsDetails']),
   },
 
   mounted() {
