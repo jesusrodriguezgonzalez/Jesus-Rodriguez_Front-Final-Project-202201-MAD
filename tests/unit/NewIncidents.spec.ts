@@ -31,7 +31,7 @@ export const store = new Vuex.Store({
   },
 });
 
-describe('NewIncidents.vue', () => {
+describe('Render NewIncidents.vue', () => {
   it('renders ', async () => {
     const wrapper = shallowMount(NewIncidents, { global: { plugins: [store] } });
     expect(wrapper.text()).toMatch('Titulo');

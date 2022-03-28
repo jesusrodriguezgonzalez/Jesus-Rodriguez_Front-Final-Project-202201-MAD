@@ -102,7 +102,7 @@ export default defineComponent({
       this.deleteApartment(id);
     },
   },
-  mounted() {
+  created() {
     const route = useRoute();
     const { id } = route.params;
     this.getApartment(id);

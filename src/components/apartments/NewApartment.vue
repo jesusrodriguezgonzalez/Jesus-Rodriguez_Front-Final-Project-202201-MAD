@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="home-page">
     <div v-if="userData">
       <UserDetail :userData="userData" />
     </div>
@@ -20,7 +20,7 @@
 
       <div class="form-group">
         <label for="cp"
-          >CP
+          >Código Postal
           <input type="number" v-model="apartment.cp" name="cp" class="form-control" />
         </label>
       </div>
@@ -56,6 +56,7 @@ import { defineComponent } from 'vue';
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
 import { v4 as uuid } from 'uuid';
 import { storage } from '@/firebase';
+import { useRoute } from 'vue-router';
 import UserDetail from '../user/UserDetail.vue';
 
 export default defineComponent({
@@ -78,6 +79,7 @@ export default defineComponent({
   computed: {
     // ...mapState('apartments', ['status']),
     ...mapGetters('account', ['userData']),
+    ...mapGetters('account', ['apartmentsDetails']),
   },
 
   mounted() {
@@ -86,7 +88,7 @@ export default defineComponent({
   },
 
   methods: {
-    ...mapActions('apartments', ['registerApartment']),
+    ...mapActions('apartments', ['registerApartment', 'getApartment']),
     handleSubmit() {
       this.submitted = true;
       // Subir archivo a firebase y obtener la url

@@ -31,7 +31,7 @@ export const store = new Vuex.Store({
   },
 });
 
-describe('EditApartment.vue', () => {
+describe('Render EditApartment.vue', () => {
   it('renders the following fields', async () => {
     const wrapper = shallowMount(EditApartment, { global: { plugins: [store] } });
     expect(wrapper).toBeTruthy();

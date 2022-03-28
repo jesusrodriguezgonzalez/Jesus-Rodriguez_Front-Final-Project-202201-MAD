@@ -2,24 +2,17 @@ import Vuex from 'vuex';
 import { shallowMount, mount } from '@vue/test-utils';
 import { createRouter, createWebHistory } from 'vue-router';
 import { routes } from '@/router';
-import UpdateRuin from '@/components/UpdateRuin.vue';
+import EditUser from '../../src/components/user/EditUser.vue';
 
 export const store = new Vuex.Store({
   modules: {
     account: {
       state: {},
+      actions: {
+        updateUser: jest.fn(),
+      },
       getters: {
         userData: jest.fn(),
-      },
-    },
-    ruins: {
-      state: { Ruinname: 'NombreRuina' },
-      actions: {
-        modifyExistingRuin: jest.fn(),
-        getRuinDetails: jest.fn(),
-      },
-      getters: {
-        ruinDetails: jest.fn().mockReturnValue({ testR: 'test' }),
       },
     },
   },
@@ -30,26 +23,12 @@ const router = createRouter({
   routes,
 });
 
-describe('UpdateRuin.vue', () => {
-  test('Test test', () => {
-    const mockedGetRuinDetails = jest.fn();
-    const wrapper = shallowMount(UpdateRuin, {
-      global: { plugins: [store, router] },
-      methods: { getRuinDetails: mockedGetRuinDetails },
-    });
-
-    expect(wrapper.vm).toBeDefined();
-    expect(mockedGetRuinDetails).toHaveBeenCalled();
+describe('Render EditUser.vue', () => {
+  it('renders the following fields', () => {
+    const wrapper = shallowMount(EditUser, { global: { plugins: [store, router] } });
+    expect(wrapper.text()).toMatch('Nombre');
+    expect(wrapper.text()).toMatch('Apellidos');
+    expect(wrapper.text()).toMatch('Telefono');
+    expect(wrapper.text()).toMatch('Edad');
   });
-  test('Test test 2', () => {
-    const wrapper = shallowMount(UpdateRuin, {
-      global: { plugins: [store, router] },
-    });
-
-    jest.spyOn(wrapper.vm, 'modifyExistingRuin');
-
-    wrapper.vm.handleSubmit();
-    console.log(wrapper.vm);
-    expect(wrapper.vm).toBeDefined();
-    expect(wrapper.vm.modifyExistingRuin).toHaveBeenCalled();
-  });
+});

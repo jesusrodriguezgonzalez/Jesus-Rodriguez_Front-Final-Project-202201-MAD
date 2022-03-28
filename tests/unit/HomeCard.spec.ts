@@ -1,7 +1,7 @@
 import { shallowMount } from '@vue/test-utils';
 import HomeCard from '../../src/components/apartments/HomeCard.vue';
 
-describe('UserDetail.vue', () => {
+describe('Render HomeCard.vue', () => {
   it('renders Nombre', async () => {
     const wrapper = shallowMount(HomeCard, {
       props: {

@@ -19,7 +19,7 @@ export const store = new Vuex.Store({
   },
 });
 
-describe('HomeDetail.vue', () => {
+describe('Render HomePage.vue', () => {
   it('renders the following fields', async () => {
     const wrapper = shallowMount(HomePage, { global: { plugins: [store] } });
     expect(wrapper.text()).toMatch('Logout');
