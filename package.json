@@ -13,6 +13,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
+    "@kyvg/vue3-notification": "^2.3.4",
     "@vuelidate/core": "^2.0.0-alpha.35",
     "axios": "^0.26.1",
     "babel-loader": "^8.2.3",

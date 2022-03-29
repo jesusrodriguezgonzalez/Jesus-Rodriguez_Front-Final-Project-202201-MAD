@@ -1,3 +1,4 @@
+import { notify } from '@kyvg/vue3-notification';
 import * as apiUser from '../_services';
 import router from '../router/index';
 import { UserDataI, UserLoginI, UserRegisterI } from '../_utils/interfaces';
@@ -14,6 +15,10 @@ const actions = {
       (error) => {
         commit('loginFailure', error);
         dispatch('alert/error', error, { root: true });
+        notify({
+          title: 'Authorization',
+          text: 'Usuario o contraseña incorrecto',
+        });
       }
     );
   },
@@ -29,6 +34,10 @@ const actions = {
       (error) => {
         commit('registerFailure', error);
         dispatch('alert/error', error, { root: true });
+        notify({
+          title: 'Registro',
+          text: `${error}`,
+        });
       }
     );
   },
@@ -59,6 +68,10 @@ const actions = {
       (error) => {
         commit('registerFailure', error);
         dispatch('alert/error', error, { root: true });
+        notify({
+          title: 'Actualización usuario',
+          text: `${error}`,
+        });
       }
     );
   },

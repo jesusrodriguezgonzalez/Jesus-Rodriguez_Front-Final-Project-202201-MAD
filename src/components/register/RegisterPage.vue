@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div class="margin"></div>
     <h2>Nuevo usuario</h2>
     <form @submit.prevent="handleSubmit">
       <div class="form-group">
@@ -66,25 +67,11 @@
 
       <label for="jack"
         >Propietario
-        <input
-          class="form-check"
-          name="rol"
-          type="radio"
-          id="Owner"
-          value="Owner"
-          v-model="user.rol"
-        />
+        <input name="rol" type="radio" id="Owner" value="Owner" v-model="user.rol" />
       </label>
       <label for="john"
         >Inquilino
-        <input
-          class="form-check"
-          name="rol"
-          type="radio"
-          id="Tenant"
-          value="Tenant"
-          v-model="user.rol"
-        />
+        <input type="radio" id="Tenant" value="Tenant" v-model="user.rol" />
       </label>
 
       <div class="form-group">
@@ -137,6 +124,9 @@ export default defineComponent({
         getDownloadURL(newRef).then((url: string) => {
           this.user.image = url;
           this.registerUser(this.user);
+          this.$notify({
+            text: 'Usuario registrado correctamente.',
+          });
         });
       });
     },
@@ -146,3 +136,9 @@ export default defineComponent({
   },
 });
 </script>
+
+<style lang="scss" scoped>
+.margin {
+  margin-top: 20px;
+}
+</style>

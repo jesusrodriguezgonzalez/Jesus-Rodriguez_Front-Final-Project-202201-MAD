@@ -1,3 +1,4 @@
+import { notify } from '@kyvg/vue3-notification';
 import * as apiApartment from '../_services/apartment.service';
 import router from '../router/index';
 import { ApartmentI, StateI, PayloadUpdateI, StateApartmentsI } from '../_utils/interfaces';
@@ -12,12 +13,16 @@ const actions = {
         router.push('/home');
         setTimeout(() => {
           // display success message after route change completes
-          dispatch('alert/success', 'Registro correcto', { root: true });
+          dispatch('alert/success', 'Apartamento registrado correctamente.', { root: true });
         });
       },
       (error) => {
         commit('registerFailure', error);
         dispatch('alert/error', error, { root: true });
+        notify({
+          title: 'Error.',
+          text: `${error}`,
+        });
       }
     );
   },
@@ -26,11 +31,15 @@ const actions = {
     apiApartment.getApartment(id).then(
       (apartmentData) => {
         commit('loadApartment', apartmentData);
-        dispatch('alert/success', 'Registro correcto', { root: true });
+        dispatch('alert/success', 'Apartamento cargado', { root: true });
       },
       (error) => {
         commit('registerFailure', error);
         dispatch('alert/error', error, { root: true });
+        notify({
+          title: 'Error',
+          text: `${error}`,
+        });
       }
     );
   },
@@ -40,11 +49,15 @@ const actions = {
       (apartmentData) => {
         commit('deleteApartment', apartmentData);
         router.push('/home');
-        dispatch('alert/success', 'Registro correcto', { root: true });
+        dispatch('alert/success', `${id} eliminado correctamente`, { root: true });
       },
       (error) => {
         commit('registerFailure', error);
         dispatch('alert/error', error, { root: true });
+        notify({
+          title: 'Error',
+          text: `${error}`,
+        });
       }
     );
   },
@@ -54,11 +67,15 @@ const actions = {
       (apartmentData) => {
         commit('deleteApartment', apartmentData);
         router.push('/home');
-        dispatch('alert/success', 'Registro correcto', { root: true });
+        dispatch('alert/success', 'Apartamento actualizado correctamente', { root: true });
       },
       (error) => {
         commit('registerFailure', error);
         dispatch('alert/error', error, { root: true });
+        notify({
+          title: 'Error',
+          text: `${error}`,
+        });
       }
     );
   },
@@ -66,9 +83,13 @@ const actions = {
     apiApartment.addTenant(payload).then(
       (apartmentData) => {
         router.push('/home');
+        dispatch('alert/success', 'Inquilino añadido correctamente.', { root: true });
       },
       (error) => {
-        console.log('Error al añadir inquilino');
+        notify({
+          title: 'Error',
+          text: `${error}`,
+        });
       }
     );
   },

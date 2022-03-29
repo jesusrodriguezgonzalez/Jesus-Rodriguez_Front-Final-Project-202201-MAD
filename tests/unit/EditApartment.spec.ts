@@ -40,7 +40,7 @@ const router = createRouter({
   routes,
 });
 
-describe('Render EditIncident.vue', () => {
+describe('Render EditApartment.vue', () => {
   test('renders the following fields', async () => {
     const wrapper = shallowMount(EditApartment, { global: { plugins: [store, router] } });
 
@@ -53,7 +53,7 @@ describe('Render EditIncident.vue', () => {
 });
 
 describe('When the user presses update', () => {
-  test('updateIncident method must be called', () => {
+  test('updateApartment method must be called', () => {
     const mockGetApartment = jest.fn();
     const mockUpdateApartment = jest.fn();
     const wrapper = mount(EditApartment, {
@@ -67,8 +67,8 @@ describe('When the user presses update', () => {
 
     expect(wrapper.vm).toBeDefined();
     wrapper.vm.handleSubmit();
-    wrapper.vm.$options.watch.apartmentDetails.call(wrapper.vm);
-    wrapper.vm.$options.watch.userData.call(wrapper.vm);
+    // wrapper.vm.$options.watch.apartmentDetails.call(wrapper.vm);
+    // wrapper.vm.$options.watch.userData.call(wrapper.vm);
     expect(mockUpdateApartment).toHaveBeenCalled();
   });
 });

@@ -1,47 +1,49 @@
 <template>
-  <div class="container-login">
-    <div class="login">
-      <img
-        src="https://firebasestorage.googleapis.com/v0/b/ehome-77326.appspot.com/o/ehome.jpg?alt=media&token=72aed465-1592-4b61-9f00-370c3f6a77f4"
-        alt=""
-        class="img_login"
-      />
+  <div class="home-page">
+    <div class="container-login">
+      <div class="login">
+        <img
+          src="https://firebasestorage.googleapis.com/v0/b/ehome-77326.appspot.com/o/ehome.jpg?alt=media&token=72aed465-1592-4b61-9f00-370c3f6a77f4"
+          alt=""
+          class="img_login"
+        />
 
-      <form class="form-container" @submit.prevent="handleSubmit">
-        <div class="form-group">
-          <label for="email">
-            <input
-              type="email"
-              v-model="user.email"
-              name="email"
-              :class="{ 'is-invalid': submitted && email }"
-              placeholder="Email"
-            />
-          </label>
-          <div v-show="submitted && !user.email" class="invalid-feedback">
-            Es necesario que introduzca un email
+        <form class="form-container" @submit.prevent="handleSubmit">
+          <div class="form-group">
+            <label for="email">
+              <input
+                type="email"
+                v-model="user.email"
+                name="email"
+                :class="{ 'is-invalid': submitted && email }"
+                placeholder="Email"
+              />
+            </label>
+            <div v-show="submitted && !user.email" class="invalid-feedback">
+              Es necesario que introduzca un email
+            </div>
           </div>
-        </div>
-        <div class="form-group">
-          <label for="passwd">
-            <input
-              id="passwd"
-              type="password"
-              v-model="user.passwd"
-              name="passwd"
-              :class="{ 'is-invalid': submitted && passwd }"
-              placeholder="Password"
-            />
-          </label>
-          <div v-show="submitted && !user.passwd" class="invalid-feedback">
-            Es necesario que introduzca contraseña.
+          <div class="form-group">
+            <label for="passwd">
+              <input
+                id="passwd"
+                type="password"
+                v-model="user.passwd"
+                name="passwd"
+                :class="{ 'is-invalid': submitted && passwd }"
+                placeholder="Password"
+              />
+            </label>
+            <div v-show="submitted && !user.passwd" class="invalid-feedback">
+              Es necesario que introduzca contraseña.
+            </div>
           </div>
-        </div>
-        <div class="form-group">
-          <button class="btn-login">Login</button>
-        </div>
-        <router-link to="/register"> Register</router-link>
-      </form>
+          <div class="form-group">
+            <button class="btn-login">Login</button>
+          </div>
+          <router-link to="/register"> Register</router-link>
+        </form>
+      </div>
     </div>
   </div>
 </template>
@@ -114,11 +116,7 @@ button {
   margin-top: 20px;
   border-style: hidden;
 }
-// .img_login {
-//   justify-content: center;
-//   width: 80%;
-//   margin-right: 20px;
-// }
+
 // .login {
 //   margin: 0;
 //   padding: 0;

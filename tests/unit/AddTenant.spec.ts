@@ -59,7 +59,7 @@ describe('When email and apartment are selected', () => {
   });
 });
 
-describe('When the user presses "Añadir"', () => {
+describe('When the user presses add tenant', () => {
   test('addTenantAction method must be called', async () => {
     const mockAddTenant = jest.fn();
 
@@ -69,7 +69,7 @@ describe('When the user presses "Añadir"', () => {
     });
 
     await wrapper.vm.handleSubmit();
-    wrapper.vm.$options.watch.userData.call(wrapper.vm);
+    // wrapper.vm.$options.watch.userData.call(wrapper.vm);
     wrapper.vm.$nextTick();
     wrapper.vm.$nextTick(() => {
       expect(mockAddTenant).toHaveBeenCalled();
