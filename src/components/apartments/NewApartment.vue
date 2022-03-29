@@ -45,7 +45,6 @@
       </div>
 
       <div class="form-group">
-        <!-- <button class="btn btn-info">Register</button> -->
         <button class="btn btn-success">Register</button>
 
         <router-link to="/home" class="btn btn-link">Cancel</router-link>
@@ -62,7 +61,6 @@ import { defineComponent } from 'vue';
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
 import { v4 as uuid } from 'uuid';
 import { storage } from '@/firebase';
-import { useRoute } from 'vue-router';
 import UserDetail from '../user/UserDetail.vue';
 
 export default defineComponent({

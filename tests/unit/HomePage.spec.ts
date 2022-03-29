@@ -21,12 +21,12 @@ export const store = new Vuex.Store({
 
 describe('Render HomePage.vue', () => {
   it('renders the following fields', async () => {
+    const loginToken = jest.fn();
     const wrapper = shallowMount(HomePage, { global: { plugins: [store] } });
     expect(wrapper.text()).toMatch('Logout');
-
-    // jest.spyOn(wrapper.vm, 'registerUser');
-    // const form = wrapper.find('form');
-    // await form.trigger('submit');
-    // expect(wrapper.vm.deleteApartment).toHaveBeenCalled();
+    localStorage.setItem('token', '1233');
+    expect(window.localStorage.getItem('token')).toBe(1233);
+    localStorage.clear();
+    expect(loginToken).toHaveBeenCalled();
   });
 });
