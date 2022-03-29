@@ -13,6 +13,10 @@ const actions = {
         commit('registerSuccess', incidentData);
         router.push(`/details-home/${incident.id_apartment}`);
         dispatch('alert/success', 'Incidencia generada correctamente', {});
+        notify({
+          title: 'Exito',
+          text: 'Incidencia creada correctamente.',
+        });
       },
       (error) => {
         commit('registerFailure', error);
@@ -48,6 +52,10 @@ const actions = {
       (incidentData) => {
         commit('deleteIncident', id);
         dispatch('alert/success', `Incidencia ${id} eliminada correctamente.`, { root: true });
+        notify({
+          title: 'Exito',
+          text: `Incidencia ${id} eliminada correctamente.`,
+        });
       },
       (error) => {
         commit('registerFailure', error);
@@ -66,6 +74,10 @@ const actions = {
         commit('updateIncident', incidentData);
         router.push(`/list-incidents/${payload.id_apartment[0]._id}`);
         dispatch('alert/success', 'Incidencia actualizada correctamente', { root: true });
+        notify({
+          title: 'Exito',
+          text: 'Incidencia editada correctamente.',
+        });
       },
       (error) => {
         commit('registerFailure', error);

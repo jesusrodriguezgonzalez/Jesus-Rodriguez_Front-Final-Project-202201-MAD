@@ -149,9 +149,6 @@ export default defineComponent({
           }
 
           this.updateApartment(this.apartment);
-          this.$notify({
-            text: 'Apartamento editado correctamente.',
-          });
         });
       });
     },

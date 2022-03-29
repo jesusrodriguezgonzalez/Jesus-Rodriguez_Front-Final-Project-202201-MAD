@@ -16,7 +16,7 @@ const actions = {
         commit('loginFailure', error);
         dispatch('alert/error', error, { root: true });
         notify({
-          title: 'Authorization',
+          title: 'Error',
           text: 'Usuario o contraseña incorrecto',
         });
       }
@@ -30,12 +30,16 @@ const actions = {
         commit('registerSuccess', userData);
         router.push('/login');
         dispatch('alert/success', 'Registration successful', { root: true });
+        notify({
+          title: 'Éxito',
+          text: 'Usuario registrado correctamente.',
+        });
       },
       (error) => {
         commit('registerFailure', error);
         dispatch('alert/error', error, { root: true });
         notify({
-          title: 'Registro',
+          title: 'Error',
           text: `${error}`,
         });
       }

@@ -127,7 +127,6 @@ export default defineComponent({
   mounted() {
     const route = useRoute();
     const { id } = route.params;
-    console.log(id);
     // eslint-disable-next-line no-underscore-dangle
     const incidentById = this.incidentsData?.find((e: any) => e?._id === id);
 
