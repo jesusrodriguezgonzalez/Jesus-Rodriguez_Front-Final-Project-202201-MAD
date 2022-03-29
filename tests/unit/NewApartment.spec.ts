@@ -28,7 +28,7 @@ export const store = new Vuex.Store({
       namespaced: true,
       state: {},
       getters: {
-        userData: jest.fn(),
+        userData: jest.fn().mockReturnValue([{ _id: '12345' }]),
       },
     },
   },
@@ -62,6 +62,7 @@ describe('Render NewApartment.vue', () => {
       const formToBeSubmited = wrapper.find('form');
 
       formToBeSubmited.trigger('submit');
+      wrapper.vm.$options.watch.userData.call(wrapper.vm);
 
       expect(wrapper.vm.registerApartment).toHaveBeenCalled();
     });

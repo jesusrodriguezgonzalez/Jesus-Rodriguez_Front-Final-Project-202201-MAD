@@ -29,7 +29,7 @@ export const store = new Vuex.Store({
       namespaced: true,
       state: {},
       getters: {
-        userData: jest.fn().mockReturnValue({}),
+        userData: jest.fn().mockReturnValue([{ _id: '12345' }]),
       },
     },
   },
@@ -67,6 +67,8 @@ describe('When the user presses update', () => {
 
     expect(wrapper.vm).toBeDefined();
     wrapper.vm.handleSubmit();
+    wrapper.vm.$options.watch.apartmentDetails.call(wrapper.vm);
+    wrapper.vm.$options.watch.userData.call(wrapper.vm);
     expect(mockUpdateApartment).toHaveBeenCalled();
   });
 });

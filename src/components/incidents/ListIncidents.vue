@@ -35,21 +35,6 @@
       </table>
     </div>
 
-    <!-- <div v-if="this.incidentsData">
-    <div v-for="(incident, index) of incidentsData" :key="index">
-      <ul>
-        <li>
-          TITULO:{{ incident.title }} 🔍
-          <router-link :to="`/edit-incident/${incident._id}`">
-            <button>✏</button>
-          </router-link>
-          <button v-on:click="removeIncident(incident._id)">❌</button>
-        </li>
-      </ul>
-    </div>
-
-
-  </div> -->
     <div v-if="this.apartmentDetails">
       <router-link :to="`/details-home/${apartmentDetails._id}`"
         ><button class="btn btn-info">Volver</button></router-link

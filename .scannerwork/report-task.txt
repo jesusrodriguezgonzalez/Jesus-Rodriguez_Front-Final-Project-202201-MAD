@@ -2,5 +2,5 @@ projectKey=eHome-FinalProject-Front
 serverUrl=http://localhost:9000
 serverVersion=9.2.4.50792
 dashboardUrl=http://localhost:9000/dashboard?id=eHome-FinalProject-Front
-ceTaskId=AX_VaXXp2AiwM3zEo9UK
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AX_VaXXp2AiwM3zEo9UK
+ceTaskId=AX_WTUFa2AiwM3zEo9XC
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AX_WTUFa2AiwM3zEo9XC
