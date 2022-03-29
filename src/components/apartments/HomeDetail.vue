@@ -51,7 +51,7 @@
                   {{ apartmentDetails?.current_tenant[0]?.name }}
                   {{ apartmentDetails?.current_tenant[0]?.surname }}
                 </h5>
-                <small>{{ apartmentDetails?.current_tenant[0]?.email }}</small>
+                <small>{{ apartmentDetails?.current_tenant[0]?.phone }}</small>
               </div>
             </div>
           </div>
@@ -59,25 +59,51 @@
       </div>
     </div>
 
-    <template v-if="this.apartmentDetails && this.userData">
-      <router-link to="/home"><button class="btn btn-outline-info">Volver</button></router-link>
-      <router-link :to="`/new-incident/${apartmentDetails._id}`">
-        <button class="btn btn-outline-info">Nueva Incidencia</button>
-      </router-link>
-      <router-link :to="`/list-incidents/${apartmentDetails._id}`">
-        <button class="btn btn-outline-info">Lista Incidencias</button>
-      </router-link>
+    <div class="function-buttons">
       <button
         class="btn btn-outline-info"
         v-if="userData.rol === 'Owner'"
         v-on:click="removeApartment(apartmentDetails._id)"
       >
-        Eliminar
+        <img
+          class="icon"
+          src="https://firebasestorage.googleapis.com/v0/b/ehome-77326.appspot.com/o/boton-eliminar.png?alt=media&token=5c5685cb-ab16-45ce-b69c-5b60a4c008e2"
+          alt=""
+          srcset=""
+        />
       </button>
       <router-link :to="`/edit-apartment/${apartmentDetails._id}`">
-        <button v-if="userData.rol === 'Owner'" class="btn btn-outline-info">Editar</button>
+        <button v-if="userData.rol === 'Owner'" class="btn btn-outline-info">
+          <img
+            class="icon"
+            src="https://firebasestorage.googleapis.com/v0/b/ehome-77326.appspot.com/o/editar.png?alt=media&token=039cb31c-6d90-4506-9da0-a5215175c50d"
+            alt=""
+            srcset=""
+          />
+        </button>
       </router-link>
-    </template>
+      <router-link v-if="this.apartmentDetails" :to="`/new-incident/${apartmentDetails._id}`">
+        <button class="btn btn-outline-info">
+          <img
+            class="icon"
+            src="https://firebasestorage.googleapis.com/v0/b/ehome-77326.appspot.com/o/exclamation-mark.png?alt=media&token=6bedb978-a1bd-4375-990b-0015ab3ff3e6"
+            alt=""
+            srcset=""
+          />
+        </button>
+      </router-link>
+      <router-link :to="`/list-incidents/${apartmentDetails._id}`">
+        <button class="btn btn-outline-info">
+          <img
+            class="icon"
+            src="https://firebasestorage.googleapis.com/v0/b/ehome-77326.appspot.com/o/list.png?alt=media&token=3c96d8aa-a763-45fc-ac3a-8c514564412b"
+            alt=""
+            srcset=""
+          />
+        </button>
+      </router-link>
+    </div>
+    <router-link to="/home"><button class="btn btn-outline-info">Volver</button></router-link>
   </div>
 </template>
 
@@ -122,10 +148,18 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
+.functions-buttons {
+  display: flex;
+  flex-direction: row;
+}
 .home-page {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.icon {
+  width: 20px;
+  height: 20px;
 }
 button {
   margin-right: 5px;
@@ -164,11 +198,12 @@ img {
   border-radius: 25px;
   display: flex;
   flex-direction: column;
-  width: clamp(20rem, calc(20rem + 2vw), 22rem);
+  width: clamp(20rem, calc(17rem + 2vw), 22rem);
   overflow: hidden;
   box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0.1);
   background: #ece9e6;
-  background: linear-gradient(to right, #ffffff, #46d0d9);
+  background: linear-gradient(to right, #ffffff, #d6e1ec);
+  color: #0d6efd;
 }
 
 .card__body {
@@ -176,6 +211,9 @@ img {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+}
+p {
+  color: #0d6efd;
 }
 
 .tag {

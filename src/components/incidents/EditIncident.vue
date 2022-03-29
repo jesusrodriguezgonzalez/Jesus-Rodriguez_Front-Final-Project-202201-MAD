@@ -127,17 +127,23 @@ export default defineComponent({
   mounted() {
     const route = useRoute();
     const { id } = route.params;
+    console.log(id);
     // eslint-disable-next-line no-underscore-dangle
-    const incidentById = this.incidentsData.find((e: any) => e._id === id);
+    const incidentById = this.incidentsData?.find((e: any) => e?._id === id);
+
     this.incident.idIncident = id as string;
-    this.incident.title = incidentById.title;
-    this.incident.type_incidence = incidentById.type_incidence;
-    this.incident.description = incidentById.description;
-    this.incident.priority = incidentById.priority;
-    this.incident.state = incidentById.state;
-    this.incident.id_apartment = incidentById.id_apartment;
-    // eslint-disable-next-line no-underscore-dangle
-    this.incident.id_user = this.userData._id;
+    if (incidentById) {
+      this.incident.title = incidentById.title;
+      this.incident.type_incidence = incidentById.type_incidence;
+      this.incident.description = incidentById.description;
+      this.incident.priority = incidentById.priority;
+      this.incident.state = incidentById.state;
+      this.incident.id_apartment = incidentById.id_apartment;
+    }
+    if (incidentById && this.userData) {
+      // eslint-disable-next-line no-underscore-dangle
+      this.incident.id_user = this.userData._id;
+    }
   },
 
   methods: {

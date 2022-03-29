@@ -34,7 +34,9 @@
             <h5 v-if="userData.rol === 'Tenant'">
               {{ apartment?.owner[0]?.name }} {{ apartment?.owner[0]?.surname }}
             </h5>
-            <small>.</small>
+            <small>
+              {{ apartment?.current_tenant[0]?.phone }}
+            </small>
           </div>
         </div>
       </div>
@@ -102,11 +104,11 @@ img {
   border-radius: 25px;
   display: flex;
   flex-direction: column;
-  width: clamp(20rem, calc(20rem + 2vw), 22rem);
+  width: clamp(20rem, calc(17rem + 2vw), 22rem);
   overflow: hidden;
   box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0.1);
   background: #ece9e6;
-  background: linear-gradient(to right, #ffffff, #46d0d9);
+  background: linear-gradient(to right, #ffffff, #d6e1ec);
 }
 
 .card__body {

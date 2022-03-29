@@ -26,7 +26,7 @@
 
         <div class="form-group">
           <label for="cp"
-            >CP
+            >Código Postal
             <input type="number" v-model="apartment.cp" name="cp" class="form-control" />
           </label>
         </div>
@@ -53,11 +53,8 @@
         <div class="form-group">
           <button class="btn btn-success">Editar</button>
 
-          <router-link
-            v-if="apartmentsDetails"
-            :to="`/details-home/${apartmentDetails._id}`"
-            class="btn btn-link"
-            >Cancel</router-link
+          <router-link :to="`/details-home/${apartmentDetails._id}`" class="btn btn-link"
+            >Cancelar</router-link
           >
         </div>
       </form>

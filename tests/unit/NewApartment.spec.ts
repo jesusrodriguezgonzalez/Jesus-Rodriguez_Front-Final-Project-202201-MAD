@@ -5,9 +5,17 @@ import { routes } from '@/router';
 import NewApartment from '../../src/components/apartments/NewApartment.vue';
 import UserDetail from '../../src/components/user/UserDetail.vue';
 
+jest.mock('firebase/storage', () => ({
+  ...jest.requireActual('firebase/storage'),
+  ref: jest.fn().mockReturnValue({}),
+  uploadBytes: jest.fn().mockResolvedValue({}),
+  getDownloadURL: jest.fn().mockResolvedValue('test.com/pepe.jpg'),
+}));
+
 export const store = new Vuex.Store({
   modules: {
     apartments: {
+      namespaced: true,
       state: {},
       actions: {
         registerApartment: jest.fn(),
@@ -17,6 +25,7 @@ export const store = new Vuex.Store({
       },
     },
     account: {
+      namespaced: true,
       state: {},
       getters: {
         userData: jest.fn(),

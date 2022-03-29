@@ -34,7 +34,13 @@
       <div class="form-group">
         <label for="Imagen"
           >Imagen
-          <input type="file" accept="image/*" name="image" @change="handleImageChange" />
+          <input
+            type="file"
+            accept="image/*"
+            name="image"
+            class="form-control form-control-sm"
+            @change="handleImageChange"
+          />
         </label>
       </div>
 

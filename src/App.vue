@@ -31,7 +31,7 @@ export default defineComponent({
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  // color: #2c3e50;
   .img {
     width: 100px;
     height: 100px;
@@ -48,11 +48,18 @@ export default defineComponent({
   }
 }
 
+.home-page {
+  background-color: #f4f8fc;
+}
 nav {
   padding: 30px;
 }
 
 .btn-outline-info {
   margin-top: 25px;
+}
+
+.btn-success {
+  margin: 15px;
 }
 </style>
