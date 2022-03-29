@@ -116,6 +116,9 @@ export default defineComponent({
           }
 
           this.registerApartment(this.apartment);
+          this.$notify({
+            text: 'Apartamento añadido correctamente.',
+          });
         });
       });
     },

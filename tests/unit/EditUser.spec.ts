@@ -66,7 +66,7 @@ describe('When the user presses updateUser', () => {
       _id: '',
     };
     await wrapper.vm.handleSubmit();
-    wrapper.vm.$options.watch.userData.call(wrapper.vm);
+    // wrapper.vm.$options.watch.userData.call(wrapper.vm);
     wrapper.vm.$nextTick();
     wrapper.vm.$nextTick(() => {
       expect(mockUpdateUser).toHaveBeenCalled();

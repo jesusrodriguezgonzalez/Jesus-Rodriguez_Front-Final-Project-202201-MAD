@@ -1,5 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable no-confusing-arrow */
+import { notify } from '@kyvg/vue3-notification';
 import * as apiIncident from '../_services/incident.service';
 import router from '../router/index';
 import { IncidentI, StateI } from '../_utils/interfaces';
@@ -16,6 +17,10 @@ const actions = {
       (error) => {
         commit('registerFailure', error);
         dispatch('alert/error', error, { root: true });
+        notify({
+          title: 'Error.',
+          text: `${error}`,
+        });
       }
     );
   },
@@ -25,11 +30,15 @@ const actions = {
     apiIncident.getIncidentsByHome(incident).then(
       (incidentData) => {
         commit('loadIncidents', incidentData);
-        // dispatch('alert/success', 'Incidencia generada correctamente', {});
+        dispatch('alert/success', 'Incidencias cargadas correctamente', {});
       },
       (error) => {
         commit('registerFailure', error);
         dispatch('alert/error', error, { root: true });
+        notify({
+          title: 'Error.',
+          text: `${error}`,
+        });
       }
     );
   },
@@ -38,11 +47,15 @@ const actions = {
     apiIncident.deleteIncident(id).then(
       (incidentData) => {
         commit('deleteIncident', id);
-        dispatch('alert/success', 'Incidencia borrada', { root: true });
+        dispatch('alert/success', `Incidencia ${id} eliminada correctamente.`, { root: true });
       },
       (error) => {
         commit('registerFailure', error);
         dispatch('alert/error', error, { root: true });
+        notify({
+          title: 'Error.',
+          text: `${error}`,
+        });
       }
     );
   },
@@ -52,11 +65,15 @@ const actions = {
       (incidentData) => {
         commit('updateIncident', incidentData);
         router.push(`/list-incidents/${payload.id_apartment[0]._id}`);
-        dispatch('alert/success', 'Registro correcto', { root: true });
+        dispatch('alert/success', 'Incidencia actualizada correctamente', { root: true });
       },
       (error) => {
         commit('registerFailure', error);
         dispatch('alert/error', error, { root: true });
+        notify({
+          title: 'Error.',
+          text: `${error}`,
+        });
       }
     );
   },
