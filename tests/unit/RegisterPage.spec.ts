@@ -7,6 +7,7 @@ import RegisterPage from '../../src/components/register/RegisterPage.vue';
 export const store = new Vuex.Store({
   modules: {
     account: {
+      namespaced: true,
       state: {},
       actions: {
         register: jest.fn(),
@@ -15,6 +16,13 @@ export const store = new Vuex.Store({
     },
   },
 });
+
+jest.mock('firebase/storage', () => ({
+  ...jest.requireActual('firebase/storage'),
+  ref: jest.fn().mockReturnValue({}),
+  uploadBytes: jest.fn().mockResolvedValue({}),
+  getDownloadURL: jest.fn().mockResolvedValue('test.com/profile-user.jpg'),
+}));
 
 const router = createRouter({
   history: createWebHistory(),
@@ -40,25 +48,18 @@ describe('RegisterPage.vue', () => {
     expect(wrapper.text()).toMatch('Email');
     expect(wrapper.text()).toMatch('Direccion');
   });
+});
 
-  it('has a button', () => {
-    const wrapper = shallowMount(RegisterPage, { global: { plugins: [store] } });
-    expect(wrapper.find('button').exists()).toBe(true);
-  });
-
-  describe('When email and password are introduced', () => {
-    test('It calls Register function from modules', async () => {
-      const wrapper = mount(RegisterPage, {
-        global: {
-          plugins: [store],
-        },
-      });
-
-      const formToBeSubmited = wrapper.find('form');
-
-      formToBeSubmited.trigger('submit');
-
-      expect(wrapper.vm.registerUser).toHaveBeenCalled();
+describe('When the user presses Register', () => {
+  test('register method must be called', () => {
+    const mockRegister = jest.fn();
+    const wrapper = mount(RegisterPage, {
+      global: { plugins: [store, router] },
+      methods: { ...RegisterPage.methods, register: mockRegister },
     });
+
+    expect(wrapper.vm).toBeDefined();
+    wrapper.vm.handleSubmit();
+    expect(mockRegister).toHaveBeenCalled();
   });
 });

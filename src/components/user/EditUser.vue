@@ -142,8 +142,8 @@ export default defineComponent({
           } else {
             this.user.image = url;
           }
-
           this.updateUser(this.user);
+          console.log(2);
         });
       });
     },

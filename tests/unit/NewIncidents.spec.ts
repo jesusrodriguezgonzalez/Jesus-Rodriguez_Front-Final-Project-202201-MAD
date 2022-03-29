@@ -1,6 +1,8 @@
 import Vuex from 'vuex';
+import { createRouter, createWebHistory } from 'vue-router';
 
 import { shallowMount } from '@vue/test-utils';
+import { routes } from '@/router';
 import NewIncidents from '../../src/components/incidents/NewIncidents.vue';
 
 export const store = new Vuex.Store({
@@ -11,12 +13,18 @@ export const store = new Vuex.Store({
       actions: {
         registerIncident: jest.fn(),
       },
+      getters: {
+        apartmentDetails: jest.fn(),
+      },
     },
     account: {
       namespaced: true,
       state: {},
       actions: {
         registerIncident: jest.fn(),
+      },
+      getters: {
+        userData: jest.fn(),
       },
     },
 
@@ -31,18 +39,18 @@ export const store = new Vuex.Store({
   },
 });
 
+const router = createRouter({
+  history: createWebHistory(),
+  routes,
+});
+
 describe('Render NewIncidents.vue', () => {
-  it('renders ', async () => {
-    const wrapper = shallowMount(NewIncidents, { global: { plugins: [store] } });
+  test('renders ', async () => {
+    const wrapper = shallowMount(NewIncidents, { global: { plugins: [store, router] } });
     expect(wrapper.text()).toMatch('Titulo');
     expect(wrapper.text()).toMatch('Tipo de incidencia');
     expect(wrapper.text()).toMatch('Descripcion de la incidencia');
     expect(wrapper.text()).toMatch('Prioridad');
     expect(wrapper.text()).toMatch('Estado');
-
-    jest.spyOn(wrapper.vm, 'registerIncident');
-    const form = wrapper.find('form');
-    await form.trigger('submit');
-    expect(wrapper.vm.registerIncident).toHaveBeenCalled();
   });
 });

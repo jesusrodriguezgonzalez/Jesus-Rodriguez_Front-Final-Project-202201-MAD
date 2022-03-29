@@ -43,7 +43,6 @@ export function updateApartment(apartment: PayloadUpdateI) {
 }
 
 export function addTenant(payload: any) {
-  console.log(payload, 'PAYLOAD API');
   const { apartments } = payload;
   const { email } = payload;
   return axios.patch(

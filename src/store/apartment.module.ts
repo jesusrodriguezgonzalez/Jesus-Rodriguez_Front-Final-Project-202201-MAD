@@ -63,7 +63,6 @@ const actions = {
     );
   },
   addTenantAction({ dispatch, commit }: { dispatch: any; commit: any }, payload: any) {
-    console.log(payload, 'action');
     apiApartment.addTenant(payload).then(
       (apartmentData) => {
         router.push('/home');
