@@ -28,7 +28,7 @@ export const store = new Vuex.Store({
       namespaced: true,
       state: {},
       getters: {
-        userData: jest.fn(),
+        userData: jest.fn().mockReturnValue([{ _id: '12345' }]),
       },
     },
   },

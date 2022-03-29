@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1648553942503" clover="3.2.0">
-  <project timestamp="1648553942504" name="All files">
-    <metrics statements="286" coveredstatements="249" conditionals="28" coveredconditionals="21" methods="71" coveredmethods="54" elements="385" coveredelements="324" complexity="0" loc="286" ncloc="286" packages="9" files="20" classes="20"/>
+<coverage generated="1648565581413" clover="3.2.0">
+  <project timestamp="1648565581413" name="All files">
+    <metrics statements="286" coveredstatements="264" conditionals="28" coveredconditionals="22" methods="71" coveredmethods="59" elements="385" coveredelements="345" complexity="0" loc="286" ncloc="286" packages="9" files="20" classes="20"/>
     <package name="src">
       <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="firebase.ts" path="C:\Users\Jesus Rodriguez\Documents\SKYLAB CODER - BOOTCAMP\bootcamp\Jesus-Rodriguez_Front-Final-Project-202201-MAD\src\firebase.ts">
@@ -84,26 +84,26 @@
       </file>
     </package>
     <package name="src.components.apartments">
-      <metrics statements="102" coveredstatements="83" conditionals="13" coveredconditionals="9" methods="27" coveredmethods="17"/>
+      <metrics statements="102" coveredstatements="89" conditionals="13" coveredconditionals="10" methods="27" coveredmethods="21"/>
       <file name="AddTenant.vue" path="C:\Users\Jesus Rodriguez\Documents\SKYLAB CODER - BOOTCAMP\bootcamp\Jesus-Rodriguez_Front-Final-Project-202201-MAD\src\components\apartments\AddTenant.vue">
-        <metrics statements="17" coveredstatements="12" conditionals="2" coveredconditionals="2" methods="6" coveredmethods="2"/>
+        <metrics statements="17" coveredstatements="17" conditionals="2" coveredconditionals="2" methods="6" coveredmethods="6"/>
         <line num="41" count="10" type="stmt"/>
         <line num="42" count="10" type="stmt"/>
         <line num="43" count="10" type="stmt"/>
         <line num="45" count="10" type="stmt"/>
         <line num="47" count="10" type="stmt"/>
         <line num="51" count="3" type="stmt"/>
-        <line num="67" count="0" type="stmt"/>
-        <line num="68" count="0" type="stmt"/>
-        <line num="73" count="1" type="stmt"/>
-        <line num="74" count="1" type="stmt"/>
-        <line num="75" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="76" count="1" type="stmt"/>
-        <line num="78" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="79" count="1" type="stmt"/>
-        <line num="80" count="0" type="stmt"/>
-        <line num="87" count="0" type="stmt"/>
-        <line num="88" count="0" type="stmt"/>
+        <line num="67" count="2" type="stmt"/>
+        <line num="68" count="2" type="stmt"/>
+        <line num="73" count="3" type="stmt"/>
+        <line num="74" count="3" type="stmt"/>
+        <line num="75" count="3" type="cond" truecount="1" falsecount="0"/>
+        <line num="76" count="3" type="stmt"/>
+        <line num="78" count="3" type="cond" truecount="1" falsecount="0"/>
+        <line num="79" count="3" type="stmt"/>
+        <line num="80" count="3" type="stmt"/>
+        <line num="87" count="1" type="stmt"/>
+        <line num="88" count="1" type="stmt"/>
       </file>
       <file name="EditApartment.vue" path="C:\Users\Jesus Rodriguez\Documents\SKYLAB CODER - BOOTCAMP\bootcamp\Jesus-Rodriguez_Front-Final-Project-202201-MAD\src\components\apartments\EditApartment.vue">
         <metrics statements="36" coveredstatements="29" conditionals="6" coveredconditionals="5" methods="8" coveredmethods="5"/>
@@ -185,7 +185,7 @@
         <line num="24" count="11" type="stmt"/>
       </file>
       <file name="NewApartment.vue" path="C:\Users\Jesus Rodriguez\Documents\SKYLAB CODER - BOOTCAMP\bootcamp\Jesus-Rodriguez_Front-Final-Project-202201-MAD\src\components\apartments\NewApartment.vue">
-        <metrics statements="21" coveredstatements="17" conditionals="3" coveredconditionals="1" methods="7" coveredmethods="5"/>
+        <metrics statements="21" coveredstatements="18" conditionals="3" coveredconditionals="2" methods="7" coveredmethods="5"/>
         <line num="60" count="10" type="stmt"/>
         <line num="61" count="10" type="stmt"/>
         <line num="62" count="10" type="stmt"/>
@@ -194,8 +194,8 @@
         <line num="66" count="10" type="stmt"/>
         <line num="68" count="10" type="stmt"/>
         <line num="72" count="2" type="stmt"/>
-        <line num="92" count="2" type="cond" truecount="0" falsecount="1"/>
-        <line num="94" count="0" type="stmt"/>
+        <line num="92" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="94" count="2" type="stmt"/>
         <line num="101" count="0" type="stmt"/>
         <line num="107" count="1" type="stmt"/>
         <line num="108" count="1" type="stmt"/>
@@ -302,9 +302,9 @@
       </file>
     </package>
     <package name="src.components.user">
-      <metrics statements="43" coveredstatements="31" conditionals="3" coveredconditionals="2" methods="9" coveredmethods="6"/>
+      <metrics statements="43" coveredstatements="40" conditionals="3" coveredconditionals="2" methods="9" coveredmethods="7"/>
       <file name="EditUser.vue" path="C:\Users\Jesus Rodriguez\Documents\SKYLAB CODER - BOOTCAMP\bootcamp\Jesus-Rodriguez_Front-Final-Project-202201-MAD\src\components\user\EditUser.vue">
-        <metrics statements="38" coveredstatements="27" conditionals="3" coveredconditionals="2" methods="7" coveredmethods="5"/>
+        <metrics statements="38" coveredstatements="36" conditionals="3" coveredconditionals="2" methods="7" coveredmethods="6"/>
         <line num="70" count="10" type="stmt"/>
         <line num="71" count="10" type="stmt"/>
         <line num="72" count="10" type="stmt"/>
@@ -323,15 +323,15 @@
         <line num="109" count="2" type="stmt"/>
         <line num="110" count="2" type="stmt"/>
         <line num="112" count="2" type="stmt"/>
-        <line num="117" count="0" type="stmt"/>
-        <line num="118" count="0" type="stmt"/>
-        <line num="119" count="0" type="stmt"/>
-        <line num="120" count="0" type="stmt"/>
-        <line num="121" count="0" type="stmt"/>
-        <line num="122" count="0" type="stmt"/>
-        <line num="123" count="0" type="stmt"/>
-        <line num="124" count="0" type="stmt"/>
-        <line num="126" count="0" type="stmt"/>
+        <line num="117" count="1" type="stmt"/>
+        <line num="118" count="1" type="stmt"/>
+        <line num="119" count="1" type="stmt"/>
+        <line num="120" count="1" type="stmt"/>
+        <line num="121" count="1" type="stmt"/>
+        <line num="122" count="1" type="stmt"/>
+        <line num="123" count="1" type="stmt"/>
+        <line num="124" count="1" type="stmt"/>
+        <line num="126" count="1" type="stmt"/>
         <line num="133" count="0" type="stmt"/>
         <line num="135" count="1" type="stmt"/>
         <line num="136" count="1" type="stmt"/>
@@ -349,7 +349,7 @@
         <line num="23" count="12" type="stmt"/>
         <line num="24" count="12" type="stmt"/>
         <line num="26" count="12" type="stmt"/>
-        <line num="29" count="5" type="stmt"/>
+        <line num="29" count="3" type="stmt"/>
         <line num="45" count="0" type="stmt"/>
       </file>
     </package>

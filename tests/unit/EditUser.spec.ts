@@ -1,4 +1,5 @@
 import Vuex from 'vuex';
+import Vue from 'vue';
 import { shallowMount, mount } from '@vue/test-utils';
 import { createRouter, createWebHistory } from 'vue-router';
 import { routes } from '@/router';
@@ -11,6 +12,8 @@ jest.mock('firebase/storage', () => ({
   getDownloadURL: jest.fn().mockResolvedValue('test.com/pepe.jpg'),
 }));
 
+const mockUserData = jest.fn().mockImplementation(() => [{ _id: '12345' }]);
+
 export const store = new Vuex.Store({
   modules: {
     account: {
@@ -20,7 +23,7 @@ export const store = new Vuex.Store({
         updateUser: jest.fn(),
       },
       getters: {
-        userData: jest.fn().mockReturnValue({}),
+        userData: mockUserData,
       },
     },
   },
@@ -44,6 +47,7 @@ describe('Render EditUser.vue', () => {
 describe('When the user presses updateUser', () => {
   test('updateUser method must be called', async () => {
     const mockUpdateUser = jest.fn();
+
     const wrapper = mount(EditUser, {
       global: { plugins: [store, router] },
       methods: { ...EditUser.methods, updateUser: mockUpdateUser },
@@ -62,8 +66,10 @@ describe('When the user presses updateUser', () => {
       _id: '',
     };
     await wrapper.vm.handleSubmit();
-    setTimeout(() => {
+    wrapper.vm.$options.watch.userData.call(wrapper.vm);
+    wrapper.vm.$nextTick();
+    wrapper.vm.$nextTick(() => {
       expect(mockUpdateUser).toHaveBeenCalled();
-    }, 0);
+    });
   });
 });

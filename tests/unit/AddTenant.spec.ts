@@ -4,6 +4,12 @@ import { createRouter, createWebHistory } from 'vue-router';
 import { routes } from '@/router';
 import AddTenant from '../../src/components/apartments/AddTenant.vue';
 
+jest.mock('../../src/components/user/UserDetail.vue');
+jest.mock('vue-router', () => ({
+  ...jest.requireActual('vue-router'),
+  useRoute: jest.fn().mockReturnValue({ params: { id: '12345' } }),
+}));
+
 export const store = new Vuex.Store({
   modules: {
     apartments: {
@@ -20,7 +26,7 @@ export const store = new Vuex.Store({
       namespaced: true,
       state: {},
       getters: {
-        userData: jest.fn().mockReturnValue([{ status: 'apartment' }]),
+        userData: jest.fn().mockReturnValue({ apartments_owner: [{ status: 'apartment' }] }),
       },
     },
   },
@@ -43,7 +49,7 @@ describe('When email and apartment are selected', () => {
   test('It calls addTenantAction function from modules', async () => {
     const wrapper = mount(AddTenant, {
       global: {
-        plugins: [store],
+        plugins: [store, router],
       },
     });
 
@@ -53,15 +59,20 @@ describe('When email and apartment are selected', () => {
   });
 });
 
-describe('When the user presses Añaidr', () => {
-  test('addTenantAction method must be called', () => {
-    const mockAddTenantAction = jest.fn();
+describe('When the user presses "Añadir"', () => {
+  test('addTenantAction method must be called', async () => {
+    const mockAddTenant = jest.fn();
+
     const wrapper = mount(AddTenant, {
       global: { plugins: [store, router] },
-      methods: { ...AddTenant.methods, addTenantAction: mockAddTenantAction },
+      methods: { ...AddTenant.methods, addTenantAction: mockAddTenant },
     });
-    expect(wrapper.vm).toBeDefined();
-    wrapper.vm.handleSubmit();
-    expect(mockAddTenantAction).toHaveBeenCalled();
+
+    await wrapper.vm.handleSubmit();
+    wrapper.vm.$options.watch.userData.call(wrapper.vm);
+    wrapper.vm.$nextTick();
+    wrapper.vm.$nextTick(() => {
+      expect(mockAddTenant).toHaveBeenCalled();
+    });
   });
 });

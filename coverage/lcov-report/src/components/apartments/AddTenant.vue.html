@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">70.58% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>12/17</span>
+                <span class='fraction'>17/17</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/6</span>
+                <span class='fraction'>6/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">70.58% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>12/17</span>
+                <span class='fraction'>17/17</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -222,28 +222,28 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -314,9 +314,9 @@ export default defineComponent({
 &nbsp;
   methods: {
     ...mapActions('apartments', ['addTenantAction']),
-    handleSubmit<span class="fstat-no" title="function not covered" >() {</span>
-<span class="cstat-no" title="statement not covered" >      this.s</span>ubmitted = true;
-<span class="cstat-no" title="statement not covered" >      this.a</span>ddTenantAction(this.tenant);
+    handleSubmit() {
+      this.submitted = true;
+      this.addTenantAction(this.tenant);
     },
   },
 &nbsp;
@@ -328,15 +328,15 @@ export default defineComponent({
     }
     if (this.userData) {
       this.filterApartments = this.userData.apartments_owner.filter(
-<span class="fstat-no" title="function not covered" >        (a</span>partment: ApartmentI) =&gt; <span class="cstat-no" title="statement not covered" >apartment.</span>status === 'Disponible'
+        (apartment: ApartmentI) =&gt; apartment.status === 'Disponible'
       );
     }
   },
 &nbsp;
   watch: {
-<span class="fstat-no" title="function not covered" >    userData(</span>) {
-<span class="cstat-no" title="statement not covered" >      this.f</span>ilterApartments = this.userData.apartments_owner.filter(
-<span class="fstat-no" title="function not covered" >        (a</span>partment: ApartmentI) =&gt; <span class="cstat-no" title="statement not covered" >apartment.</span>status === 'Disponible'
+    userData() {
+      this.filterApartments = this.userData.apartments_owner.filter(
+        (apartment: ApartmentI) =&gt; apartment.status === 'Disponible'
       );
     },
   },
@@ -349,7 +349,7 @@ export default defineComponent({
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Tue Mar 29 2022 13:39:02 GMT+0200 (hora de verano de Europa central)
+                at Tue Mar 29 2022 16:53:01 GMT+0200 (hora de verano de Europa central)
             </div>
         <script src="../../../prettify.js"></script>
         <script>
