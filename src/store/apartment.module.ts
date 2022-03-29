@@ -14,6 +14,10 @@ const actions = {
         setTimeout(() => {
           // display success message after route change completes
           dispatch('alert/success', 'Apartamento registrado correctamente.', { root: true });
+          notify({
+            title: 'Éxito.',
+            text: 'Apartamento añadido correctamente.',
+          });
         });
       },
       (error) => {
@@ -50,6 +54,10 @@ const actions = {
         commit('deleteApartment', apartmentData);
         router.push('/home');
         dispatch('alert/success', `${id} eliminado correctamente`, { root: true });
+        notify({
+          title: 'Éxito.',
+          text: 'Apartamento eliminado correctamente.',
+        });
       },
       (error) => {
         commit('registerFailure', error);
@@ -68,6 +76,10 @@ const actions = {
         commit('deleteApartment', apartmentData);
         router.push('/home');
         dispatch('alert/success', 'Apartamento actualizado correctamente', { root: true });
+        notify({
+          title: 'Éxito.',
+          text: 'Apartamento editado correctamente.',
+        });
       },
       (error) => {
         commit('registerFailure', error);
@@ -84,6 +96,10 @@ const actions = {
       (apartmentData) => {
         router.push('/home');
         dispatch('alert/success', 'Inquilino añadido correctamente.', { root: true });
+        notify({
+          title: 'Éxito.',
+          text: 'Inquilino añadido correctamente.',
+        });
       },
       (error) => {
         notify({

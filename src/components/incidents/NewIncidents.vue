@@ -135,9 +135,6 @@ export default defineComponent({
     handleSubmit() {
       this.submitted = true;
       this.registerIncident(this.incident);
-      this.$notify({
-        text: 'Incidencia creada correctamente.',
-      });
     },
   },
 

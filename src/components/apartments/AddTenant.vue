@@ -66,9 +66,6 @@ export default defineComponent({
     handleSubmit() {
       this.submitted = true;
       this.addTenantAction(this.tenant);
-      this.$notify({
-        text: 'Inquilino añadido correctamente.',
-      });
     },
   },
 

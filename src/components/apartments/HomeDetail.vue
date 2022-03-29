@@ -137,9 +137,6 @@ export default defineComponent({
     ...mapActions('account', ['loginWithToken', 'getUserById']),
     removeApartment(id: string) {
       this.deleteApartment(id);
-      this.$notify({
-        text: 'Apartamento eliminado correctamente.',
-      });
     },
   },
   created() {

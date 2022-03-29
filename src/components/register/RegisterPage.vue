@@ -124,9 +124,6 @@ export default defineComponent({
         getDownloadURL(newRef).then((url: string) => {
           this.user.image = url;
           this.registerUser(this.user);
-          this.$notify({
-            text: 'Usuario registrado correctamente.',
-          });
         });
       });
     },
