@@ -1,6 +1,5 @@
 <template>
   <div class="container-details">
-    <h1>My Apartments</h1>
     <nav class="nav-container">
       <div v-if="userData.rol === 'Owner'" class="icon-actions">
         <button class="btn btn-outline-info">

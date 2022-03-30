@@ -24,6 +24,17 @@
           <p>Incidencias: {{ apartmentDetails.incidents?.length }}</p>
           <p v-if="userData.rol === 'Owner'">Estado: {{ apartmentDetails?.status }}</p>
           <p>ID: {{ apartmentDetails?._id }}</p>
+          <p>Inciio contrato: {{ apartmentDetails?.current_contract?.start_date }}</p>
+          <p>Fin contrato: {{ apartmentDetails?.current_contract?.end_date }}</p>
+          <p>
+            <a
+              v-bind:href="apartmentDetails?.current_contract?.document[0]"
+              target="_blank"
+              download
+            >
+              Ver Contrato
+            </a>
+          </p>
         </div>
         <div class="card__footer">
           <div class="user">
@@ -138,6 +149,10 @@ export default defineComponent({
     removeApartment(id: string) {
       this.deleteApartment(id);
     },
+    download(url: string) {
+      window.location.href = url;
+      return false;
+    },
   },
   created() {
     const route = useRoute();
@@ -157,7 +172,12 @@ export default defineComponent({
   flex-direction: column;
   align-items: center;
 }
+
 .icon {
+  width: 20px;
+  height: 20px;
+}
+.img_document {
   width: 20px;
   height: 20px;
 }

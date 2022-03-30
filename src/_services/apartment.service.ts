@@ -45,13 +45,9 @@ export function updateApartment(apartment: PayloadUpdateI) {
 export function addTenant(payload: any) {
   const { apartments } = payload;
   const { email } = payload;
-  return axios.patch(
-    URL_ADD_TENANT + apartments,
-    { email },
-    {
-      headers: {
-        Authorization: `Bearer ${getToken()}`,
-      },
-    }
-  );
+  return axios.patch(URL_ADD_TENANT + apartments, payload, {
+    headers: {
+      Authorization: `Bearer ${getToken()}`,
+    },
+  });
 }
