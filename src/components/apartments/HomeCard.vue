@@ -5,37 +5,38 @@
         <img v-bind:src="apartment.photos" alt="card__image" class="card__image" width="600" />
       </div>
       <div class="card__body">
-        <span class="tag tag-blue">{{ apartment.province }}</span>
+        <span
+          v-if="userData.rol === 'Owner' && apartment?.status === 'Disponible'"
+          class="tag tag-blue"
+          >{{ apartment?.status }}</span
+        >
+        <span
+          v-if="userData.rol === 'Owner' && apartment?.status === 'Alquilada'"
+          class="tag tag-red"
+          >{{ apartment?.status }}</span
+        >
         <h4>{{ apartment.alias }}</h4>
         <p>Direccion: {{ apartment.direction }}</p>
-        <p>Codigo Postal: {{ apartment.cp }}</p>
+        <p>{{ apartment.province }} {{ apartment.cp }}</p>
         <p>Incidencias: {{ apartment.incidents?.length }}</p>
-        <p v-if="userData.rol === 'Owner'">Estado: {{ apartment?.status }}</p>
-        <p>ID: {{ apartment?._id }}</p>
+        <!-- <p>ID: {{ apartment?._id }}</p> -->
       </div>
       <div class="card__footer">
         <div class="user">
           <img
-            v-if="userData.rol === 'Owner'"
+            v-if="userData.rol === 'Owner' && apartment.status === 'Alquilada'"
             v-bind:src="apartment?.current_tenant[0]?.image"
             alt="user__image"
             class="user__image"
           />
-          <img
-            v-if="userData.rol === 'Tenant'"
-            v-bind:src="apartmentDetails?.owner[0]?.image"
-            alt="user__image"
-            class="user__image"
-          />
+
           <div class="user__info">
             <h5 v-if="userData.rol === 'Owner'">
               {{ apartment?.current_tenant[0]?.name }} {{ apartment?.current_tenant[0]?.surname }}
             </h5>
-            <h5 v-if="userData.rol === 'Tenant'">
-              {{ apartment?.owner[0]?.name }} {{ apartment?.owner[0]?.surname }}
-            </h5>
-            <small>
-              {{ apartment?.current_tenant[0]?.phone }}
+
+            <small v-if="apartment?.current_tenant[0]?.phone">
+              +34 {{ apartment?.current_tenant[0]?.phone }}
             </small>
           </div>
         </div>
@@ -52,6 +53,7 @@ export default defineComponent({
   name: 'HomeCard',
   data() {
     return {
+      image: '',
       direction: '',
       cp: '',
       province: '',
@@ -131,7 +133,12 @@ img {
 
 .tag-blue {
   background: #56ccf2;
-  background: linear-gradient(to bottom, #2f80ed, #56ccf2);
+  background: linear-gradient(to bottom, #00ff80, #56ccf2);
+  color: #fafafa;
+}
+.tag-red {
+  background: #56ccf2;
+  background: linear-gradient(to bottom, #ff2018, #56ccf2);
   color: #fafafa;
 }
 

@@ -11,17 +11,8 @@
         <form class="form-container" @submit.prevent="handleSubmit">
           <div class="form-group">
             <label for="email">
-              <input
-                type="email"
-                v-model="user.email"
-                name="email"
-                :class="{ 'is-invalid': submitted && email }"
-                placeholder="Email"
-              />
+              <input type="email" v-model="user.email" name="email" placeholder="Email" />
             </label>
-            <div v-show="submitted && !user.email" class="invalid-feedback">
-              Es necesario que introduzca un email
-            </div>
           </div>
           <div class="form-group">
             <label for="passwd">
@@ -30,13 +21,9 @@
                 type="password"
                 v-model="user.passwd"
                 name="passwd"
-                :class="{ 'is-invalid': submitted && passwd }"
                 placeholder="Password"
               />
             </label>
-            <div v-show="submitted && !user.passwd" class="invalid-feedback">
-              Es necesario que introduzca contraseña.
-            </div>
           </div>
           <div class="form-group">
             <button class="btn-login">Login</button>

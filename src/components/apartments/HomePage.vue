@@ -2,11 +2,12 @@
   <div class="home-page">
     <div v-if="userData">
       <UserDetail :userData="userData" />
-      <h1>My Apartments</h1>
-      <h5>Total inmuebles {{ userData.apartments_owner.length }}</h5>
-      <h5 v-if="homeWithIncidents">hh {{ homeWithIncidents.length }}</h5>
-      <MyApartmentsActions />
     </div>
+    <h1>Mis inmuebles</h1>
+    <h5 v-if="userData.rol === 'Owner'">Total {{ userData.apartments_owner.length }}</h5>
+
+    <h5 v-if="homeWithIncidents">hh {{ homeWithIncidents.length }}</h5>
+    <MyApartmentsActions />
 
     <div v-if="userData">
       <div v-if="userData.rol === 'Owner'">
@@ -44,6 +45,7 @@ export default defineComponent({
       email: '',
       phone: '',
       surname: '',
+      image: '',
       apartments_owner: [{}],
     };
   },

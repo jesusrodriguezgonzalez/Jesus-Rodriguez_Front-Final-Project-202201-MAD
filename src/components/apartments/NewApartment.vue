@@ -13,7 +13,7 @@
       </div>
       <div class="form-group">
         <label for="direction"
-          >Direccion
+          >Dirección
           <input type="text" v-model="apartment.direction" name="direction" class="form-control" />
         </label>
       </div>

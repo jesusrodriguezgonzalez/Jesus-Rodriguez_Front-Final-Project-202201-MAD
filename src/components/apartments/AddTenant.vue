@@ -45,6 +45,12 @@
           </label>
         </div>
         <div class="form-group">
+          <label for="fee"
+            >Importe Mensual
+            <input type="number" v-model="contract.fee" name="fee" class="form-control" />
+          </label>
+        </div>
+        <div class="form-group">
           <label for="Imagen"
             >Adjuntar contrato
             <input
@@ -88,6 +94,7 @@ export default defineComponent({
         end_date: '',
         start_date: '',
         document: '',
+        fee: '',
       },
       submitted: false,
       filterApartments: [],
