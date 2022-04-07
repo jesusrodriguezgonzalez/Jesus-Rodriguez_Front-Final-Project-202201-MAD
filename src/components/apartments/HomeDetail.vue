@@ -17,13 +17,27 @@
           />
         </div>
         <div class="card__body">
-          <span class="tag tag-blue">{{ apartmentDetails.province }}</span>
-          <h4>{{ apartmentDetails.alias }}</h4>
+          <span class="tag tag-blue">{{ apartmentDetails?.status }}</span>
+          <h4>Datos vivienda</h4>
           <p>Direccion: {{ apartmentDetails.direction }}</p>
-          <p>Codigo Postal: {{ apartmentDetails.cp }}</p>
+          <p>{{ apartmentDetails.province }} {{ apartmentDetails.cp }}</p>
           <p>Incidencias: {{ apartmentDetails.incidents?.length }}</p>
-          <p v-if="userData.rol === 'Owner'">Estado: {{ apartmentDetails?.status }}</p>
-          <p>ID: {{ apartmentDetails?._id }}</p>
+          <!-- <p>ID: {{ apartmentDetails?._id }}</p> -->
+          <h4>Datos contrato</h4>
+          <div v-if="apartmentDetails.current_contract">
+            <p>Importe: {{ apartmentDetails?.current_contract?.fee }} €</p>
+            <p>Inicio contrato: {{ apartmentDetails?.current_contract?.start_date }}</p>
+            <p>Fin contrato: {{ apartmentDetails?.current_contract?.end_date }}</p>
+            <p>
+              <a
+                v-bind:href="apartmentDetails?.current_contract?.document[0]"
+                target="_blank"
+                download
+              >
+                Ver Contrato
+              </a>
+            </p>
+          </div>
         </div>
         <div class="card__footer">
           <div class="user">
@@ -51,7 +65,9 @@
                   {{ apartmentDetails?.current_tenant[0]?.name }}
                   {{ apartmentDetails?.current_tenant[0]?.surname }}
                 </h5>
-                <small>{{ apartmentDetails?.current_tenant[0]?.phone }}</small>
+                <small v-if="apartmentDetails?.current_tenant[0]?.phone">
+                  +34 {{ apartmentDetails?.current_tenant[0]?.phone }}
+                </small>
               </div>
             </div>
           </div>
@@ -138,6 +154,10 @@ export default defineComponent({
     removeApartment(id: string) {
       this.deleteApartment(id);
     },
+    download(url: string) {
+      window.location.href = url;
+      return false;
+    },
   },
   created() {
     const route = useRoute();
@@ -157,7 +177,12 @@ export default defineComponent({
   flex-direction: column;
   align-items: center;
 }
+
 .icon {
+  width: 20px;
+  height: 20px;
+}
+.img_document {
   width: 20px;
   height: 20px;
 }

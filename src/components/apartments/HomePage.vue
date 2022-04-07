@@ -2,8 +2,12 @@
   <div class="home-page">
     <div v-if="userData">
       <UserDetail :userData="userData" />
-      <MyApartmentsActions />
     </div>
+    <h1>Mis inmuebles</h1>
+    <h5 v-if="userData.rol === 'Owner'">Total {{ userData.apartments_owner.length }}</h5>
+
+    <h5 v-if="homeWithIncidents">hh {{ homeWithIncidents.length }}</h5>
+    <MyApartmentsActions />
 
     <div v-if="userData">
       <div v-if="userData.rol === 'Owner'">
@@ -41,6 +45,7 @@ export default defineComponent({
       email: '',
       phone: '',
       surname: '',
+      image: '',
       apartments_owner: [{}],
     };
   },
@@ -49,7 +54,7 @@ export default defineComponent({
     ...mapGetters('account', ['userData']),
   },
 
-  mounted() {
+  created() {
     if (!localStorage.getItem('token')) {
       this.$router.push('/login');
     } else {
@@ -57,6 +62,12 @@ export default defineComponent({
       this.loginWithToken(tokenUser);
     }
   },
+
+  // mounted() {
+  //   const homeWithIncidents = this.userData.apartments_owner.filter(
+  //     (home: any) => home.incidents.length > 1
+  //   );
+  // },
 
   methods: {
     ...mapActions('account', ['loginWithToken']),

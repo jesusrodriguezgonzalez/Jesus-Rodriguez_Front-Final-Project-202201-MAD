@@ -143,7 +143,7 @@ export default defineComponent({
       uploadBytes(newRef, this.fileToUpload as any).then(() => {
         getDownloadURL(newRef).then((url: string) => {
           if (this.fileToUpload.name === 'SinFoto') {
-            this.apartment.photos = this.apartmentDetails.photos;
+            this.apartment.photos = this.apartmentDetails?.photos;
           } else {
             this.apartment.photos = url;
           }

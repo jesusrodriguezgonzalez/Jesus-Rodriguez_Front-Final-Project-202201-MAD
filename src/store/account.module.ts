@@ -68,6 +68,10 @@ const actions = {
         commit('updateUser', userData);
         router.push('/home');
         dispatch('alert/success', 'Usuario modificado', { root: true });
+        notify({
+          title: 'Éxito',
+          text: 'Usuario editado correctamente.',
+        });
       },
       (error) => {
         commit('registerFailure', error);

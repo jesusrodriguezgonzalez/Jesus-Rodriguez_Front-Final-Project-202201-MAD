@@ -1,10 +1,9 @@
 <template>
   <div class="container-details">
-    <h1>My Apartments</h1>
-    <nav class="nav-container">
+    <nav class="nav-container-actions">
       <div v-if="userData.rol === 'Owner'" class="icon-actions">
-        <button class="btn btn-outline-info">
-          <router-link to="/new-apartment">Nuevo apartamento</router-link>
+        <button id="new-apartment" class="btn btn-outline-info">
+          <router-link to="/new-apartment">Añadir vivienda</router-link>
         </button>
       </div>
       <div v-if="userData.rol === 'Owner'" class="icon-actions">
@@ -31,6 +30,10 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
+.nav-container-actions {
+  display: flex;
+  flex-direction: row;
+}
 // .nav-container {
 //   display: flex;
 //   flex-direction: row;

@@ -143,9 +143,6 @@ export default defineComponent({
             this.user.image = url;
           }
           this.updateUser(this.user);
-          this.$notify({
-            text: 'Usuario editado correctamente.',
-          });
         });
       });
     },
