@@ -9,7 +9,7 @@
     <h5 v-if="homeWithIncidents">hh {{ homeWithIncidents.length }}</h5>
     <MyApartmentsActions />
 
-    <div v-if="userData">
+    <div class="container-cards" v-if="userData">
       <div v-if="userData.rol === 'Owner'">
         <div v-for="(apartment, index) of userData.apartments_owner" :key="index">
           <router-link :to="`/details-home/${apartment._id}`">
@@ -25,8 +25,6 @@
           </router-link>
         </div>
       </div>
-
-      <template> </template>
     </div>
   </div>
 </template>
@@ -81,4 +79,14 @@ export default defineComponent({
   flex-direction: column;
   align-items: center;
 }
+
+// @media (min-width: 600px) {
+//   .container-cards {
+//     display: flex;
+//     flex-direction: row;
+//     max-width: 1200px;
+//     margin-block: 2rem;
+//     gap: 2rem;
+//   }
+// }
 </style>

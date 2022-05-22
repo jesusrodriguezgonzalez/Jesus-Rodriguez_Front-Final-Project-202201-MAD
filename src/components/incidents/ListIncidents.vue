@@ -19,6 +19,7 @@
             <th scope="row">{{ index }}</th>
             <td>{{ incident.title }}</td>
             <td>{{ incident.state }}</td>
+
             <td>
               <router-link :to="`/edit-incident/${incident._id}`">
                 <button>✏</button>

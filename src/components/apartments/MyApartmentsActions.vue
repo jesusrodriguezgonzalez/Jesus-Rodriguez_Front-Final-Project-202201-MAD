@@ -8,7 +8,7 @@
       </div>
       <div v-if="userData.rol === 'Owner'" class="icon-actions">
         <button class="btn btn-outline-info">
-          <router-link to="/add-tenant">Añadir inquilino</router-link>
+          <router-link to="/add-tenant">Generar contrato</router-link>
         </button>
       </div>
     </nav>
