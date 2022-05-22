@@ -6,14 +6,14 @@ eHome has two main roles, owner and tenant.
 
 The functionalities of the owner role are:
 
--Edit your profile data
--Register a new home. You can have as many homes registered as you want.
--Delete an existing home.
--Generate an incident on the dwelling.
--List the incidences of a dwelling.
--Modify the incidents that have been created by it.
--Edit the main data of the house.
--Generate a contract between a tenant registered in the application and an available home.
+- Edit your profile data
+- Register a new home. You can have as many homes registered as you want.
+- Delete an existing home.
+- Generate an incident on the dwelling.
+- List the incidences of a dwelling.
+- Modify the incidents that have been created by it.
+- Edit the main data of the house.
+- Generate a contract between a tenant registered in the application and an available home.
 
 The functionalities of the tenant role are:
 
