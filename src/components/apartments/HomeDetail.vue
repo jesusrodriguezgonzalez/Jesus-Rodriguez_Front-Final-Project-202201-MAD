@@ -231,12 +231,12 @@ img {
   color: #0d6efd;
 }
 
-.card__body {
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
+// .card__body {
+//   padding: 1rem;
+//   display: flex;
+//   flex-direction: column;
+//   gap: 0.5rem;
+// }
 p {
   color: #0d6efd;
 }
@@ -270,29 +270,54 @@ p {
   color: #fafafa;
 }
 
-.card__body h4 {
-  font-size: 1.5rem;
-  text-transform: capitalize;
+.card {
+  &__body {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  &__body h4 {
+    font-size: 1.5rem;
+    text-transform: capitalize;
+  }
+  &__footer {
+    display: flex;
+    padding: 1rem;
+    margin-top: auto;
+  }
 }
+// .card__body h4 {
+//   font-size: 1.5rem;
+//   text-transform: capitalize;
+// }
 
-.card__footer {
-  display: flex;
-  padding: 1rem;
-  margin-top: auto;
-}
+// .card__footer {
+//   display: flex;
+//   padding: 1rem;
+//   margin-top: auto;
+// }
 
 .user {
   display: flex;
   gap: 0.5rem;
+  &__info {
+    color: #666;
+  }
+  &__image {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+  }
 }
 
-.user__image {
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-}
+// .user__image {
+//   border-radius: 50%;
+//   width: 50px;
+//   height: 50px;
+// }
 
-.user__info > small {
-  color: #666;
-}
+// .user__info > small {
+//   color: #666;
+// }
 </style>
