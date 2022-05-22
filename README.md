@@ -17,10 +17,10 @@ The functionalities of the owner role are:
 
 The functionalities of the tenant role are:
 
--You can view the house to which it is linked.
--Generate new incidents and edit/delete the incidents created by it.
--Edit your profile data
--View the data of interest of your current contract at all times, as well as the attached contract
+- You can view the house to which it is linked.
+- Generate new incidents and edit/delete the incidents created by it.
+- Edit your profile data
+- View the data of interest of your current contract at all times, as well as the attached contract
 
 ## Project setup & run project
 ```
