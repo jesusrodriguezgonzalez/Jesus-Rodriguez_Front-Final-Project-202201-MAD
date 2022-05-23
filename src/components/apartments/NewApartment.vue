@@ -45,9 +45,9 @@
       </div>
 
       <div class="form-group">
-        <button class="btn btn-success">Register</button>
+        <button class="btn btn-success">Registrar</button>
 
-        <router-link to="/home" class="btn btn-link">Cancel</router-link>
+        <router-link to="/home" class="btn btn-link">Cancelar</router-link>
       </div>
     </form>
   </div>

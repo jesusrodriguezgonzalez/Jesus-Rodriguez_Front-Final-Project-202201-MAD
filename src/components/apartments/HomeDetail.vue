@@ -48,9 +48,9 @@
               class="user__image"
             />
             <img
-              v-if="userData.rol === 'Tenant'"
+              v-if="userData.rol === 'Tenant' && apartmentDetails?.owner[0]?.image"
               v-bind:src="apartmentDetails?.owner[0]?.image"
-              alt="user__image"
+              alt=" "
               class="user__image"
             />
             <div class="user__info">
@@ -231,12 +231,6 @@ img {
   color: #0d6efd;
 }
 
-// .card__body {
-//   padding: 1rem;
-//   display: flex;
-//   flex-direction: column;
-//   gap: 0.5rem;
-// }
 p {
   color: #0d6efd;
 }
@@ -254,7 +248,7 @@ p {
 
 .tag-blue {
   background: #56ccf2;
-  background: linear-gradient(to bottom, #2f80ed, #56ccf2);
+  background: linear-gradient(to bottom, #00ff80, #56ccf2);
   color: #fafafa;
 }
 
@@ -287,16 +281,6 @@ p {
     margin-top: auto;
   }
 }
-// .card__body h4 {
-//   font-size: 1.5rem;
-//   text-transform: capitalize;
-// }
-
-// .card__footer {
-//   display: flex;
-//   padding: 1rem;
-//   margin-top: auto;
-// }
 
 .user {
   display: flex;
@@ -310,14 +294,4 @@ p {
     height: 50px;
   }
 }
-
-// .user__image {
-//   border-radius: 50%;
-//   width: 50px;
-//   height: 50px;
-// }
-
-// .user__info > small {
-//   color: #666;
-// }
 </style>

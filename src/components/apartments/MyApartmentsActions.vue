@@ -34,16 +34,4 @@ export default defineComponent({
   display: flex;
   flex-direction: row;
 }
-// .nav-container {
-//   display: flex;
-//   flex-direction: row;
-//   color: white;
-//   justify-content: center;
-//   .icon-actions {
-//     border-radius: 10px;
-//     width: 70px;
-//     hight: 70px;
-//     background-color: #12c9ee;
-//   }
-// }
 </style>
