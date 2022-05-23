@@ -14,7 +14,7 @@
       <button class="btn btn-outline-info">
         <router-link to="/home">Inicio</router-link>
       </button>
-      <button class="btn btn-outline-info" @click="actionLogout">Loogout</button>
+      <button class="btn btn-outline-info" @click="actionLogout">Salir</button>
     </div>
   </div>
 </template>

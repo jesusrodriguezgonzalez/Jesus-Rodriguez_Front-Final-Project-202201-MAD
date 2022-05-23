@@ -64,12 +64,12 @@
         </label>
       </div>
       <div class="form-group">
-        <button class="btn btn-success">Register</button>
+        <button class="btn btn-success">Registrar</button>
         <router-link
           v-if="apartmentDetails"
           :to="`/details-home/${apartmentDetails._id}`"
           class="btn btn-link"
-          >Cancel</router-link
+          >Cancelar</router-link
         >
       </div>
     </form>

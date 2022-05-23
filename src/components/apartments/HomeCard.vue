@@ -111,13 +111,22 @@ img {
   box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0.1);
   background: #ece9e6;
   background: linear-gradient(to right, #ffffff, #d6e1ec);
-}
 
-.card__body {
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  &__body {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    h4 {
+      font-size: 1.5rem;
+      text-transform: capitalize;
+    }
+  }
+  &__footer {
+    display: flex;
+    padding: 1rem;
+    margin-top: auto;
+  }
 }
 
 .tag {
@@ -154,27 +163,14 @@ img {
   color: #fafafa;
 }
 
-.card__body h4 {
-  font-size: 1.5rem;
-  text-transform: capitalize;
-}
-
-.card__footer {
-  display: flex;
-  padding: 1rem;
-  margin-top: auto;
-}
-
 .user {
   display: flex;
   gap: 0.5rem;
-}
-
-.user__image {
-  border-radius: 50%;
-}
-
-.user__info > small {
-  color: #666;
+  &__image {
+    border-radius: 50%;
+  }
+  &__info > small {
+    color: #666;
+  }
 }
 </style>
