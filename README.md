@@ -15,12 +15,17 @@ The functionalities of the owner role are:
 - Edit the main data of the house.
 - Generate a contract between a tenant registered in the application and an available home.
 
+USER OWNER DEMO : jesus@rodriguez.pp 123456
+
 The functionalities of the tenant role are:
 
 - You can view the house to which it is linked.
 - Generate new incidents and edit/delete the incidents created by it.
 - Edit your profile data
 - View the data of interest of your current contract at all times, as well as the attached contract
+
+USER TENANT DEMO : lucia@fernandez.pp 123456
+
 
 ## Project setup & run project
 ```
