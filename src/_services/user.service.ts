@@ -2,9 +2,9 @@ import { getToken } from '@/_utils/helper';
 import axios from 'axios';
 import { UserLoginI, UserDataI } from '../_utils/interfaces';
 
-const LOGIN_URL = 'http://localhost:5000/users/login';
-const REGISTER_URL = 'http://localhost:5000/users/register';
-const URL_USER = 'http://localhost:5000/users/';
+const LOGIN_URL = 'https://management-home.herokuapp.com/users/login';
+const REGISTER_URL = 'https://management-home.herokuapp.com/users/register';
+const URL_USER = 'https://management-home.herokuapp.com/users/';
 
 export function login(user: UserLoginI) {
   return axios.post(LOGIN_URL, user);
