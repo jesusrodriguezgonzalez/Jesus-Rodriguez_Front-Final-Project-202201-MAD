@@ -2,8 +2,8 @@ import axios from 'axios';
 import { ApartmentI, PayloadUpdateI } from '../_utils/interfaces';
 import { getToken } from '../_utils/helper';
 
-const APARTMENTS_URL = 'http://localhost:5000/apartments/';
-const URL_ADD_TENANT = 'http://localhost:5000/apartments/add-tenant/';
+const APARTMENTS_URL = 'https://management-home.herokuapp.com/apartments/';
+const URL_ADD_TENANT = 'https://management-home.herokuapp.com/add-tenant/';
 
 export function newApartment(apartment: ApartmentI) {
   return axios.post(APARTMENTS_URL, apartment, {
